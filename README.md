@@ -53,6 +53,9 @@ and `libGL` to `programs.nix-ld.libraries`.
 
 ## Releases
 
+What changed in each version is in [CHANGELOG.org](CHANGELOG.org), and in
+Samaya itself under **Settings → Changelog**.
+
 Each [release](https://git.hegdeatri.com/hegdeatri/samaya-releases/releases)
 lists what changed and has a `samaya-X.Y.Z-x86_64-linux.tar.gz` holding the
 `samaya` binary, its `.desktop` entry and icon, with a SHA-256 checksum beside
