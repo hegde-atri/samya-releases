@@ -30,8 +30,9 @@ curl -fsSL https://git.hegdeatri.com/hegdeatri/samaya-releases/raw/branch/main/i
    channels from the app.
 3. Plan tasks in **Today** and **Week**, then try **Focus** on one of them.
 
-Calendars and GitHub are optional. Connecting a Google or Outlook calendar
-needs your own OAuth client or app registration, so skip them for a first try.
+Calendars and the GitHub, Forgejo and Azure DevOps panels are optional.
+Connecting a Google or Outlook calendar needs your own OAuth client or app
+registration, so skip them for a first try.
 
 ## Upgrade and uninstall
 
