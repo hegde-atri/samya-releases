@@ -1,0 +1,100 @@
+#+TITLE: Changelog
+#+AUTHOR: Atri Hegde
+
+All notable changes to Samaya are recorded here. The format follows
+[[https://keepachangelog.com/en/1.1.0/][Keep a Changelog]], and versions follow
+[[https://semver.org/spec/v2.0.0.html][Semantic Versioning]]: the version is
+=apps/native/Cargo.toml='s, and each release is tagged =vX.Y.Z=.
+
+Until 1.0.0, a minor version may change how Samaya reads or writes Org files,
+and a patch version never does.
+
+* Unreleased
+** Added
+- *Changelog.* Settings → Changelog lists what changed in each version, from
+  the notes built into the app.
+
+* 0.4.0 - 2026-10-13
+** Added
+- *Hidden events.* Right-click an event on the calendar to hide it, for the
+  copies that block the same time in several calendars. Each day counts its
+  hidden events at the top of its all-day row; click the count to show them
+  dimmed, and right-click one to put it back on the calendar.
+
+* 0.3.0 - 2026-10-12
+** Added
+- *Azure DevOps.* Work items from saved WIQL searches across an organization,
+  and pull requests awaiting your review or opened by you, signed in with =az=
+  or a personal access token, planned by dragging one onto a day like GitHub's
+  and Forgejo's.
+- An ⓘ beside each integration's filters in Settings opens a guide to its
+  filter language, with links to the full reference.
+
+* 0.2.0 - 2026-10-11
+** Added
+- Prebuilt x86_64 Linux binaries on
+  [[https://git.hegdeatri.com/hegdeatri/samaya-releases/releases][samaya-releases]],
+  with an installer that needs no compiler.
+- *Forgejo.* Issues and pull requests from saved searches on a Forgejo or Gitea
+  instance, signed in with =tea= or an access token, planned by dragging one
+  onto a day like GitHub's.
+- *Garmin.* Sign in from Settings → Garmin, and each day column greys out the
+  night you slept and runs a bar down its left edge for each workout, with
+  exact times on hover. Sleep can instead sit in that bar as a grey stretch.
+- *stats.fm.* Name a public profile in Settings → stats.fm and its plays fill
+  the same bar, with the track at that minute on hover.
+- *The activity bar* draws workouts and plays as capsules in colours chosen in
+  Settings, and Appearance sets their width and how overlaps draw: striped,
+  side by side in lanes, or the shorter as a line down the longer. Days
+  before yesterday are cached on disk and never fetched again.
+- *Off the calendar.* Right-click a task's block, or its card, to unpin it
+  from the calendar while keeping its day; Ctrl+Z puts it back. The task card
+  lists its planned block with a ✕ that does the same.
+- *Delete events.* Right-click one of your own events from a connected account
+  to delete it at the provider, choosing on Google whether to email guests.
+- A setting for whether replying to an invitation emails the organiser.
+
+** Changed
+- Completing a task in Focus saves the session and moves on to the next open
+  task, until today has none left. The Exit button is gone; leaving Focus by
+  any route saves the session.
+- Events sit on a neutral fill behind a bar in their calendar's colour, and
+  time-blocked tasks keep their channel tint without a border.
+
+** Fixed
+- A task trashed, unscheduled, moved to another day or edited in Emacs now
+  deletes or moves its event on your calendar, instead of leaving it behind at
+  the old time.
+
+* 0.1.0 - 2026-10-05
+The first release.
+
+** Added
+- *Planning.* Today, a board of day columns, and day, three-day, week and month
+  calendars. Tasks drag between days and onto time slots, and a block's bottom
+  edge changes how long it takes, with Ctrl+Z to undo.
+- *Channels and the backlog.* Each =.org= file is a channel, nestable one level
+  deep, with its own colour. Tasks without a day sit in a channel's backlog
+  and in the backlog panel, ready to drag onto a day.
+- *Task cards.* Notes, subtasks, image attachments, priority, due dates and
+  estimates, edited in place and written back to the task's headline.
+- *Focus.* One task at a time with a stopwatch or pomodoro rounds, its subtasks
+  and its notes. Each stretch focused is logged as a =CLOCK= entry; a pause
+  under a minute keeps it one stretch. The time focused is tracked against the
+  task's estimate and may run past it.
+- *Focus on the calendar.* Focus sessions show as hatched blocks in their
+  channel's colour, and drag and stretch to correct them. A task lists its
+  sessions, and Today shows the day's focused total.
+- *Google and Outlook calendars.* Several accounts, each calendar toggled and
+  coloured on its own, synced into =calendar.org=. Event cards show the
+  location, a *Join meeting* button, guests and description, answer
+  invitations, and lengthen or shorten your own events.
+- *Tasks on your calendar.* Time-blocked tasks can be copied to a chosen
+  calendar and kept in step with their blocks.
+- *GitHub.* Issues and pull requests from saved searches, planned by dragging
+  one onto a day.
+- *Org files as the source of truth.* Edits from Emacs show up straight away,
+  and Samaya changes only the parts of a file it understands. Deleted tasks go
+  to a trash they can be restored from.
+- *Tray icon* with the current task and sync state, and a headless
+  =samaya sync= command line for servers and systemd.
