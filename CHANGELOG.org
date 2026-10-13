@@ -10,6 +10,10 @@ Until 1.0.0, a minor version may change how Samaya reads or writes Org files,
 and a patch version never does.
 
 * Unreleased
+** Fixed
+- The Plane panel works with self-hosted Community Edition instances, which
+  have only Plane's v1 API: Samaya lists each project's work items and applies
+  the filters itself, where it said "not found" before.
 
 * 0.5.0 - 2026-10-13
 ** New
