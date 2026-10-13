@@ -1,28 +1,28 @@
 #+TITLE: Changelog
 #+AUTHOR: Atri Hegde
 
-All notable changes to Samaya are recorded here. The format follows
-[[https://keepachangelog.com/en/1.1.0/][Keep a Changelog]], and versions follow
-[[https://semver.org/spec/v2.0.0.html][Semantic Versioning]]: the version is
-=apps/native/Cargo.toml='s, and each release is tagged =vX.Y.Z=.
+All notable changes to Samaya are recorded here, newest first. Each release
+lists what is *New*, what is *Improved* and what is *Fixed*, and versions follow
+[[https://semver.org/spec/v2.0.0.html][Semantic Versioning]]. Each release is
+tagged =vX.Y.Z=.
 
 Until 1.0.0, a minor version may change how Samaya reads or writes Org files,
 and a patch version never does.
 
 * Unreleased
-** Added
+** New
 - *Changelog.* Settings → Changelog lists what changed in each version, from
   the notes built into the app.
 
 * 0.4.0 - 2026-10-13
-** Added
+** New
 - *Hidden events.* Right-click an event on the calendar to hide it, for the
   copies that block the same time in several calendars. Each day counts its
   hidden events at the top of its all-day row; click the count to show them
   dimmed, and right-click one to put it back on the calendar.
 
 * 0.3.0 - 2026-10-12
-** Added
+** New
 - *Azure DevOps.* Work items from saved WIQL searches across an organization,
   and pull requests awaiting your review or opened by you, signed in with =az=
   or a personal access token, planned by dragging one onto a day like GitHub's
@@ -31,7 +31,7 @@ and a patch version never does.
   filter language, with links to the full reference.
 
 * 0.2.0 - 2026-10-11
-** Added
+** New
 - Prebuilt x86_64 Linux binaries on
   [[https://git.hegdeatri.com/hegdeatri/samaya-releases/releases][samaya-releases]],
   with an installer that needs no compiler.
@@ -54,7 +54,7 @@ and a patch version never does.
   to delete it at the provider, choosing on Google whether to email guests.
 - A setting for whether replying to an invitation emails the organiser.
 
-** Changed
+** Improved
 - Completing a task in Focus saves the session and moves on to the next open
   task, until today has none left. The Exit button is gone; leaving Focus by
   any route saves the session.
@@ -69,7 +69,7 @@ and a patch version never does.
 * 0.1.0 - 2026-10-05
 The first release.
 
-** Added
+** New
 - *Planning.* Today, a board of day columns, and day, three-day, week and month
   calendars. Tasks drag between days and onto time slots, and a block's bottom
   edge changes how long it takes, with Ctrl+Z to undo.
