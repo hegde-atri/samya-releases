@@ -10,6 +10,17 @@ Until 1.0.0, a minor version may change how Samaya reads or writes Org files,
 and a patch version never does.
 
 * Unreleased
+** New
+- *Keyboard shortcuts.* Ctrl+1, Ctrl+2 and Ctrl+3 switch to Today, Week and
+  Focus, and N adds a task. Week takes B, D, 3, 5, W and M for its views, T
+  for today and [ and ] to page; Focus takes Space, S and C. Press ? for a
+  sheet of them all.
+
+** Fixed
+- Updating Samaya no longer resets your settings. A setting this version
+  cannot read now falls back on its own, the rest are kept, and saving writes
+  it back untouched for the version that understands it. Samaya also keeps a
+  copy of the file as =desktop.toml.bak= before anything could be lost.
 
 * 0.5.1 - 2026-10-14
 ** Fixed
