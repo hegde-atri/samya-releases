@@ -10,6 +10,9 @@ Until 1.0.0, a minor version may change how Samaya reads or writes Org files,
 and a patch version never does.
 
 * Unreleased
+** Fixed
+- Samaya's secure connections to calendars and integrations use an updated
+  TLS library, which fixes four security issues found in the previous one.
 
 * 0.7.0 - 2026-10-15
 ** New
