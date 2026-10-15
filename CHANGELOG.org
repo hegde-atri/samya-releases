@@ -11,6 +11,12 @@ and a patch version never does.
 
 * Unreleased
 
+* 0.10.0 - 2026-10-15
+** New
+- *Choose your fonts.* Settings → Appearance can set the font for all text,
+  and a separate monospace font for times, durations and shortcuts, from the
+  fonts installed on your computer. Reset goes back to Fira Sans and Fira Mono.
+
 * 0.9.0 - 2026-10-15
 ** New
 - *Interface size.* Ctrl + and Ctrl − make the whole window bigger or
