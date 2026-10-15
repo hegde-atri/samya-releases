@@ -11,6 +11,12 @@ and a patch version never does.
 
 * Unreleased
 
+* 0.9.0 - 2026-10-15
+** New
+- *Interface size.* Ctrl + and Ctrl − make the whole window bigger or
+  smaller, from 80% to 150%, and Ctrl 0 resets it. Samaya remembers the size,
+  which you can also change in Settings → Appearance.
+
 * 0.8.0 - 2026-10-15
 ** New
 - *Invitations show your answer.* On the day and week calendars, an
