@@ -11,6 +11,11 @@ and a patch version never does.
 
 * Unreleased
 
+* 0.10.1 - 2026-10-15
+** Fixed
+- Emoji in bold text, such as event titles on the calendar, show in colour
+  instead of as faint outlines.
+
 * 0.10.0 - 2026-10-15
 ** New
 - *Choose your fonts.* Settings → Appearance can set the font for all text,
