@@ -11,6 +11,17 @@ and a patch version never does.
 
 * Unreleased
 
+* 0.8.0 - 2026-10-15
+** New
+- *Invitations show your answer.* On the day and week calendars, an
+  invitation you have not answered yet is a dashed outline, one you answered
+  Maybe is hatched, and one you declined is faded and struck through.
+- A setting in Settings → Calendars to hide declined events.
+
+** Fixed
+- Answering an invitation updates its event on the calendar straight away,
+  rather than after the next sync.
+
 * 0.7.1 - 2026-10-15
 ** Fixed
 - Samaya's secure connections to calendars and integrations use an updated
