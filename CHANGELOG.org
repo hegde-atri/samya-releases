@@ -10,6 +10,9 @@ From 1.0.0, only a major version may change how Samaya reads or writes Org
 files in a way that older versions cannot follow.
 
 * Unreleased
+** Improved
+- The Weekdays calendar view is now *Five days*: it always starts on today
+  and ‹ › move it five days at a time.
 
 * 1.0.0 - 2026-10-17
 The first stable release. Samaya's Org files, settings and sync are now
