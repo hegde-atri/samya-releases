@@ -11,6 +11,20 @@ and a patch version never does.
 
 * Unreleased
 
+* 0.11.0 - 2026-10-17
+** New
+- *Select several tasks.* In a channel, Ctrl-click a task to add it to the
+  selection and Shift-click to select a run of tasks, as in a file manager.
+  Ctrl A selects them all and Esc clears the selection.
+- *Make tasks subtasks.* With two or more tasks selected, a bar at the foot of
+  the channel nests them under the first one, or under a task you search for,
+  each keeping its own day and subtasks. The bar can also delete them all.
+- Ctrl Z undoes deleting a task, from anywhere, and undoes nesting tasks,
+  returning each to where it was.
+
+** Improved
+- A channel lists its planned days first and its unscheduled tasks after them.
+
 * 0.10.1 - 2026-10-15
 ** Fixed
 - Emoji in bold text, such as event titles on the calendar, show in colour
