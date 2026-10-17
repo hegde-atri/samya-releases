@@ -6,10 +6,18 @@ lists what is *New*, what is *Improved* and what is *Fixed*, and versions follow
 [[https://semver.org/spec/v2.0.0.html][Semantic Versioning]]. Each release is
 tagged =vX.Y.Z=.
 
-Until 1.0.0, a minor version may change how Samaya reads or writes Org files,
-and a patch version never does.
+From 1.0.0, only a major version may change how Samaya reads or writes Org
+files in a way that older versions cannot follow.
 
 * Unreleased
+
+* 1.0.0 - 2026-10-17
+The first stable release. Samaya's Org files, settings and sync are now
+settled, and later 1.x versions keep working with them.
+
+** Improved
+- Samaya is now built with the Rust 2024 edition, and needs Rust 1.90 or
+  newer to build from source.
 
 * 0.11.0 - 2026-10-17
 ** New
