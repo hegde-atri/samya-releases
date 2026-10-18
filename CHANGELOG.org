@@ -10,11 +10,14 @@ From 1.0.0, only a major version may change how Samaya reads or writes Org
 files in a way that older versions cannot follow.
 
 * Unreleased
+
+* 1.1.0 - 2026-10-18
 ** New
 - *Microsoft Planner panel.* The Planner tasks assigned to you, from saved
   filters, beside your plan; drag one onto a day to plan it. It reads through
-  a connected Outlook work or school account, which needs reauthorizing once.
-  See [[file:docs/microsoft-planner.org][docs/microsoft-planner.org]].
+  a work or school Outlook account connected in *Settings → Calendars*, chosen
+  in *Settings → Microsoft Planner*. An account connected before this release
+  needs reauthorizing once.
 
 ** Improved
 - The Weekdays calendar view is now *Five days*: it always starts on today
