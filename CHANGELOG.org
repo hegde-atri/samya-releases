@@ -11,6 +11,16 @@ files in a way that older versions cannot follow.
 
 * Unreleased
 
+* 1.2.0 - 2026-10-20
+** New
+- New tasks and subtasks record when they were made, as a =CREATED=
+  property in their Org file.
+
+** Improved
+- Unscheduled tasks are listed by priority, then oldest first, instead of in
+  an arbitrary order. Tasks made before this release keep the order they have
+  in their file.
+
 * 1.1.0 - 2026-10-18
 ** New
 - *Microsoft Planner panel.* The Planner tasks assigned to you, from saved
