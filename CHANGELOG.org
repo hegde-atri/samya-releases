@@ -11,6 +11,28 @@ files in a way that older versions cannot follow.
 
 * Unreleased
 
+* 1.3.0 - 2026-10-23
+** New
+- *Goals.* Year goals, and quarter goals beneath them with steps, habits and a
+  weekly time budget, under *Plan → Goals*. Move between quarters and years,
+  open a goal to edit it, and archive or delete goals; deleted ones wait in
+  *Settings → Trash*. Goals live in =goals/<year>.org=, readable and editable
+  in Emacs.
+- *Habits.* A habit puts a task on each of its days this week in the goal's
+  channel, shows its week as dots and its last eight weeks as a strip, and a
+  habit task can be skipped from its right-click menu.
+- *Measures.* A year goal can track a number toward a target, such as a race
+  time or books read, with a chart and *Log* on its page.
+- *Progress.* *Plan → Progress* lays the year out on one timeline: how far all
+  goals have come against where they should be by now, then each goal's
+  quarter goals, measure and habit weeks. *View* chooses what it shows and can
+  add a summary to the Goals page and the sidebar.
+- Tasks show their goal in place of their channel, the task editor links a
+  task to a goal or habit, and completing a linked task shows its goal's
+  progress, with a box to add the next step.
+- The sidebar lists this quarter's goals and marks those that need a next
+  step. *Settings → Appearance* can hide the list.
+
 * 1.2.0 - 2026-10-20
 ** New
 - New tasks and subtasks record when they were made, as a =CREATED=
