@@ -10,6 +10,8 @@ From 1.0.0, only a major version may change how Samaya reads or writes Org
 files in a way that older versions cannot follow.
 
 * Unreleased
+
+* 1.3.1 - 2026-10-23
 ** Fixed
 - Connections to calendars and integrations no longer trust certificates
   from intermediates that browsers have since distrusted.
