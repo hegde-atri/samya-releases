@@ -11,6 +11,21 @@ files in a way that older versions cannot follow.
 
 * Unreleased
 
+* 1.4.0 - 2026-10-25
+** Fixed
+- A task's calendar event follows the task straight away however it changes,
+  rather than after the next sync: taking its planned time off with ✕,
+  moving, unplanning or deleting it from a menu, renaming it or editing its
+  notes, or editing it in Emacs.
+- Taking a block off the calendar just after dropping it no longer brings it
+  back or leaves it stuck on the grid.
+- Restoring a scheduled task from the trash, or undoing its delete with
+  Ctrl+Z, puts its calendar event back. Its subtasks with their own planned
+  times do not get theirs back yet; drag each onto the calendar again to
+  recreate it.
+- A task given a start but no end in Emacs moves its event, lasting its
+  estimate as its block does.
+
 * 1.3.1 - 2026-10-23
 ** Fixed
 - Connections to calendars and integrations no longer trust certificates
