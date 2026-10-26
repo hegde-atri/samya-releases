@@ -7,9 +7,34 @@ lists what is *New*, what is *Improved* and what is *Fixed*, and versions follow
 tagged =vX.Y.Z=.
 
 From 1.0.0, only a major version may change how Samaya reads or writes Org
-files in a way that older versions cannot follow.
+files in a way that older versions cannot follow. *Planned* lists what is on
+the way but not yet in a release.
+
+* Planned
+** Integrations
+- *Slack status.* Your Slack status and notifications follow your focus
+  sessions, events and time blocks, as Teams already does, with the same
+  channel privacy deciding when a task's name is shown.
 
 * Unreleased
+
+* 1.7.0 - 2026-10-26
+** New
+- *Teams status.* In Settings → Teams, choose a work or school Outlook account
+  and what Teams shows while you focus, sit in an event or work a time block.
+  By default focusing turns on Do not disturb with "Focusing on a task", a
+  time block shows Busy, and events leave Teams to show In a meeting. Samaya
+  clears only the status it set, and the status lapses by itself if Samaya
+  quits.
+- *Work and Personal channels.* Sort channels into Work and Personal in
+  Settings → Channels; nested channels follow their parent. Every channel is
+  private until you make a Work channel public, which asks first.
+- *Task names in Teams.* Turn on Show the task's name to show "Focusing on:"
+  and the task, only for a task in a public Work channel.
+
+** Improved
+- Outlook sign-in also asks to set your Teams status. Reconnect an account
+  connected before 1.7.0 to use Teams.
 
 * 1.6.0 - 2026-10-26
 ** New
