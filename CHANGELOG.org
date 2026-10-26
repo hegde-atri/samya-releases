@@ -11,6 +11,11 @@ files in a way that older versions cannot follow.
 
 * Unreleased
 
+* 1.5.2 - 2026-10-26
+** Improved
+- A channel lists its done tasks last, under their own heading, the most
+  recently completed first.
+
 * 1.5.1 - 2026-10-26
 ** Improved
 - Task blocks stay usable while they sync to your calendar, instead of greying
