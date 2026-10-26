@@ -11,6 +11,16 @@ files in a way that older versions cannot follow.
 
 * Unreleased
 
+* 1.5.0 - 2026-10-26
+** New
+- *Focus in the background.* A started Focus session keeps running when you
+  open another page or hide the window in the tray, and the sidebar shows its
+  clock. Focusing another task from Today saves the running session first.
+
+** Improved
+- Focus saves its time and notes as it goes, every 30 seconds and whenever you
+  leave the Focus page, so a crash loses at most that much.
+
 * 1.4.0 - 2026-10-25
 ** Fixed
 - A task's calendar event follows the task straight away however it changes,
