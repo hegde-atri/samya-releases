@@ -21,7 +21,11 @@ the way but not yet in a release.
 - *Update notices.* Once a day Samaya checks for a newer release. A dot by
   Settings and a new *Update available* page show what changed since your
   version, with a button that upgrades a Nix install or replaces a prebuilt
-  binary.
+  binary once its signature checks out.
+
+** Improved
+- Releases are signed with minisign. The installer checks the signature when
+  minisign is installed, and the key is published beside the releases.
 
 * 1.7.0 - 2026-10-26
 ** New
