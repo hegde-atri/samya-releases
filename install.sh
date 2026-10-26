@@ -7,6 +7,8 @@
 # PREFIX changes where it goes (default ~/.local). Running it again upgrades.
 set -eu
 
+# The key Samaya's releases are signed with: see minisign.pub.
+key=RWReXZNuxj5aplTyPD4awKxzs/sL9nlCssugg1Cd9ZbRWrwksTyfsJNe
 host=https://git.hegdeatri.com
 repo=hegdeatri/samaya-releases
 prefix=${PREFIX:-$HOME/.local}
@@ -29,6 +31,16 @@ trap 'rm -rf "$work"' EXIT
 curl -fsSL -o "$work/$name.tar.gz" "$host/$repo/releases/download/$tag/$name.tar.gz"
 curl -fsSL -o "$work/$name.tar.gz.sha256" "$host/$repo/releases/download/$tag/$name.tar.gz.sha256"
 (cd "$work" && sha256sum -c "$name.tar.gz.sha256" >/dev/null)
+if command -v minisign >/dev/null; then
+  curl -fsSL -o "$work/$name.tar.gz.minisig" "$host/$repo/releases/download/$tag/$name.tar.gz.minisig"
+  signed=$(minisign -VQ -P "$key" -m "$work/$name.tar.gz") || signed=
+  if [ "$signed" != "$name.tar.gz" ]; then
+    echo "The download is not signed by Samaya's release key." >&2
+    exit 1
+  fi
+else
+  echo "Checked the download's checksum; install minisign to check its signature too."
+fi
 tar -C "$work" -xzf "$work/$name.tar.gz"
 
 install -Dm755 "$work/$name/bin/samaya" "$prefix/bin/samaya"
