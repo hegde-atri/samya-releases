@@ -12,7 +12,9 @@ On 64-bit Linux: Ubuntu 22.04, Debian 12, Fedora, Arch, or anything newer.
 curl -fsSL https://git.hegdeatri.com/hegdeatri/samaya-releases/raw/branch/main/install.sh | sh
 ```
 
-This checks the download's checksum, then puts `samaya` in `~/.local/bin` and
+This checks the download's checksum, and its signature if
+[minisign](https://jedisct1.github.io/minisign/) is installed, then puts
+`samaya` in `~/.local/bin` and
 adds it to your app menu. If the installer says `~/.local/bin` is not on your
 `PATH`, open Samaya from the app menu or run `~/.local/bin/samaya`.
 
@@ -36,7 +38,9 @@ registration, so skip them for a first try.
 
 ## Upgrade and uninstall
 
-Run the install command again to upgrade. To uninstall:
+Samaya checks for a new version once a day; **Settings → Update available**
+updates it in place, once the release's signature checks out. Running the
+install command again upgrades too. To uninstall:
 
 ```sh
 rm ~/.local/bin/samaya ~/.local/share/applications/samaya.desktop \
@@ -58,6 +62,21 @@ Samaya itself under **Settings → Changelog**.
 
 Each [release](https://git.hegdeatri.com/hegdeatri/samaya-releases/releases)
 lists what changed and has a `samaya-X.Y.Z-x86_64-linux.tar.gz` holding the
-`samaya` binary, its `.desktop` entry and icon, with a SHA-256 checksum beside
-it. Releases are published automatically when a version is tagged; this
-repository holds no source code.
+`samaya` binary, its `.desktop` entry and icon, with a SHA-256 checksum and,
+from 1.8.0, a minisign signature beside it. Releases are published
+automatically when a version is tagged; this repository holds no source code.
+
+## Verifying a release
+
+Releases are signed with this key, also in [minisign.pub](minisign.pub):
+
+```
+RWReXZNuxj5aplTyPD4awKxzs/sL9nlCssugg1Cd9ZbRWrwksTyfsJNe
+```
+
+```sh
+minisign -V -P RWReXZNuxj5aplTyPD4awKxzs/sL9nlCssugg1Cd9ZbRWrwksTyfsJNe \
+  -m samaya-X.Y.Z-x86_64-linux.tar.gz
+```
+
+The trusted comment it prints is the archive's file name.
