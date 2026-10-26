@@ -11,6 +11,17 @@ files in a way that older versions cannot follow.
 
 * Unreleased
 
+* 1.5.1 - 2026-10-26
+** Improved
+- Task blocks stay usable while they sync to your calendar, instead of greying
+  out and locking. A change is sent a few seconds after your last edit, and
+  never mid-drag, so moving or stretching a block again sends only the final
+  time.
+
+** Fixed
+- An event deleted because its task was deleted or lost its planned time no
+  longer reappears as a plain event until the next sync.
+
 * 1.5.0 - 2026-10-26
 ** New
 - *Focus in the background.* A started Focus session keeps running when you
