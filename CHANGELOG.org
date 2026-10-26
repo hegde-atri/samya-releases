@@ -17,6 +17,11 @@ the way but not yet in a release.
   channel privacy deciding when a task's name is shown.
 
 * Unreleased
+** New
+- *Update notices.* Once a day Samaya checks for a newer release. A dot by
+  Settings and a new *Update available* page show what changed since your
+  version, with a button that upgrades a Nix install or replaces a prebuilt
+  binary.
 
 * 1.7.0 - 2026-10-26
 ** New
