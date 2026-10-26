@@ -11,6 +11,24 @@ files in a way that older versions cannot follow.
 
 * Unreleased
 
+* 1.6.0 - 2026-10-26
+** New
+- *Add a task from anywhere.* Press =A= on any Plan screen to bring up the
+  composer at the foot of the page; on a channel it focuses the bar that is
+  already there. Esc puts it away.
+- *Quick-add tokens.* Type =#channel=, =@when=, =~estimate= and =!priority=
+  in a new task, as in =Call mum @10am sunday ~20m #family !!=. Tokens are
+  tinted as you type and a short list suggests channels, days and priorities;
+  Tab or Enter takes one, and the arrows or Ctrl N and P move through it. The
+  bar beneath shows the channel, day, time, estimate and priority it read, and
+  a time adds the task to your calendar.
+
+** Improved
+- Estimates can be spelled out, as in =1hr10min=, =2hours= or =45mins=,
+  wherever you type one.
+- =N= on a channel opens the composer, and Ctrl Backspace in it deletes a whole
+  word or token.
+
 * 1.5.2 - 2026-10-26
 ** Improved
 - A channel lists its done tasks last, under their own heading, the most
