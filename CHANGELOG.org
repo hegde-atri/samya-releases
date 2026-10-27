@@ -16,6 +16,18 @@ the way but not yet in a release.
   sessions, events and time blocks, as Teams already does, with the same
   channel privacy deciding when a task's name is shown.
 
+* Unreleased
+** Fixed
+- *Opaque Samaya popup.* The Noctalia panel opens floating near the widget,
+  with an opaque content background. Noctalia's Solid panel style keeps the
+  entire window opaque without changing the bar's transparency.
+
+** Improved
+- *Public Noctalia installation.* Add =samaya-releases= as a Git source in
+  Noctalia Settings to install the plugin without a source checkout. Releases
+  publish its catalog, runtime and guide together, using the existing release
+  workflow and repository credentials.
+
 * 1.13.0 - 2026-10-27
 ** New
 - *Noctalia top bar.* A local native plugin shows the live Focus clock and
