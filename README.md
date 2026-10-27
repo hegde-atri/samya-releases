@@ -36,6 +36,27 @@ Calendars and the GitHub, Forgejo and Azure DevOps panels are optional.
 Connecting a Google or Outlook calendar needs your own OAuth client or app
 registration, so skip them for a first try.
 
+## Noctalia integration
+
+For native Noctalia 5.3.0, this repository is also a public plugin source.
+Install a GUI build of Samaya 1.12.0 or later separately, and make sure
+`samaya` is on Noctalia's `PATH`.
+
+1. Open **Noctalia Settings → Plugins → Add source**.
+2. Choose **Git**, name it `samaya`, and use
+   `https://git.hegdeatri.com/hegdeatri/samaya-releases`.
+3. Enable **Samaya**, then add its **Focus** widget through your bar's
+   **Add widget** picker.
+
+The widget shows your Focus clock and meetings, with a panel for Focus,
+meeting Join, task capture and calendar sync. No local checkout or TOML
+editing is required. See the [plugin guide](samaya/README.org) for settings,
+CLI installation, troubleshooting and removal.
+
+Plugin updates are published with Samaya releases. Noctalia's **Auto-update
+plugins → All sources** setting includes this custom Git source; otherwise
+use its **Update** action. Plugin updates and desktop app updates are separate.
+
 ## Upgrade and uninstall
 
 Samaya checks for a new version once a day; **Settings → Update available**
@@ -64,7 +85,8 @@ Each [release](https://git.hegdeatri.com/hegdeatri/samaya-releases/releases)
 lists what changed and has a `samaya-X.Y.Z-x86_64-linux.tar.gz` holding the
 `samaya` binary, its `.desktop` entry and icon, with a SHA-256 checksum and,
 from 1.8.0, a minisign signature beside it. Releases are published
-automatically when a version is tagged; this repository holds no source code.
+automatically when a version is tagged. This repository also holds the
+Noctalia plugin source and catalog used by Noctalia's plugin manager.
 
 ## Verifying a release
 
