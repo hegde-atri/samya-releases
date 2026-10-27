@@ -1,0 +1,294 @@
+#+TITLE: Samaya for Noctalia
+#+AUTHOR: Atri Hegde
+
+Samaya's Noctalia plugin shows your Focus clock and meetings in the bar,
+with an attached panel for Focus, Join, task capture and calendar sync. Samaya
+owns the planner and every action; the plugin only observes its desktop stream
+and sends targeted commands.
+
+* Requirements
+
+- Native Noctalia 5.3.0, using =plugin.toml= and Luau entries. This plugin
+  declares plugin API 24; older Quickshell/QML plugin guides do not apply.
+- A Linux GUI build of Samaya 1.12.0 or later, available as =samaya= in the
+  running Noctalia process's =PATH=.
+- A POSIX shell and =awk=, normally supplied by the host distribution.
+
+The plugin ID is =hegdeatri/samaya=; its bar widget type is
+=hegdeatri/samaya:focus= and its panel is =hegdeatri/samaya:details=.
+Enabling the plugin and placing the widget are separate steps.
+
+* Install through Settings
+
+Install the Samaya desktop app separately first. The public plugin source
+does not require access to Samaya's development repository or a local checkout.
+
+1. Open Noctalia *Settings → Plugins → Add source*.
+2. Choose a *Git* source, name it =samaya= and enter
+   =https://git.hegdeatri.com/hegdeatri/samaya-releases=.
+3. Enable *Samaya* in the discovered plugins.
+4. Open your bar's widget editor, choose *Add widget* and select Samaya's
+   Focus widget. Place it where you want it on the bar.
+
+The equivalent source and enable commands are:
+
+#+begin_src sh
+noctalia msg plugins source add samaya git https://git.hegdeatri.com/hegdeatri/samaya-releases
+noctalia msg plugins enable hegdeatri/samaya
+#+end_src
+
+Then use the bar's *Add widget* picker to place the Focus widget. Enabling
+the plugin alone does not put it on a bar. No TOML editing is needed.
+
+Plugin updates are published with Samaya releases. Noctalia manages them
+according to *Settings → Plugins → Auto-update plugins*. Choose *All sources*
+to update this custom source automatically; *Official only* and *None* do not
+update it automatically. For a manual update, use the source's *Update* action
+or run:
+
+#+begin_src sh
+noctalia msg plugins update samaya
+#+end_src
+
+Updating the plugin does not upgrade the Samaya desktop app. The plugin has
+its own version and requires Samaya 1.12.0 or later on Noctalia's =PATH=.
+It is available through this public source, rather than a community-store
+listing.
+
+* Local installation for development
+
+Choose either a path source or a copied drop-in. These are explicit user
+deployment steps; the repository does not edit your Noctalia configuration.
+Keep a backup of configuration you edit and preserve existing plugin IDs,
+source entries, widgets and bar order.
+
+** Path source for a repository checkout
+
+From the Samaya repository root, register the parent directory containing the
+=samaya/= plugin directory, then enable its ID:
+
+#+begin_src sh
+noctalia msg plugins source add samaya-local path "$PWD/integrations/noctalia"
+noctalia msg plugins enable hegdeatri/samaya
+noctalia msg plugins list
+#+end_src
+
+The source's =location= is =integrations/noctalia=, not the nested
+=integrations/noctalia/samaya= directory. The equivalent source entry in
+native TOML configuration is:
+
+#+begin_src toml
+[[plugins.source]]
+name = "samaya-local"
+kind = "path"
+location = "/absolute/path/to/samaya/integrations/noctalia"
+#+end_src
+
+If configuring enablement through TOML, append ="hegdeatri/samaya"= to your
+existing =[plugins].enabled= array. The enable command above preserves its
+other entries. Keep the checkout at that path while this source is in use.
+
+** Copied drop-in
+
+Alternatively, copy the complete plugin directory from the repository root:
+
+#+begin_src sh
+mkdir -p "${XDG_DATA_HOME:-$HOME/.local/share}/noctalia/plugins"
+cp -a integrations/noctalia/samaya "${XDG_DATA_HOME:-$HOME/.local/share}/noctalia/plugins/"
+noctalia msg config-reload
+noctalia msg plugins enable hegdeatri/samaya
+noctalia msg plugins list
+#+end_src
+
+Do not copy over an existing =samaya/= directory without reviewing it first.
+The copied directory must contain =plugin.toml= directly. If you use
+=NOCTALIA_DATA_HOME=, Noctalia appends =/noctalia/plugins= to that parent
+instead of the standard XDG data location.
+
+A local drop-in takes precedence over configured sources with the same plugin
+ID. Among configured sources, later entries take precedence over earlier
+ones. Check the source shown beside =hegdeatri/samaya= in
+=noctalia msg plugins list= if edits do not appear. Remove an obsolete copy
+before expecting a path-source checkout to win.
+
+The installed source scanner follows directory symlinks. The contributor
+verification record at =integrations/noctalia/verification.org= in the
+development checkout distinguishes source inspection from behavior exercised
+in a real shell.
+
+** Put the widget on a bar
+
+Add a named widget instance to your native TOML configuration:
+
+#+begin_src toml
+[widget.samaya]
+type = "hegdeatri/samaya:focus"
+#+end_src
+
+Then append ="samaya"= to the =start=, =center= or =end= array of the bar you
+want to use. Preserve every existing item and its order. For example, if a
+test bar currently ends with only ="tray"= and ="clock"=, its updated table
+would include:
+
+#+begin_src toml
+[bar.testing]
+end = ["tray", "clock", "samaya"]
+#+end_src
+
+Use your actual bar name and existing array rather than replacing it with
+that example. The same named widget can be placed on multiple bars or
+monitors; all instances share one status helper. Reload after manual edits:
+
+#+begin_src sh
+noctalia msg config-reload
+#+end_src
+
+Native Noctalia merges TOML configuration from its config directory, followed
+by the state override file, normally
+=~/.local/state/noctalia/settings.toml=. Older =settings.json= and
+=plugins.json= files belong to the QML shell. A state override can take
+precedence over an edited config file; inspect effective values with
+=noctalia msg config-get bar= and =noctalia msg config-get plugins=.
+
+* Use the widget and panel
+
+The widget prioritizes a started Focus session, a current or imminent meeting,
+scheduled work, then idle. A future event can appear while idle. Focus remains
+primary when a meeting becomes imminent, with a separate meeting indicator.
+Clocks show Samaya's published values; the plugin never advances them between
+updates. A side bar stacks the clock components to fit its narrow width.
+
+Left click opens or closes the attached panel. Right click uses the same
+panel: Noctalia 5.3.0 exposes its context-menu API to panels, not bar widgets.
+Middle click retains Noctalia's widget settings gesture.
+
+The panel provides:
+
+- *Add a task* via =samaya compose=, retaining an existing composer draft,
+  and *Open Samaya*. These explicit launches can start the desktop app.
+- Pause, Resume and End for the displayed Focus session. Between Pomodoro
+  phases, *Start next phase* targets the prepared phase. Failed saves remain
+  recoverable through *Retry save* when Samaya allows it, or Open Samaya.
+- *Start Focus* for the currently scheduled task when Samaya reports that
+  starting is available. It never replaces another active session.
+- Separate current and upcoming event rows. Each Join action targets its
+  exact occurrence; missing links have no Join action. Samaya owns the fixed
+  five-minute lead window and resolves the meeting URL internally.
+- Explicit Sync now, Pause sync and Resume sync controls when available.
+  Overflow counts offer Open Samaya for events beyond the exported lists.
+
+Operational controls require the running desktop app and never start a
+second planner writer. Buttons become unavailable while their state is stale
+or an operational action is pending. Actions retain their displayed session,
+phase, task or occurrence IDs, so an old click cannot control a replacement.
+
+An action remains in progress until its reply. =ok= means Samaya completed the
+required operation; =rejected= explains why the target or state was unsuitable;
+=failed= reports a failed operation; =unknown= means the client lost the reply
+or reached its ten-second wait. An unknown result does not roll back app work.
+The plugin offers recovery and does not automatically repeat an uncertain
+operation. See [[https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/docs/desktop-controls.org][Desktop status and controls]] for the full command contract.
+
+* Presentation settings
+
+Open Settings → Plugins → Samaya to adjust the shared preferences:
+
+| Preference                   | Default | Effect                                      |
+|------------------------------+---------+---------------------------------------------|
+| Show task and event titles   | On      | Names in bar, panel and tooltips             |
+| Maximum title width         | 180 px  | Horizontal bar label, between 60 and 360 px |
+| Show next event while idle  | On      | Upcoming event when no active context exists |
+
+Turning titles off also conceals raw action-error details and provider
+summaries that might contain a name. Clocks and targeted actions remain
+usable. This preference does not change Teams privacy permissions. Meeting
+lead time is owned by Samaya and has no plugin setting.
+
+The equivalent shared TOML settings are:
+
+#+begin_src toml
+[plugin_settings."hegdeatri/samaya"]
+show_titles = true
+label_width = 180
+show_next_event = true
+#+end_src
+
+* Offline state, reload and troubleshooting
+
+The resident app publishes a full state on connect, every running Focus tick,
+and at least every five seconds while idle. The Samaya watch client owns
+socket reconnects and its twelve-second stale detection. The plugin catches
+a silent helper after fifteen seconds, freezes its last clock and disables
+Focus, Join and sync actions. A late heartbeat never starts another helper.
+An already-offline watch may stay quiet; it remains unavailable and never
+starts another watcher merely because no new line arrived.
+
+If the helper exits, the service restarts it with a bounded delay. Missing
+=samaya= checks run slowly rather than creating a rapid subprocess loop.
+After installing or upgrading Samaya, ensure Noctalia can resolve the GUI
+build from its inherited =PATH=. A terminal may have a different =PATH= from
+the running shell. =samaya status --json= should return schema version 1;
+a headless build's no-desktop explanation means the wrong binary is in use.
+Reload the plugin after fixing the shell's environment.
+
+Entry scripts and successfully loaded relative Luau modules hot-reload on
+edit. After changing =plugin.toml=, run =noctalia msg config-reload= so the
+registry re-reads the manifest. The shell helper =watch.sh= is not a Luau
+module: restart the plugin after changing it. A complete local restart is:
+
+#+begin_src sh
+noctalia msg plugins disable hegdeatri/samaya
+noctalia msg plugins enable hegdeatri/samaya
+#+end_src
+
+Only the service starts the fixed =samaya status --watch= helper. Noctalia
+5.3.0 has a 64 KiB subprocess-line buffer, while Samaya permits 256 KiB
+snapshots. The shipped =watch.sh= uses =awk= to split each frame into small
+transport lines, and the service reassembles and validates the full bounded
+JSON frame before publishing it. Action IDs are never truncated or placed
+in shell text. Noctalia owns the helper's process group and its subscriptions,
+and releases them when the plugin unloads.
+
+The small =README.md= exists because Noctalia's plugin details view reads
+that filename. This Org file is the canonical guide. Local installation does
+not require a plugin catalog entry or a Nix package.
+
+* Remove or roll back
+
+Remove ="samaya"= from the chosen bar's array, preserving its other entries,
+then disable the plugin:
+
+#+begin_src sh
+noctalia msg plugins disable hegdeatri/samaya
+#+end_src
+
+For a path source, remove only the source you added:
+
+#+begin_src sh
+noctalia msg plugins source remove samaya-local
+#+end_src
+
+For the public Git source, remove =samaya= instead:
+
+#+begin_src sh
+noctalia msg plugins source remove samaya
+#+end_src
+
+For a copied drop-in, remove its =noctalia/plugins/samaya/= directory after
+disabling it. You can also remove the unused =[widget.samaya]= and
+=[plugin_settings."hegdeatri/samaya"]= tables. Reload the configuration.
+Samaya's desktop app, commands and native tray continue independently.
+
+* Verification and upstream references
+
+Contributors can find the verification record at
+=integrations/noctalia/verification.org= in the development checkout. It
+records automated fixtures, the installed runtime revision, actual live
+coverage and remaining limits. Discovery, precedence and symlink rules above
+are supported by the installed Noctalia source; the record states which paths
+were also exercised in a disposable shell.
+
+- [[https://docs.noctalia.dev/noctalia/plugins/development/workflow/][Noctalia local development]]
+- [[https://docs.noctalia.dev/noctalia/plugins/development/manifest/][Manifest and settings]]
+- [[https://docs.noctalia.dev/noctalia/plugins/development/runtime-api/][Runtime API]]
+- [[https://github.com/noctalia-dev/noctalia/tree/f0ffa94befc98e0a846c80a129cb5953d53908dd][Noctalia 5.3.0 source used for compatibility review]]

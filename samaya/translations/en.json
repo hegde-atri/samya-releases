@@ -1,0 +1,6 @@
+{
+  "settings.show_titles.label": "Show task and event titles",
+  "settings.show_titles.description": "Hide names in the bar, panel and tooltips. This does not change Teams privacy settings.",
+  "settings.label_width.label": "Maximum title width (pixels)",
+  "settings.show_next_event.label": "Show the next event while idle"
+}

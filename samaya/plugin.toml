@@ -1,0 +1,47 @@
+id = "hegdeatri/samaya"
+name = "Samaya"
+version = "1.0.0"
+plugin_api = 24
+author = "hegdeatri"
+license = "MIT"
+icon = "target"
+description = "Your Focus clock, meetings and Samaya controls in the bar."
+tags = ["productivity", "calendar", "focus"]
+dependencies = ["samaya", "awk"]
+
+[[setting]]
+key = "show_titles"
+type = "bool"
+label_key = "settings.show_titles.label"
+description_key = "settings.show_titles.description"
+default = true
+
+[[setting]]
+key = "label_width"
+type = "int"
+label_key = "settings.label_width.label"
+default = 180
+min = 60
+max = 360
+
+[[setting]]
+key = "show_next_event"
+type = "bool"
+label_key = "settings.show_next_event.label"
+default = true
+
+[[service]]
+id = "state"
+entry = "state.luau"
+
+[[widget]]
+id = "focus"
+entry = "widget.luau"
+
+[[panel]]
+id = "details"
+entry = "panel.luau"
+width = 420
+height = 560
+placement = "attached"
+open_near_click = true

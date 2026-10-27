@@ -1,0 +1,12 @@
+# Generated from the released Samaya plugin manifest.
+[[plugin]]
+id = "hegdeatri/samaya"
+name = "Samaya"
+version = "1.0.0"
+plugin_api = 24
+author = "hegdeatri"
+license = "MIT"
+icon = "target"
+description = "Your Focus clock, meetings and Samaya controls in the bar."
+tags = ["productivity", "calendar", "focus"]
+dependencies = ["samaya", "awk"]

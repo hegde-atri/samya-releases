@@ -1,0 +1,126 @@
+#+TITLE: Desktop status and controls
+#+AUTHOR: Atri Hegde
+
+The running Samaya app owns Focus, planner writes, event eligibility and sync.
+Its tray and local command interface use the same state and action validation.
+These commands require a Linux GUI build. A headless build explains that it has
+no desktop app; =samaya sync= remains available there.
+
+* Open and capture
+
+=samaya= opens or reveals Samaya. =samaya --hidden= starts it in the tray.
+=samaya compose= opens the composer, starting the app if needed, and preserves
+its draft. Bind that command to a Hyprland shortcut in your own configuration.
+
+* Observe without starting an app
+
+#+begin_src sh
+samaya status --json
+samaya status --watch
+#+end_src
+
+Status connects directly to the private app socket. It never opens the planner,
+takes the writer lock or starts a GUI. One-shot status produces a complete JSON
+snapshot, including structured offline state when no app is reachable. Watch
+flushes one JSON line at a time, stays alive offline and reconnects. Diagnostics
+use stderr; stdout contains only JSON.
+
+Schema version 1 includes process identity, observation time, health, nullable
+Focus, current/upcoming timed events, scheduled work, sync and capabilities.
+Focus shows actual elapsed time, mode, phase, running/paused/waiting/ending state
+and save status. Scheduled block time is a separate field. Selected tasks whose
+clocks have never started are not sessions. Consumers display the published
+clock values; they do not extrapolate between snapshots.
+
+Upcoming events start later in the current local day, before midnight. Cancelled,
+declined, all-day and hidden-calendar events do not drive desktop meeting state.
+Join is available for usable conference links from exactly five minutes before
+start until end, exclusive. Samaya owns this fixed window. Overlapping and
+recurring occurrences retain separate targets. Teams uses the shared internal
+event helpers with its existing visibility, ticking and privacy policy.
+
+* Targeted controls
+
+Copy task, session, phase and occurrence IDs from status. Pass each ID as one
+argument; programs should use argument arrays instead of constructing shell text.
+
+| Command                                                          | Effect                                      |
+|------------------------------------------------------------------+---------------------------------------------|
+| =samaya focus start <task-id>=                                    | Start that exact open, non-cancelled task    |
+| =samaya focus pause --session <id>=                               | Pause that session                          |
+| =samaya focus resume --session <id>=                              | Resume that paused session                  |
+| =samaya focus end --session <id>=                                 | Save and end that session                   |
+| =samaya focus start-next-phase --session <id> --phase <phase-id>=  | Start that waiting Pomodoro phase           |
+| =samaya event join <occurrence-id>=                               | Revalidate and open its app-resolved link   |
+| =samaya desktop open-task <task-id>=                              | Save pending editor edits, then reveal task |
+| =samaya desktop sync-now=                                        | Ask the existing worker to sync             |
+| =samaya desktop pause-sync=                                      | Explicitly pause automatic syncing          |
+| =samaya desktop resume-sync=                                     | Explicitly resume automatic syncing         |
+
+These controls require a resident app. Offline requests are rejected instead of
+starting it. Focus Start rejects every existing session, including paused,
+waiting or ending sessions and even the same task. It preserves unstarted notes
+and editor drafts before selecting a new task. Open-task retains the current
+view and edits when a save fails.
+
+Session UUIDs are created synchronously on first Start, before the first tick.
+They survive navigation, hidden windows, pause, checkpoints, Pomodoro phases and
+pending/failed saves. A prepared phase has its own ID, replaced on phase advance
+or mode reset. Resume cannot start a waiting phase; use Start-next-phase.
+
+Repeated Pause/Resume return success when the requested state already holds.
+Repeated Start-next-phase succeeds for the same running phase; an old phase
+cannot start a new one. End remembers exactly one successfully ended session ID
+until another session ends or the app exits. Repeating that End succeeds without
+touching a newer session; other inactive IDs are rejected. Repeating End during
+a save is rejected as saving; after failure it retries the retained writes with
+stable request IDs and does not log time twice. Sync Pause/Resume forward explicit
+commands and wait for worker confirmation; pausing does not cancel a provider
+pass already in flight.
+
+* Results and recovery
+
+Actions print one final JSON reply and exit successfully only for =ok=:
+
+| Result     | Meaning                                                           |
+|------------+-------------------------------------------------------------------|
+| =ok=       | Requested state holds; required writes/worker confirmation settled |
+| =rejected= | Target/state did not permit the action; see human-readable reason  |
+| =failed=   | Attempted operation failed; retained edits remain recoverable      |
+| =unknown=  | Client lost the reply or waited ten seconds; app work may continue |
+
+There is no separate acceptance reply. Do not treat a timeout or disconnected
+client as rollback. Observe the current state or open Samaya for recovery rather
+than automatically repeating non-idempotent actions. Reasons are for display,
+not machine branching. The tray displays saving/recovery and keeps Open Samaya
+available when clock controls would conflict with a save.
+
+* Local protocol and limits
+
+The private Unix socket sits beside the app lock and has mode 0600. Existing
+empty, =s= and =c= launch requests keep working. New requests are JSON beginning
+with ={= and ending in a newline. Each connection carries one request; actions
+receive one terminal reply, while watch remains open. Example requests and full
+state/result fixtures live in =apps/native/tests/fixtures/desktop/=.
+
+| Limit                                  | Value                              |
+|----------------------------------------+------------------------------------|
+| Request / reply frame, excluding newline | 16 KiB / 256 KiB of UTF-8 JSON      |
+| Request framing / each frame write      | Two seconds each                   |
+| Action reply wait                       | Ten seconds, then =unknown=         |
+| Clients / watch subscribers             | 16 / 8                             |
+| Watch queue                             | Latest full snapshot only          |
+| Exported events                         | 16 current + 16 upcoming           |
+| Display titles                          | 200 Unicode scalar values          |
+| Idle heartbeat / stale timeout          | Five seconds / twelve seconds      |
+| Reconnect backoff                       | 100 ms doubling, capped at 5 seconds |
+
+Overflow counts report omitted events; action IDs are preserved. Credentials,
+attendee lists and event descriptions are not exported. Clock changes and event
+lead/start/end boundaries publish independently of provider sync, even with the
+window hidden. Watch emits offline on disconnect, then a full state after
+reconnection. A stale stream becomes unavailable. Snapshots arrive in order and
+need no sequence numbers.
+
+The Noctalia plugin is a separate change. These controls and the native tray are
+usable independently; no plugin package or personal dotfile edit is required.
