@@ -16,7 +16,13 @@ the way but not yet in a release.
   sessions, events and time blocks, as Teams already does, with the same
   channel privacy deciding when a task's name is shown.
 
-* Unreleased
+* 1.13.0 - 2026-10-27
+** New
+- *Noctalia top bar.* A local native plugin shows the live Focus clock and
+  meeting context, with an attached panel for Focus, meeting Join, Add a task
+  and calendar sync. It shares one watcher across monitors, freezes stale
+  clocks, supports narrow side bars and offers title hiding. Installation is
+  explicit; see =integrations/noctalia/samaya/README.org=.
 
 * 1.12.0 - 2026-10-27
 ** New
