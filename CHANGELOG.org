@@ -18,6 +18,13 @@ the way but not yet in a release.
 
 * Unreleased
 
+* 1.10.0 - 2026-10-27
+** Improved
+- Integration panels remember each filter's results, selected tab and scroll
+  position for the app session. Returning shows cached cards immediately while
+  the refresh button spins in the background. Failed refreshes keep the last
+  results available with their update time and an error so you can retry.
+
 * 1.9.1 - 2026-10-27
 ** Fixed
 - Azure DevOps search errors now explain the PAT permissions needed for work
