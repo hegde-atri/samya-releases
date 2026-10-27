@@ -2,7 +2,7 @@
 #+AUTHOR: Atri Hegde
 
 Samaya's Noctalia plugin shows your Focus clock and meetings in the bar,
-with an attached panel for Focus, Join, task capture and calendar sync. Samaya
+with a floating panel for Focus, Join, task capture and calendar sync. Samaya
 owns the planner and every action; the plugin only observes its desktop stream
 and sends targeted commands.
 
@@ -158,9 +158,14 @@ primary when a meeting becomes imminent, with a separate meeting indicator.
 Clocks show Samaya's published values; the plugin never advances them between
 updates. A side bar stacks the clock components to fit its narrow width.
 
-Left click opens or closes the attached panel. Right click uses the same
+Left click opens or closes the floating panel near the widget. Right click uses the same
 panel: Noctalia 5.3.0 exposes its context-menu API to panels, not bar widgets.
 Middle click retains Noctalia's widget settings gesture.
+
+The panel content has an opaque theme-colored background. For an entirely
+opaque window, use Noctalia's *Solid* panel transparency setting. The outer
+frame follows that shell setting. Choosing *Attached* in Samaya's panel
+settings instead makes its outer frame inherit the bar's opacity.
 
 The panel provides:
 

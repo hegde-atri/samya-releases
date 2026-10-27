@@ -207,7 +207,7 @@ local function render()
   end
 
   table.insert(rows, ui.scroll({ key = "details", gap = 12, flexGrow = 1 }, contents))
-  panel.render(ui.column({ gap = 12, padding = 4, flexGrow = 1 }, rows))
+  panel.render(ui.column({ gap = 12, padding = 4, flexGrow = 1, fill = "surface/1.0" }, rows))
 end
 
 function onOpen()
