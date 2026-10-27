@@ -18,6 +18,13 @@ the way but not yet in a release.
 
 * Unreleased
 
+* 1.9.0 - 2026-10-27
+** New
+- *Integrations can be turned off.* Each integration's page in Settings has a
+  *Show in the rail* switch. Off, its mark leaves the rail and Samaya stops
+  searching it, keeping its token and filters for when you turn it back on.
+  Integrations start off, so turn on the ones you use after updating.
+
 * 1.8.0 - 2026-10-26
 ** New
 - *Update notices.* Once a day Samaya checks for a newer release. A dot by
