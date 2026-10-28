@@ -17,6 +17,8 @@ the way but not yet in a release.
   channel privacy deciding when a task's name is shown.
 
 * Unreleased
+
+* 1.14.0 - 2026-10-28
 ** New
 - Portable Windows x64 builds: extract the release ZIP and open =samaya.exe=.
   Windows builds use native credential storage and file locking. Closing the
