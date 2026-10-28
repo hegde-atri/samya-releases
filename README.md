@@ -24,6 +24,14 @@ To install a particular version, pass it on:
 curl -fsSL https://git.hegdeatri.com/hegdeatri/samaya-releases/raw/branch/main/install.sh | sh -s -- v0.1.0
 ```
 
+On Windows x64, download `samaya-X.Y.Z-x86_64-windows.zip` from
+[releases](https://git.hegdeatri.com/hegdeatri/samaya-releases/releases), verify
+its checksum and Minisign signature, extract it, and open `samaya.exe`.
+No installer or administrator access is needed. Windows instructions are in
+the ZIP. The executable has no Windows publisher certificate, so Windows may
+show an unknown-publisher warning. Closing the window quits; there is no
+Windows tray icon yet.
+
 ## First run
 
 1. Make a folder for your tasks, such as `~/org`. An empty one is fine.
@@ -70,6 +78,10 @@ rm ~/.local/bin/samaya ~/.local/share/applications/samaya.desktop \
 
 Your Org folder is never touched.
 
+On Windows, close Samaya and replace the extracted files to upgrade. Delete
+the extracted folder to uninstall. Settings live in `%APPDATA%\samaya` and
+caches in `%LOCALAPPDATA%\samaya`; credentials use Windows Credential Manager.
+
 ## NixOS
 
 The prebuilt binary does not find its graphics libraries on NixOS by itself.
@@ -83,8 +95,10 @@ Samaya itself under **Settings → Changelog**.
 
 Each [release](https://git.hegdeatri.com/hegdeatri/samaya-releases/releases)
 lists what changed and has a `samaya-X.Y.Z-x86_64-linux.tar.gz` holding the
-`samaya` binary, its `.desktop` entry and icon, with a SHA-256 checksum and,
-from 1.8.0, a minisign signature beside it. Releases are published
+`samaya` binary, its `.desktop` entry and icon. Windows builds come in
+`samaya-X.Y.Z-x86_64-windows.zip`, holding `samaya.exe`. Both have SHA-256
+checksums and Minisign signatures; older releases may contain only Linux.
+Linux archives have signatures from 1.8.0 onward. Releases are published
 automatically when a version is tagged. This repository also holds the
 Noctalia plugin source and catalog used by Noctalia's plugin manager.
 
@@ -101,4 +115,7 @@ minisign -V -P RWReXZNuxj5aplTyPD4awKxzs/sL9nlCssugg1Cd9ZbRWrwksTyfsJNe \
   -m samaya-X.Y.Z-x86_64-linux.tar.gz
 ```
 
-The trusted comment it prints is the archive's file name.
+For Windows, use `-m samaya-X.Y.Z-x86_64-windows.zip` with the same public
+key. The `.minisig` file belongs beside its archive. The trusted comment it
+prints is the archive's file name. This verifies the download's provenance;
+it does not install a Windows publisher certificate.
