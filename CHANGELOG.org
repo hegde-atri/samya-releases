@@ -18,6 +18,11 @@ the way but not yet in a release.
 
 * Unreleased
 
+* 1.14.1 - 2026-10-31
+** Fixed
+- The task editor's channel, goal, date, priority and ⋯ menus drop down over
+  the task instead of pushing its details down.
+
 * 1.14.0 - 2026-10-28
 ** New
 - Portable Windows x64 builds: extract the release ZIP and open =samaya.exe=.
