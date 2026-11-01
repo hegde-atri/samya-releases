@@ -40,9 +40,9 @@ Windows tray icon yet.
    channels from the app.
 3. Plan tasks in **Today** and **Week**, then try **Focus** on one of them.
 
-Calendars and the GitHub, Forgejo and Azure DevOps panels are optional.
-Connecting a Google or Outlook calendar needs your own OAuth client or app
-registration, so skip them for a first try.
+Calendars and the GitHub, Forgejo and Azure DevOps panels are optional. To
+connect a Google or Outlook calendar, open **Settings → Calendars → Connect
+calendar** and sign in; nothing needs setting up first.
 
 ## Noctalia integration
 
