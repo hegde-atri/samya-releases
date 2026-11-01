@@ -18,6 +18,13 @@ the way but not yet in a release.
 
 * Unreleased
 
+* 1.15.0 - 2026-11-01
+** New
+- *Sign in without setup.* Google and Outlook calendars, Microsoft Planner and
+  Teams connect through Samaya's own sign-in, so there is no OAuth client or
+  app registration to make first. To use your own, choose
+  *Sign in through → Your own app* when connecting a calendar.
+
 * 1.14.1 - 2026-10-31
 ** Fixed
 - The task editor's channel, goal, date, priority and ⋯ menus drop down over
