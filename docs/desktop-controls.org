@@ -10,7 +10,9 @@ no desktop app; =samaya sync= remains available there.
 
 =samaya= opens or reveals Samaya. =samaya --hidden= starts it in the tray.
 =samaya compose= opens the composer, starting the app if needed, and preserves
-its draft. Bind that command to a Hyprland shortcut in your own configuration.
+its draft. =samaya compose --window= pops it up alone over whatever is open,
+in a window of class =samaya-compose=. Bind either command to a Hyprland
+shortcut in your own configuration.
 
 * Observe without starting an app
 
