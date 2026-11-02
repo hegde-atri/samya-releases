@@ -44,6 +44,46 @@ Calendars and the GitHub, Forgejo and Azure DevOps panels are optional. To
 connect a Google or Outlook calendar, open **Settings → Calendars → Connect
 calendar** and sign in; nothing needs setting up first.
 
+## Add a task from anywhere
+
+`samaya compose --window` pops the task composer up on its own, over whatever
+is open, the way a launcher does. Enter adds the task to today, Escape cancels,
+and clicking away puts it away with its draft kept. It starts Samaya in the
+tray if it is not running yet, so it is quickest with `samaya --hidden` among
+your login commands. Bind it to a key:
+
+- **Hyprland 0.56**, in your Lua configuration. The rule floats the popup in
+  the centre without a border, shadow, blur or animation:
+
+  ```lua
+  hl.bind("SUPER + N", hl.dsp.exec_cmd("samaya compose --window"))
+
+  hl.window_rule({
+      name  = "samaya-compose",
+      match = { class = "^samaya-compose$" },
+
+      float       = true,
+      center      = true,
+      border_size = 0,
+      no_shadow   = true,
+      no_blur     = true,
+      no_anim     = true,
+  })
+  ```
+
+  Other compositors can match the same window class, `samaya-compose`.
+- **GNOME, KDE and others:** add a custom keyboard shortcut in the desktop's
+  settings that runs `samaya compose --window`. Wayland desktops place the
+  popup where they place new windows.
+- **Windows:** right-click `samaya.exe`, choose **Create shortcut**, and move
+  the shortcut into the Start menu folder: open it with Win + R and
+  `shell:programs`. In the shortcut's **Properties**, add ` compose --window`
+  to the end of **Target** and click **Shortcut key** to press a combination
+  such as Ctrl + Alt + A.
+
+`samaya compose` without `--window` opens the composer in Samaya's own window
+instead.
+
 ## Noctalia integration
 
 For native Noctalia 5.3.0, this repository is also a public plugin source.
