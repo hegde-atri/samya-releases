@@ -18,6 +18,14 @@ the way but not yet in a release.
 
 * Unreleased
 
+* 1.16.0 - 2026-11-02
+** New
+- *Add a task from anywhere.* =samaya compose --window= pops the composer up on
+  its own, centred over whatever is open, rather than switching to Samaya.
+  Enter adds the task to today, Escape cancels, and clicking away puts it
+  away with its draft kept. How to bind it to a key on Hyprland, other
+  desktops and Windows is in the samaya-releases README.
+
 * 1.15.0 - 2026-11-01
 ** New
 - *Sign in without setup.* Google and Outlook calendars, Microsoft Planner and
