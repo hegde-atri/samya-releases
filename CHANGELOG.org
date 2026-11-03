@@ -18,6 +18,21 @@ the way but not yet in a release.
 
 * Unreleased
 
+* 1.17.0 - 2026-11-03
+** New
+- *Tasks panel.* The backlog at the bottom of the rail is now a view of every
+  open task that isn't yet blocked on the calendar, as small cards edged in
+  their channel's colour. Group them by list, priority or date, fold any
+  group away, and switch to the *Backlog* preset to see only tasks without a
+  day. Drag a card onto the calendar to plan it, as before.
+
+** Improved
+- Integration cards put the title on its own line, with the kind and
+  reference beneath it, and long kinds are shortened, so Azure DevOps'
+  Product Backlog Item reads PBI.
+- Microsoft Planner's rail button shows the real Planner logo, in its own
+  colours on hover or while its panel is open.
+
 * 1.16.0 - 2026-11-02
 ** New
 - *Add a task from anywhere.* =samaya compose --window= pops the composer up on
