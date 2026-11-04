@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Azure DevOps · Samaya</title>
+<link rel="icon" href="/icon-light.png">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="/"><img src="/icon-light.png" alt="">Samaya</a>
+  <nav><a href="/docs/install" aria-current="page">Docs</a><a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a></nav>
+</header>
+<div class="prebeta"><b>Pre-beta.</b> Samaya is early software: expect rough edges and changes between releases. Keep a backup of your Org files.</div>
+<div class="docs">
+  <aside><a href="/docs/install">Getting started</a><a href="/docs/org-files">Org files</a><a href="/docs/google-calendar">Google Calendar</a><a href="/docs/outlook-calendar">Outlook calendars</a><a href="/docs/github">GitHub</a><a href="/docs/forgejo">Forgejo</a><a href="/docs/azure-devops" aria-current="page">Azure DevOps</a><a href="/docs/plane">Plane</a><a href="/docs/microsoft-planner">Microsoft Planner</a><a href="/docs/microsoft-teams">Microsoft Teams</a><a href="/docs/desktop">Desktop integration</a></aside>
+  <article>
+    <h1>Azure DevOps</h1>
+    <section><p>The Azure DevOps panel lists work items and pull requests from saved searches
+across one organization&apos;s projects. Drag one onto a day to plan it as an org
+task. See <a href="github">GitHub</a> for shared planning controls.
+</p></section><h2 id="organization-and-sign-in">Organization and sign-in</h2><section><p><b>Settings → Azure DevOps → Instance</b> is your organization&apos;s address, such as
+<code>https://dev.azure.com/contoso</code>, or an Azure DevOps Server collection&apos;s. Left
+empty, Samaya uses the default organization set with
+<code>az devops configure --defaults organization=https://dev.azure.com/contoso</code>.
+</p><p>For the token, Samaya uses the first of these it finds:
+</p><ol><li><p>A personal access token saved in <b>Settings → Azure DevOps</b>. <b>Delete token</b> removes it, after asking you to
+   confirm.
+</p></li><li><p>A token issued to your <code>az</code> login, from <code>az account get-access-token</code>. With
+   <code>az login</code> done, there is nothing to set up.
+</p></li></ol><p>A personal access token needs the <b>Work Items (Read)</b> and <b>Code (Read)</b> scopes.
+Create one under <b>User settings → Personal access tokens</b> in Azure DevOps.
+</p><p>If work items load but <b>Review requests</b> and <b>My pull requests</b> fail with 401
+or 403, check that the saved token also has <b>Code (Read)</b> and access to the
+repositories. A saved token takes priority even when your <code>az</code> login works.
+Update the token in <b>Settings → Azure DevOps</b>, or use <b>Delete token</b> there to
+fall back to your Azure CLI login.
+</p></section><h2 id="filters">Filters</h2><section><p>Manage saved filters in <b>Settings → Azure DevOps</b>.
+</p><p>A filter searches work items, or pull requests when its query starts with
+<code>pr:</code>.
+</p></section><h3 id="work-items">Work items</h3><section><p>A work item filter&apos;s query is the <code>WHERE</code> clause of a
+<a href="https://learn.microsoft.com/en-us/azure/devops/boards/queries/wiql-syntax">WIQL</a>
+query. Searches span the organization. Macros such as <code>@Me</code>, <code>@Today</code> and <code>@RecentMentions</code> work;
+<code>@Project</code> doesn&apos;t, as no project is chosen.
+</p><p>Its defaults are:
+</p><table><thead><tr><td>Name</td><td>Query</td></tr></thead><tbody><tr><td>Assigned to me</td><td><code>[System.AssignedTo] = @Me AND [System.State] NOT IN (&apos;Closed&apos;, &apos;Done&apos;, &apos;Removed&apos;, &apos;Resolved&apos;)</code></td></tr><tr><td>Created by me</td><td><code>[System.CreatedBy] = @Me AND [System.State] NOT IN (&apos;Closed&apos;, &apos;Done&apos;, &apos;Removed&apos;, &apos;Resolved&apos;)</code></td></tr></tbody></table><p>To narrow one to a project, add <code>AND [System.TeamProject] = &apos;App&apos;</code>.
+</p></section><h3 id="pull-requests">Pull requests</h3><section><p>After <code>pr:</code>, a pull request filter&apos;s query is <code>key=value</code> pairs joined by <code>&amp;</code>,
+searched across the organization:
+</p><table><thead><tr><td>Parameter</td><td>Finds</td></tr></thead><tbody><tr><td><code>reviewer=@me</code></td><td>pull requests you&apos;re a reviewer on</td></tr><tr><td><code>creator=@me</code></td><td>pull requests you opened</td></tr><tr><td><code>status</code></td><td><code>active</code>, <code>completed</code>, <code>abandoned</code> or <code>all</code>; <code>active</code> by default</td></tr><tr><td><code>vote=none</code></td><td>only those you haven&apos;t voted on</td></tr><tr><td><code>draft=false</code></td><td>no drafts</td></tr></tbody></table><p><code>reviewer</code> and <code>creator</code> also take a user&apos;s ID. Other search criteria include
+<code>targetRefName=refs/heads/main</code>.
+Reviewing as part of a team doesn&apos;t count as <code>reviewer=@me</code>.
+</p><p>Its defaults are:
+</p><table><thead><tr><td>Name</td><td>Query</td></tr></thead><tbody><tr><td>Review requests</td><td><code>pr: reviewer=@me&amp;vote=none&amp;draft=false</code></td></tr><tr><td>My pull requests</td><td><code>pr: creator=@me</code></td></tr></tbody></table><p>A pull request&apos;s card is labelled <code>PR</code> and referred to as <code>repo!42</code>, and the
+task it becomes records it as <code>pr:42</code>, apart from work item 42.
+</p></section><h2 id="planning-an-item">Planning an item</h2><section><p>As on GitHub, a card dropped on a day becomes a task in <code>Inbox.org</code>, recorded
+as coming from Azure DevOps by the work item&apos;s ID and reference. Its card shows
+the work item type, such as <code>Bug</code> or <code>User Story</code>.
+</p><pre><code class="language-org">* TODO Crash on launch
+SCHEDULED: &lt;2026-10-12 Mon&gt;
+:PROPERTIES:
+:ID: ...
+:EFFORT: 0:30
+:SAMAYA_SOURCE_INTEGRATION: azure-devops
+:SAMAYA_SOURCE_ITEM: 300
+:SAMAYA_SOURCE_REFERENCE: App#300
+:END:
+</code></pre><p>Drag the task back onto the Azure DevOps panel to un-plan it.
+</p></section>
+  </article>
+</div>
+</body>
+</html>
