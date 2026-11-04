@@ -5,26 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Org files · Samaya</title>
 <link rel="icon" href="/icon-light.png">
+<link rel="icon" href="/icon-dark.png" media="(prefers-color-scheme: dark)">
+<link rel="preload" href="/fonts/FiraSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/style.css">
 </head>
-<body>
-<header class="bar">
-  <a class="brand" href="/"><img src="/icon-light.png" alt="">Samaya</a>
+<body class="doc">
+<header class="top"><div class="bar">
+  <a class="brand" href="/"><picture><source srcset="/icon-dark.png" media="(prefers-color-scheme: dark)"><img src="/icon-light.png" alt=""></picture>Samaya</a>
   <nav><a href="/docs/install" aria-current="page">Docs</a><a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a></nav>
-</header>
-<div class="prebeta"><b>Pre-beta.</b> Samaya is early software: expect rough edges and changes between releases. Keep a backup of your Org files.</div>
+</div></header>
+<div class="prebeta"><b>Pre-beta.</b> Samaya is early software<span class="long">: expect rough edges and changes between releases</span>. Keep a backup of your Org files.</div>
 <div class="docs">
-  <aside><a href="/docs/install">Getting started</a><a href="/docs/org-files" aria-current="page">Org files</a><a href="/docs/google-calendar">Google Calendar</a><a href="/docs/outlook-calendar">Outlook calendars</a><a href="/docs/github">GitHub</a><a href="/docs/forgejo">Forgejo</a><a href="/docs/azure-devops">Azure DevOps</a><a href="/docs/plane">Plane</a><a href="/docs/microsoft-planner">Microsoft Planner</a><a href="/docs/microsoft-teams">Microsoft Teams</a><a href="/docs/desktop">Desktop integration</a></aside>
+  <aside><span class="group">Start</span><a href="/docs/install">Getting started</a><a href="/docs/org-files" aria-current="page">Org files</a><span class="group">Calendars</span><a href="/docs/google-calendar">Google Calendar</a><a href="/docs/outlook-calendar">Outlook calendars</a><span class="group">Work items</span><a href="/docs/github">GitHub</a><a href="/docs/forgejo">Forgejo</a><a href="/docs/azure-devops">Azure DevOps</a><a href="/docs/plane">Plane</a><a href="/docs/microsoft-planner">Microsoft Planner</a><span class="group">Desktop</span><a href="/docs/microsoft-teams">Microsoft Teams</a><a href="/docs/desktop">Desktop integration</a></aside>
+  <details class="menu"><summary>Documentation</summary><nav><span class="group">Start</span><a href="/docs/install">Getting started</a><a href="/docs/org-files" aria-current="page">Org files</a><span class="group">Calendars</span><a href="/docs/google-calendar">Google Calendar</a><a href="/docs/outlook-calendar">Outlook calendars</a><span class="group">Work items</span><a href="/docs/github">GitHub</a><a href="/docs/forgejo">Forgejo</a><a href="/docs/azure-devops">Azure DevOps</a><a href="/docs/plane">Plane</a><a href="/docs/microsoft-planner">Microsoft Planner</a><span class="group">Desktop</span><a href="/docs/microsoft-teams">Microsoft Teams</a><a href="/docs/desktop">Desktop integration</a></nav></details>
   <article>
     <h1>Org files</h1>
     <section><p>Samaya keeps everything in a folder of Org files that you own. Other tools,
 Emacs included, can read and edit them, and Samaya picks up their changes
-within a moment. Beside them it keeps only a small <code>planner.state.json</code>.
-</p></section><h2 id="choosing-the-folder">Choosing the folder</h2><section><p>Set it in <b>Settings → Org files</b>. It is saved as <code>org_directory</code> in
-<code>~/.config/samaya/sync.toml</code>, which calendar sync reads too:
-</p><pre><code class="language-toml">[sync]
-org_directory = &quot;/home/you/org&quot;
-</code></pre><p>With no folder set, Samaya shows an empty planner and makes no changes.
+within a moment.
+</p></section><h2 id="choosing-the-folder">Choosing the folder</h2><section><p>Choose it in <b>Settings → Org files</b>. Calendar sync writes into the same folder.
+</p><p>With no folder set, Samaya shows an empty planner and makes no changes.
 </p></section><h2 id="layout">Layout</h2><section><pre><code class="language-text">org/
 ├── Inbox.org         where new tasks go
 ├── work.org          a channel: its tasks
@@ -152,7 +152,14 @@ was: tags, deadlines, repeaters, other keywords such as <code>WAIT</code>, and p
 and drawers it doesn&apos;t know. It never overwrites an edit made since it read the
 file.
 </p></section>
+    <nav class="pager"><a rel="prev" href="/docs/install">Getting started</a><a rel="next" href="/docs/google-calendar">Google Calendar</a></nav>
   </article>
+  <nav class="toc"><b>On this page</b><a href="#choosing-the-folder">Choosing the folder</a><a href="#layout">Layout</a><a href="#tasks">Tasks</a><a href="#deleting">Deleting</a><a href="#goals">Goals</a><a href="#images">Images</a><a href="#what-samaya-changes">What Samaya changes</a></nav>
 </div>
+<footer class="bar">
+  <span>© Atri Hegde · Samaya v1.17.0, pre-beta</span>
+  <nav><a href="/">Home</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases">Releases</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">Changelog</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/issues">Report an issue</a></nav>
+</footer>
+<script src="/site.js" defer></script>
 </body>
 </html>
