@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forgejo · Samaya</title>
+<link rel="icon" href="/icon-light.png">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="/"><img src="/icon-light.png" alt="">Samaya</a>
+  <nav><a href="/docs/install" aria-current="page">Docs</a><a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a></nav>
+</header>
+<div class="prebeta"><b>Pre-beta.</b> Samaya is early software: expect rough edges and changes between releases. Keep a backup of your Org files.</div>
+<div class="docs">
+  <aside><a href="/docs/install">Getting started</a><a href="/docs/org-files">Org files</a><a href="/docs/google-calendar">Google Calendar</a><a href="/docs/outlook-calendar">Outlook calendars</a><a href="/docs/github">GitHub</a><a href="/docs/forgejo" aria-current="page">Forgejo</a><a href="/docs/azure-devops">Azure DevOps</a><a href="/docs/plane">Plane</a><a href="/docs/microsoft-planner">Microsoft Planner</a><a href="/docs/microsoft-teams">Microsoft Teams</a><a href="/docs/desktop">Desktop integration</a></aside>
+  <article>
+    <h1>Forgejo</h1>
+    <section><p>The Forgejo panel lists issues and pull requests from a saved search on one
+Forgejo (or Gitea) instance. Drag one onto a day to plan it as an Org task. See <a href="github">GitHub</a> for shared planning controls.
+</p></section><h2 id="instance-and-sign-in">Instance and sign-in</h2><section><p><b>Settings → Forgejo → Instance</b> is your server&apos;s address, such as
+<code>https://codeberg.org</code>. Left empty, Samaya uses your <code>tea</code> CLI&apos;s default login&apos;s
+address.
+</p><p>For the token, Samaya uses the first of these it finds:
+</p><ol><li><p>An access token saved in <b>Settings → Forgejo</b>. <b>Delete token</b> removes it, after asking you to confirm.
+</p></li><li><p>The token of your <code>tea</code> login for that instance. With <code>tea login add</code> done, there is nothing to set up.
+</p></li></ol><p>A token needs the <code>read:issue</code> and <code>read:repository</code> scopes. Create one under
+<b>Settings → Applications</b> on your instance.
+</p></section><h2 id="filters">Filters</h2><section><p>Manage saved filters in <b>Settings → Forgejo</b>.
+</p><p>A filter&apos;s query is <code>key=value</code> pairs joined by <code>&amp;</code>:
+</p><table><thead><tr><td>Parameter</td><td>Finds</td></tr></thead><tbody><tr><td><code>state</code></td><td><code>open</code>, <code>closed</code> or <code>all</code>; <code>open</code> by default</td></tr><tr><td><code>type</code></td><td><code>issues</code> or <code>pulls</code>; both by default</td></tr><tr><td><code>assigned=true</code></td><td>items assigned to you</td></tr><tr><td><code>created=true</code></td><td>items you opened</td></tr><tr><td><code>mentioned=true</code></td><td>items mentioning you</td></tr><tr><td><code>review_requested=true</code></td><td>pull requests awaiting your review</td></tr><tr><td><code>labels</code></td><td>items with any of these comma-separated labels</td></tr><tr><td><code>owner</code></td><td>items in this user&apos;s or organisation&apos;s repositories</td></tr><tr><td><code>q</code></td><td>items whose text contains this</td></tr></tbody></table><p>The defaults are:
+</p><table><thead><tr><td>Name</td><td>Query</td></tr></thead><tbody><tr><td>Assigned to me</td><td><code>state=open&amp;assigned=true</code></td></tr><tr><td>Review requests</td><td><code>state=open&amp;type=pulls&amp;review_requested=true</code></td></tr><tr><td>Created by me</td><td><code>state=open&amp;created=true</code></td></tr></tbody></table><p>Use ↻ to refresh the panel.
+</p></section><h2 id="planning-an-item">Planning an item</h2><section><p>As on GitHub, a card dropped on a day becomes a task in <code>Inbox.org</code>, recorded
+as coming from Forgejo by the item&apos;s ID and reference:
+</p><pre><code class="language-org">* TODO Fix the crash
+SCHEDULED: &lt;2026-10-12 Mon&gt;
+:PROPERTIES:
+:ID: ...
+:EFFORT: 0:30
+:SAMAYA_SOURCE_INTEGRATION: forgejo
+:SAMAYA_SOURCE_ITEM: 42
+:SAMAYA_SOURCE_REFERENCE: acme/app#9
+:END:
+</code></pre><p>Drag the task back onto the Forgejo panel to un-plan it.
+</p></section>
+  </article>
+</div>
+</body>
+</html>
