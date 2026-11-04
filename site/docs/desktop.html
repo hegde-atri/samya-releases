@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Desktop integration · Samaya</title>
+<link rel="icon" href="/icon-light.png">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="/"><img src="/icon-light.png" alt="">Samaya</a>
+  <nav><a href="/docs/install" aria-current="page">Docs</a><a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a></nav>
+</header>
+<div class="prebeta"><b>Pre-beta.</b> Samaya is early software: expect rough edges and changes between releases. Keep a backup of your Org files.</div>
+<div class="docs">
+  <aside><a href="/docs/install">Getting started</a><a href="/docs/org-files">Org files</a><a href="/docs/google-calendar">Google Calendar</a><a href="/docs/outlook-calendar">Outlook calendars</a><a href="/docs/github">GitHub</a><a href="/docs/forgejo">Forgejo</a><a href="/docs/azure-devops">Azure DevOps</a><a href="/docs/plane">Plane</a><a href="/docs/microsoft-planner">Microsoft Planner</a><a href="/docs/microsoft-teams">Microsoft Teams</a><a href="/docs/desktop" aria-current="page">Desktop integration</a></aside>
+  <article>
+    <h1>Desktop integration</h1>
+    <section><p>Samaya is pre-beta. Commands and output may change before the beta.
+</p></section><h2 id="open-samaya-and-use-the-tray">Open Samaya and use the tray</h2><section><p></p><p><code>samaya</code> opens or reveals the app. On Linux, <code>samaya --hidden</code> starts it
+in the tray. Add that command to your desktop&apos;s login applications to keep
+Samaya ready for task capture and bar controls.
+</p><p>Windows currently has no tray icon: closing the window quits Samaya, and
+<code>--hidden</code> opens a regular window. See <a href="install">Getting started</a>.
+</p></section><h2 id="add-a-task-from-anywhere">Add a task from anywhere</h2><section><p></p><p><code>samaya compose --window</code> opens the task composer in its own window,
+starting Samaya if needed. Enter adds the task to today in <code>Inbox.org</code>
+unless a composer token says otherwise. Escape cancels. Focusing another
+window hides the popup and keeps its draft.
+</p><p><code>samaya compose</code> opens the composer in the main window and preserves its draft.
+After upgrading from a version without <code>compose --window</code>, restart Samaya
+before using the command.
+</p></section><h3 id="hyprland">Hyprland</h3><section><p></p><p>In your Hyprland 0.56 Lua configuration:
+</p><pre><code class="language-lua">hl.bind(&quot;SUPER + N&quot;, hl.dsp.exec_cmd(&quot;samaya compose --window&quot;))
+
+hl.window_rule({
+    name  = &quot;samaya-compose&quot;,
+    match = { class = &quot;^samaya-compose$&quot; },
+    float       = true,
+    center      = true,
+    border_size = 0,
+    no_shadow   = true,
+    no_blur     = true,
+    no_anim     = true,
+})
+</code></pre><p>Use the absolute path to <code>samaya</code> if it is not on the compositor&apos;s <code>PATH</code>.
+The popup opens on the current workspace. On Wayland, the compositor controls
+focus; test the shortcut in your session.
+</p></section><h3 id="other-desktops">Other desktops</h3><section><p></p><p>In GNOME, KDE or another desktop, create a custom keyboard shortcut that runs
+<code>samaya compose --window</code>. Other compositors can match the window class
+<code>samaya-compose</code>. Your desktop controls popup placement.
+</p><p>On Windows, create a shortcut to <code>samaya.exe</code> and put it in the Start menu
+folder, opened with Win + R and <code>shell:programs</code>. In the shortcut&apos;s
+<b>Properties</b>, append = compose --window= to <b>Target</b>. Set <b>Shortcut key</b>
+to your preferred combination, such as Ctrl + Alt + A.
+</p></section><h2 id="noctalia-top-bar">Noctalia top bar</h2><section><p></p><p>Use native Noctalia 5.3.0 and Samaya 1.12.0 or later. Install the desktop app
+separately and make sure <code>samaya</code> is on Noctalia&apos;s <code>PATH</code>.
+</p><ol><li><p>Open Noctalia <b>Settings → Plugins → Add source</b>.
+</p></li><li><p>Choose <b>Git</b>, name it <code>samaya</code> and enter
+   <code>https://git.hegdeatri.com/hegdeatri/samaya-releases</code>.
+</p></li><li><p>Enable <b>Samaya</b>. Add its <b>Focus</b> widget through the bar&apos;s <b>Add widget</b> picker.
+</p></li></ol><p>The widget shows your Focus clock and meetings. Its panel provides Focus,
+meeting Join, Add a task and calendar sync controls.
+</p><p>Choose <b>Auto-update plugins → All sources</b> to include this plugin source,
+or use its <b>Update</b> action manually. Update the desktop app separately.
+See the <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/samaya/README.org">public plugin guide</a> for settings and removal.
+</p></section><h2 id="script-your-bar">Script your bar</h2><section><p></p><p>Status and control commands require the Linux desktop app. Keep it running,
+including hidden in the tray, to use these commands. Status reports offline
+when the app is unavailable; control commands reject the request. Neither
+starts the app.
+</p></section><h3 id="read-status">Read status</h3><section><p></p><pre><code class="language-sh">samaya status --json
+samaya status --watch
+</code></pre><p>The first command prints status as JSON. The second provides updates as one
+JSON object per line, including offline status. Standard output contains only
+JSON; diagnostics go to standard error.
+</p><p>Status includes Focus clock values, current and upcoming timed events,
+scheduled work, sync status and available actions. Display the supplied clock
+values. Use the task, session, phase and occurrence IDs from status for the
+controls below. Pass each ID as one argument; scripts should use argument
+arrays rather than build shell commands from text.
+</p></section><h3 id="controls">Controls</h3><section><p></p><table><thead><tr><td>Command</td><td>Effect</td></tr></thead><tbody><tr><td><code>samaya focus start &lt;task-id&gt;</code></td><td>Start Focus on a task</td></tr><tr><td><code>samaya focus pause --session &lt;id&gt;</code></td><td>Pause Focus</td></tr><tr><td><code>samaya focus resume --session &lt;id&gt;</code></td><td>Resume Focus</td></tr><tr><td><code>samaya focus end --session &lt;id&gt;</code></td><td>Save and end Focus</td></tr><tr><td><code>samaya focus start-next-phase --session &lt;id&gt; --phase &lt;phase-id&gt;</code></td><td>Start the next Pomodoro phase</td></tr><tr><td><code>samaya event join &lt;occurrence-id&gt;</code></td><td>Open the meeting link</td></tr><tr><td><code>samaya desktop open-task &lt;task-id&gt;</code></td><td>Reveal a task</td></tr><tr><td><code>samaya desktop sync-now</code></td><td>Sync calendars now</td></tr><tr><td><code>samaya desktop pause-sync</code></td><td>Pause automatic calendar sync</td></tr><tr><td><code>samaya desktop resume-sync</code></td><td>Resume automatic calendar sync</td></tr></tbody></table><p>Each control prints a JSON reply. A successful command reports <code>ok</code> and exits
+successfully. Other results are <code>rejected</code>, <code>failed</code> or <code>unknown</code>. Show the
+reported reason to the user. If the outcome is unknown, check status or open
+Samaya before repeating the action.
+</p></section>
+  </article>
+</div>
+</body>
+</html>
