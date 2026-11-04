@@ -5,16 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Desktop integration · Samaya</title>
 <link rel="icon" href="/icon-light.png">
+<link rel="icon" href="/icon-dark.png" media="(prefers-color-scheme: dark)">
+<link rel="preload" href="/fonts/FiraSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/style.css">
 </head>
-<body>
-<header class="bar">
-  <a class="brand" href="/"><img src="/icon-light.png" alt="">Samaya</a>
+<body class="doc">
+<header class="top"><div class="bar">
+  <a class="brand" href="/"><picture><source srcset="/icon-dark.png" media="(prefers-color-scheme: dark)"><img src="/icon-light.png" alt=""></picture>Samaya</a>
   <nav><a href="/docs/install" aria-current="page">Docs</a><a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a></nav>
-</header>
-<div class="prebeta"><b>Pre-beta.</b> Samaya is early software: expect rough edges and changes between releases. Keep a backup of your Org files.</div>
+</div></header>
+<div class="prebeta"><b>Pre-beta.</b> Samaya is early software<span class="long">: expect rough edges and changes between releases</span>. Keep a backup of your Org files.</div>
 <div class="docs">
-  <aside><a href="/docs/install">Getting started</a><a href="/docs/org-files">Org files</a><a href="/docs/google-calendar">Google Calendar</a><a href="/docs/outlook-calendar">Outlook calendars</a><a href="/docs/github">GitHub</a><a href="/docs/forgejo">Forgejo</a><a href="/docs/azure-devops">Azure DevOps</a><a href="/docs/plane">Plane</a><a href="/docs/microsoft-planner">Microsoft Planner</a><a href="/docs/microsoft-teams">Microsoft Teams</a><a href="/docs/desktop" aria-current="page">Desktop integration</a></aside>
+  <aside><span class="group">Start</span><a href="/docs/install">Getting started</a><a href="/docs/org-files">Org files</a><span class="group">Calendars</span><a href="/docs/google-calendar">Google Calendar</a><a href="/docs/outlook-calendar">Outlook calendars</a><span class="group">Work items</span><a href="/docs/github">GitHub</a><a href="/docs/forgejo">Forgejo</a><a href="/docs/azure-devops">Azure DevOps</a><a href="/docs/plane">Plane</a><a href="/docs/microsoft-planner">Microsoft Planner</a><span class="group">Desktop</span><a href="/docs/microsoft-teams">Microsoft Teams</a><a href="/docs/desktop" aria-current="page">Desktop integration</a></aside>
+  <details class="menu"><summary>Documentation</summary><nav><span class="group">Start</span><a href="/docs/install">Getting started</a><a href="/docs/org-files">Org files</a><span class="group">Calendars</span><a href="/docs/google-calendar">Google Calendar</a><a href="/docs/outlook-calendar">Outlook calendars</a><span class="group">Work items</span><a href="/docs/github">GitHub</a><a href="/docs/forgejo">Forgejo</a><a href="/docs/azure-devops">Azure DevOps</a><a href="/docs/plane">Plane</a><a href="/docs/microsoft-planner">Microsoft Planner</a><span class="group">Desktop</span><a href="/docs/microsoft-teams">Microsoft Teams</a><a href="/docs/desktop" aria-current="page">Desktop integration</a></nav></details>
   <article>
     <h1>Desktop integration</h1>
     <section><p>Samaya is pre-beta. Commands and output may change before the beta.
@@ -68,9 +71,9 @@ See the <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/
 including hidden in the tray, to use these commands. Status reports offline
 when the app is unavailable; control commands reject the request. Neither
 starts the app.
-</p></section><h3 id="read-status">Read status</h3><section><p></p><pre><code class="language-sh">samaya status --json
+</p></section><h3 id="read-status">Read status</h3><section><p></p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">samaya status --json
 samaya status --watch
-</code></pre><p>The first command prints status as JSON. The second provides updates as one
+</code></pre></div><p>The first command prints status as JSON. The second provides updates as one
 JSON object per line, including offline status. Standard output contains only
 JSON; diagnostics go to standard error.
 </p><p>Status includes Focus clock values, current and upcoming timed events,
@@ -83,7 +86,14 @@ successfully. Other results are <code>rejected</code>, <code>failed</code> or <c
 reported reason to the user. If the outcome is unknown, check status or open
 Samaya before repeating the action.
 </p></section>
+    <nav class="pager"><a rel="prev" href="/docs/microsoft-teams">Microsoft Teams</a></nav>
   </article>
+  <nav class="toc"><b>On this page</b><a href="#open-samaya-and-use-the-tray">Open Samaya and use the tray</a><a href="#add-a-task-from-anywhere">Add a task from anywhere</a><a href="#noctalia-top-bar">Noctalia top bar</a><a href="#script-your-bar">Script your bar</a></nav>
 </div>
+<footer class="bar">
+  <span>© Atri Hegde · Samaya v1.17.0, pre-beta</span>
+  <nav><a href="/">Home</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases">Releases</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">Changelog</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/issues">Report an issue</a></nav>
+</footer>
+<script src="/site.js" defer></script>
 </body>
 </html>
