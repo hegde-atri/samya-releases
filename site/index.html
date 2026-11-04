@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Samaya (pre-beta) · A calm daily planner over your own Org files</title>
+<meta name="description" content="A local-first desktop planner. Your tasks live in plain Org files, beside your Google and Outlook calendars.">
+<link rel="icon" href="/icon-light.png">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="/"><img src="/icon-light.png" alt="">Samaya</a>
+  <nav><a href="/docs/install">Docs</a><a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a></nav>
+</header>
+<div class="prebeta"><b>Pre-beta.</b> Samaya is early software: expect rough edges and changes between releases. Keep a backup of your Org files.</div>
+
+<main class="home">
+  <section class="hero">
+    <span class="tag">Pre-beta</span>
+    <h1>A calm daily planner over your own Org files.</h1>
+    <p>Plan the day, focus on one task, and keep everything in plain text you can also edit in Emacs. No account, no server.</p>
+    <div class="actions">
+      <a class="button large" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a>
+      <a class="button large quiet" href="/docs/install">Docs</a>
+    </div>
+    <small>Pre-beta · Linux x86_64 · Windows x64</small>
+  </section>
+
+  <img class="shot" src="/week.webp" width="1600" height="1311" alt="Samaya's week view">
+
+  <section class="features">
+    <div><h3>Plan your day</h3><p>Today, a board of days, and day to month calendars. Drag tasks onto time slots.</p></div>
+    <div><h3>Focus</h3><p>One task at a time, with a stopwatch or pomodoros, logged as Org clock entries.</p></div>
+    <div><h3>Goals</h3><p>Year and quarter goals with steps, habits and a weekly time budget.</p></div>
+    <div><h3>Calendars</h3><p>Google and Outlook, several accounts, with invitations answered in place.</p></div>
+    <div><h3>Your work queue</h3><p>GitHub, Forgejo, Azure DevOps, Plane and Microsoft Planner, beside your plan.</p></div>
+    <div><h3>Plain Org files</h3><p>Edits from Emacs show up straight away. Samaya changes only what it understands.</p></div>
+  </section>
+
+  <section class="install">
+    <h2>Install on Linux</h2>
+    <pre><code>curl -fsSL https://git.hegdeatri.com/hegdeatri/samaya-releases/raw/branch/main/install.sh | sh</code></pre>
+    <a href="/docs/install">Windows, Nix and Cargo</a>
+  </section>
+</main>
+
+<footer class="bar">
+  <span>© Atri Hegde</span>
+  <nav><a href="/docs/install">Docs</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases">Releases</a></nav>
+</footer>
+</body>
+</html>
