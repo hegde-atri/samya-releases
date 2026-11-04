@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plane · Samaya</title>
+<link rel="icon" href="/icon-light.png">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="/"><img src="/icon-light.png" alt="">Samaya</a>
+  <nav><a href="/docs/install" aria-current="page">Docs</a><a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a></nav>
+</header>
+<div class="prebeta"><b>Pre-beta.</b> Samaya is early software: expect rough edges and changes between releases. Keep a backup of your Org files.</div>
+<div class="docs">
+  <aside><a href="/docs/install">Getting started</a><a href="/docs/org-files">Org files</a><a href="/docs/google-calendar">Google Calendar</a><a href="/docs/outlook-calendar">Outlook calendars</a><a href="/docs/github">GitHub</a><a href="/docs/forgejo">Forgejo</a><a href="/docs/azure-devops">Azure DevOps</a><a href="/docs/plane" aria-current="page">Plane</a><a href="/docs/microsoft-planner">Microsoft Planner</a><a href="/docs/microsoft-teams">Microsoft Teams</a><a href="/docs/desktop">Desktop integration</a></aside>
+  <article>
+    <h1>Plane</h1>
+    <section><p>The Plane panel lists work items from saved searches across one
+<a href="https://plane.so">Plane</a> workspace, on Plane Cloud or your own instance.
+Drag one onto a day to plan it as an Org task. See <a href="github">GitHub</a> for shared planning controls.
+</p></section><h2 id="workspace-and-sign-in">Workspace and sign-in</h2><section><p><b>Settings → Plane → Instance</b> is your workspace&apos;s address, as your browser shows
+it: <code>https://app.plane.so/my-team</code> on Plane Cloud, or
+<code>https://plane.example.com/my-team</code> on your own instance. A page address under the workspace also works.
+Cycle and module filters are not supported on Community Edition.
+</p><p>Plane has no CLI to sign in with, so paste an API token in <b>Settings → Plane</b>.
+Create one in your Plane profile&apos;s <b>Personal access tokens</b> settings.
+<b>Delete token</b> removes it after confirmation.
+</p><p>If your instance sits behind Cloudflare, its bot protection may answer Samaya
+with a challenge page instead. The panel says so; ask your instance&apos;s admin to
+let its <code>/api/</code> through.
+</p></section><h2 id="filters">Filters</h2><section><p>Manage saved filters in <b>Settings → Plane</b>.
+</p><p>A filter&apos;s query is <code>key=value</code> pairs
+joined by <code>&amp;</code>. <code>@me</code> stands for you, and a parameter ending in <code>__in</code> takes
+several values, separated by commas:
+</p><table><thead><tr><td>Parameter</td><td>Finds</td></tr></thead><tbody><tr><td><code>assignee_id=@me</code></td><td>items assigned to you; also takes a member&apos;s ID</td></tr><tr><td><code>state_group</code></td><td><code>backlog</code>, <code>unstarted</code>, <code>started</code>, <code>completed</code>, <code>cancelled</code> or <code>triage</code></td></tr><tr><td><code>priority</code></td><td><code>urgent</code>, <code>high</code>, <code>medium</code>, <code>low</code> or <code>none</code></td></tr><tr><td><code>project_id</code></td><td>items in this project, by its ID</td></tr><tr><td><code>label_id</code></td><td>items with this label, by its ID</td></tr><tr><td><code>cycle_id</code>, <code>module_id</code></td><td>items in this cycle or module, by its ID</td></tr><tr><td><code>target_date__lte=2026-10-31</code></td><td>items due by this date; <code>__gte</code> from it, and <code>start_date</code> likewise</td></tr><tr><td><code>search</code></td><td>items whose text contains this</td></tr><tr><td><code>order_by</code></td><td>a field to sort by, <code>-</code> for descending, instead of by update</td></tr></tbody></table><p>The defaults are:
+</p><table><thead><tr><td>Name</td><td>Query</td></tr></thead><tbody><tr><td>Assigned to me</td><td><code>assignee_id=@me&amp;state_group__in=unstarted,started</code></td></tr><tr><td>Backlog</td><td><code>assignee_id=@me&amp;state_group=backlog</code></td></tr></tbody></table><p>Use ↻ to refresh the panel.
+</p></section><h2 id="planning-an-item">Planning an item</h2><section><p>As on GitHub, a card dropped on a day becomes a task in <code>Inbox.org</code>, recorded
+as coming from Plane by the work item&apos;s ID and identifier. Its card shows the
+work item&apos;s type, such as <code>Bug</code>, or <code>Work item</code> when it has none.
+</p><pre><code class="language-org">* TODO Fix login redirect
+SCHEDULED: &lt;2026-10-13 Tue&gt;
+:PROPERTIES:
+:ID: ...
+:EFFORT: 0:30
+:SAMAYA_SOURCE_INTEGRATION: plane
+:SAMAYA_SOURCE_ITEM: ...
+:SAMAYA_SOURCE_REFERENCE: EXAMPLE-1
+:END:
+</code></pre><p>Drag the task back onto the Plane panel to un-plan it.
+</p></section>
+  </article>
+</div>
+</body>
+</html>
