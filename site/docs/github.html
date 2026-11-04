@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GitHub · Samaya</title>
+<link rel="icon" href="/icon-light.png">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="/"><img src="/icon-light.png" alt="">Samaya</a>
+  <nav><a href="/docs/install" aria-current="page">Docs</a><a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a></nav>
+</header>
+<div class="prebeta"><b>Pre-beta.</b> Samaya is early software: expect rough edges and changes between releases. Keep a backup of your Org files.</div>
+<div class="docs">
+  <aside><a href="/docs/install">Getting started</a><a href="/docs/org-files">Org files</a><a href="/docs/google-calendar">Google Calendar</a><a href="/docs/outlook-calendar">Outlook calendars</a><a href="/docs/github" aria-current="page">GitHub</a><a href="/docs/forgejo">Forgejo</a><a href="/docs/azure-devops">Azure DevOps</a><a href="/docs/plane">Plane</a><a href="/docs/microsoft-planner">Microsoft Planner</a><a href="/docs/microsoft-teams">Microsoft Teams</a><a href="/docs/desktop">Desktop integration</a></aside>
+  <article>
+    <h1>GitHub</h1>
+    <section><p>The GitHub panel lists issues and pull requests from a saved search. Drag one
+onto a day to plan it as an Org task.
+</p></section><h2 id="signing-in">Signing in</h2><section><p>Samaya uses the first of these it finds:
+</p><ol><li><p>A personal access token saved in <b>Settings → GitHub</b>. The page says <b>Token in use</b>, and
+   <b>Delete token</b> removes it, after asking you to confirm.
+</p></li><li><p>Your <code>gh</code> CLI login, from <code>gh auth token</code>. With <code>gh</code> signed in, there is
+   nothing to set up.
+</p></li></ol><p>A token needs read access to issues and pull requests in the repositories you
+want to see. For a fine-grained token, that is <b>Issues: Read</b> and <b>Pull
+requests: Read</b>. For a classic token, it is <code>repo</code>, or <code>public_repo</code> for public
+repositories only.
+</p></section><h2 id="filters">Filters</h2><section><p>Each filter is a name and a query in
+<a href="https://docs.github.com/en/search-github/searching-on-github/searching-issues-and-pull-requests">GitHub&apos;s search syntax</a>.
+The panel shows them as tabs, and <b>Settings → GitHub</b> adds, edits and removes
+them. The defaults are:
+</p><table><thead><tr><td>Name</td><td>Query</td></tr></thead><tbody><tr><td>Assigned to me</td><td><code>is:open assignee:@me archived:false</code></td></tr><tr><td>Review requests</td><td><code>is:open is:pr review-requested:@me archived:false</code></td></tr></tbody></table><p>Use ↻ to refresh the panel. If a refresh fails, check the error and use the retry button.
+</p></section><h2 id="planning-an-item">Planning an item</h2><section><p>Turn on <b>Settings → GitHub → Show in the rail</b>, then open the panel from the
+GitHub mark in the rail; it takes the place of the day calendar. Drag a card onto a day to create a task there with a 30-minute estimate, in
+<code>Inbox.org</code>; drop it on a calendar&apos;s timeline to block that half hour too. The
+task has the item&apos;s title, and its properties record where it came from:
+</p><pre><code class="language-org">* TODO Fix the crash
+SCHEDULED: &lt;2026-09-28 Mon&gt;
+:PROPERTIES:
+:ID: ...
+:EFFORT: 0:30
+:SAMAYA_SOURCE_INTEGRATION: github
+:SAMAYA_SOURCE_ITEM: ...
+:SAMAYA_SOURCE_REFERENCE: acme/app#9
+:END:
+</code></pre><p>An item that is already planned shows <b>✓ Planned</b> and cannot be dragged
+again. ↗ opens it on GitHub. To un-plan it, drag its task back onto the panel:
+the task moves to the trash and the item can be planned again.
+</p></section>
+  </article>
+</div>
+</body>
+</html>
