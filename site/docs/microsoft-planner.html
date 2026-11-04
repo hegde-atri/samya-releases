@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Microsoft Planner · Samaya</title>
+<link rel="icon" href="/icon-light.png">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="/"><img src="/icon-light.png" alt="">Samaya</a>
+  <nav><a href="/docs/install" aria-current="page">Docs</a><a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a></nav>
+</header>
+<div class="prebeta"><b>Pre-beta.</b> Samaya is early software: expect rough edges and changes between releases. Keep a backup of your Org files.</div>
+<div class="docs">
+  <aside><a href="/docs/install">Getting started</a><a href="/docs/org-files">Org files</a><a href="/docs/google-calendar">Google Calendar</a><a href="/docs/outlook-calendar">Outlook calendars</a><a href="/docs/github">GitHub</a><a href="/docs/forgejo">Forgejo</a><a href="/docs/azure-devops">Azure DevOps</a><a href="/docs/plane">Plane</a><a href="/docs/microsoft-planner" aria-current="page">Microsoft Planner</a><a href="/docs/microsoft-teams">Microsoft Teams</a><a href="/docs/desktop">Desktop integration</a></aside>
+  <article>
+    <h1>Microsoft Planner</h1>
+    <section><p>The Microsoft Planner panel lists the Planner tasks assigned to you, across
+all your plans, from saved filters. Drag one onto a day to plan it as an org
+task. See <a href="github">GitHub</a> for shared planning controls.
+</p></section><h2 id="account-and-sign-in">Account and sign-in</h2><section><p>Planner has no token to paste. Samaya reads it through an Outlook account
+connected in <b>Settings → Calendars</b>, as described in
+<a href="outlook-calendar">Outlook calendars</a>. Choose the account in <b>Settings → Microsoft Planner</b>; with only
+one connected, it is used.
+</p><ul><li><p><b>A work or school account is needed.</b> Microsoft offers Planner only to
+  Microsoft 365 organizations, so a personal account (outlook.com, hotmail,
+  live) can&apos;t list Planner tasks.
+</p></li><li><p><b>An account connected before Planner was supported needs reauthorizing
+  once</b>, from its card in <b>Settings → Calendars</b> or with
+  <code>samaya sync reauth</code>, to grant <code>Tasks.Read</code>. Until then the panel says
+  Microsoft refused.
+</p></li><li><p><b>Only basic plans are listed.</b> Premium plans are not listed.
+</p></li></ul></section><h2 id="filters">Filters</h2><section><p>Manage saved filters in <b>Settings → Microsoft Planner</b>.
+</p><p>A filter&apos;s query is <code>key=value</code> pairs joined by <code>&amp;</code>, and a
+value can be several, separated by commas:
+</p><table><thead><tr><td>Parameter</td><td>Finds</td></tr></thead><tbody><tr><td><code>status=notstarted,inprogress</code></td><td>tasks with this progress: <code>notstarted</code>, <code>inprogress</code> or <code>completed</code></td></tr><tr><td><code>priority=urgent,important</code></td><td>tasks with these priorities: <code>urgent</code>, <code>important</code>, <code>medium</code> or <code>low</code></td></tr><tr><td><code>due=overdue,week</code></td><td>tasks due before today, <code>today</code>, in the next 7 days (<code>week</code>), or not at all (<code>none</code>)</td></tr><tr><td><code>plan=Marketing</code></td><td>tasks in the plan with this name</td></tr><tr><td><code>bucket=Next up</code></td><td>tasks in the bucket with this name</td></tr><tr><td><code>search=launch</code></td><td>tasks whose title contains this</td></tr></tbody></table><p>Names are matched whatever their case. The defaults are:
+</p><table><thead><tr><td>Name</td><td>Query</td></tr></thead><tbody><tr><td>Assigned to me</td><td><code>status=notstarted,inprogress</code></td></tr><tr><td>Due this week</td><td><code>status=notstarted,inprogress&amp;due=overdue,week</code></td></tr></tbody></table><p>Results are soonest due first, then most urgent. Use ↻ to refresh the panel.
+</p></section><h2 id="planning-a-task">Planning a task</h2><section><p>As on GitHub, a card dropped on a day becomes a task in <code>Inbox.org</code>, recorded
+as coming from Planner by the task&apos;s ID and its plan&apos;s name. Its card shows the
+plan and the task&apos;s bucket.
+</p><pre><code class="language-org">* TODO Draft the launch post
+SCHEDULED: &lt;2026-10-20 Tue&gt;
+:PROPERTIES:
+:ID: ...
+:EFFORT: 0:30
+:SAMAYA_SOURCE_INTEGRATION: microsoft-planner
+:SAMAYA_SOURCE_ITEM: ...
+:SAMAYA_SOURCE_REFERENCE: Launch
+:END:
+</code></pre><p>Drag the task back onto the Planner panel to un-plan it. Samaya only reads
+Planner: completing the Org task leaves the Planner task as it is.
+</p></section>
+  </article>
+</div>
+</body>
+</html>
