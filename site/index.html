@@ -4,50 +4,132 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Samaya (pre-beta) · A calm daily planner over your own Org files</title>
-<meta name="description" content="A local-first desktop planner. Your tasks live in plain Org files, beside your Google and Outlook calendars.">
+<meta name="description" content="A local-first desktop planner for Linux and Windows. Your tasks live in plain Org files, beside your Google and Outlook calendars.">
+<meta property="og:title" content="Samaya · A calm daily planner over your own Org files">
+<meta property="og:description" content="A local-first desktop planner. Your tasks live in plain Org files, beside your calendars.">
+<meta property="og:image" content="https://samya-releases-site.vercel.app/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://samya-releases-site.vercel.app/">
 <link rel="icon" href="/icon-light.png">
+<link rel="icon" href="/icon-dark.png" media="(prefers-color-scheme: dark)">
+<link rel="preload" href="/fonts/FiraSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<header class="bar">
-  <a class="brand" href="/"><img src="/icon-light.png" alt="">Samaya</a>
-  <nav><a href="/docs/install">Docs</a><a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a></nav>
-</header>
-<div class="prebeta"><b>Pre-beta.</b> Samaya is early software: expect rough edges and changes between releases. Keep a backup of your Org files.</div>
+<header class="top"><div class="bar">
+  <a class="brand" href="/"><picture><source srcset="/icon-dark.png" media="(prefers-color-scheme: dark)"><img src="/icon-light.png" alt=""></picture>Samaya</a>
+  <nav><a href="#features">Features</a><a href="/docs/install">Docs</a><a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a></nav>
+</div></header>
+<div class="prebeta"><b>Pre-beta.</b> Samaya is early software<span class="long">: expect rough edges and changes between releases</span>. Keep a backup of your Org files.</div>
 
 <main class="home">
   <section class="hero">
-    <span class="tag">Pre-beta</span>
+    <a class="tag" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">Pre-beta · v1.17.0</a>
     <h1>A calm daily planner over your own Org files.</h1>
     <p>Plan the day, focus on one task, and keep everything in plain text you can also edit in Emacs. No account, no server.</p>
     <div class="actions">
       <a class="button large" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a>
-      <a class="button large quiet" href="/docs/install">Docs</a>
+      <a class="button large quiet" href="/docs/install">Get started</a>
     </div>
-    <small>Pre-beta · Linux x86_64 · Windows x64</small>
+    <small>Linux x86_64 · Windows x64 · Free</small>
   </section>
 
-  <img class="shot" src="/week.webp" width="1600" height="1311" alt="Samaya's week view">
-
-  <section class="features">
-    <div><h3>Plan your day</h3><p>Today, a board of days, and day to month calendars. Drag tasks onto time slots.</p></div>
-    <div><h3>Focus</h3><p>One task at a time, with a stopwatch or pomodoros, logged as Org clock entries.</p></div>
-    <div><h3>Goals</h3><p>Year and quarter goals with steps, habits and a weekly time budget.</p></div>
-    <div><h3>Calendars</h3><p>Google and Outlook, several accounts, with invitations answered in place.</p></div>
-    <div><h3>Your work queue</h3><p>GitHub, Forgejo, Azure DevOps, Plane and Microsoft Planner, beside your plan.</p></div>
-    <div><h3>Plain Org files</h3><p>Edits from Emacs show up straight away. Samaya changes only what it understands.</p></div>
+  <section class="showcase" aria-label="Samaya in its three themes">
+    <input type="radio" name="theme" id="t-light">
+    <input type="radio" name="theme" id="t-dark" checked>
+    <input type="radio" name="theme" id="t-black">
+    <div class="switch" role="group" aria-label="Theme">
+      <label for="t-light">Light</label><label for="t-dark">Dark</label><label for="t-black">Black</label>
+    </div>
+    <div class="frame-scroll"><div class="frame">
+      <img class="s-light" src="/shots/today-light.webp" width="2880" height="1720" alt="Samaya's Today screen in the light theme">
+      <img class="s-dark" src="/shots/today-dark.webp" width="2880" height="1720" alt="Samaya's Today screen in the dark theme">
+      <img class="s-black" src="/shots/today-black.webp" width="2880" height="1720" alt="Samaya's Today screen in the pitch-black theme" loading="lazy">
+    </div></div>
+    <small class="hint">Scroll sideways to see the whole window →</small>
   </section>
 
-  <section class="install">
-    <h2>Install on Linux</h2>
-    <pre><code>curl -fsSL https://git.hegdeatri.com/hegdeatri/samaya-releases/raw/branch/main/install.sh | sh</code></pre>
-    <a href="/docs/install">Windows, Nix and Cargo</a>
+  <section id="features" class="feature wide">
+    <div>
+      <span class="eyebrow">Plan</span>
+      <h2>Your week, on one screen.</h2>
+      <p>Day columns or a calendar from one day to a month. Drag tasks between days and onto time slots, and stretch a block to change how long it takes. Your Google and Outlook events sit beside them.</p>
+    </div>
+    <picture><source srcset="/shots/week-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/week-light.webp" width="1704" height="1106" alt="The week calendar with tasks and events" loading="lazy"></picture>
+    <small class="hint">Scroll sideways to see the whole week →</small>
+  </section>
+
+  <section class="feature flip">
+    <div>
+      <span class="eyebrow">Goals</span>
+      <h2>Year goals, worked a week at a time.</h2>
+      <p>Quarter goals with steps, habits and a weekly time budget. Habits put their days on your week, and Progress shows whether each goal is ahead, on pace or behind.</p>
+    </div>
+    <picture><source srcset="/shots/goals-dark.webp" media="(prefers-color-scheme: dark)"><img class="narrow" src="/shots/goals-light.webp" width="800" height="660" alt="Quarter goals with steps and habits" loading="lazy"></picture>
+  </section>
+
+  <section class="feature">
+    <div>
+      <span class="eyebrow">Focus</span>
+      <h2>One task at a time.</h2>
+      <p>A stopwatch or pomodoro rounds, the task's subtasks and its notes. Every stretch is logged as an Org clock entry, and can set your Teams status while you work.</p>
+    </div>
+    <picture><source srcset="/shots/focus-dark.webp" media="(prefers-color-scheme: dark)"><img class="narrow" src="/shots/focus-light.webp" width="960" height="1040" alt="Focus mode with a stopwatch and subtasks" loading="lazy"></picture>
+  </section>
+
+  <section class="org">
+    <div>
+      <span class="eyebrow">Plain text</span>
+      <h2>Org files are the source of truth.</h2>
+      <p>Each file is a channel. Edit in Emacs and Samaya shows it straight away; Samaya changes only the parts of a file it understands, and never overwrites your edits.</p>
+      <a href="/docs/org-files">How tasks map to Org →</a>
+    </div>
+<pre><code><span class="k">* TODO</span> <span class="p">[#A]</span> Review the timeline widget
+  <span class="m">SCHEDULED: &lt;2026-11-04 Wed 10:30-11:00&gt;</span>
+  <span class="d">:PROPERTIES:</span>
+  <span class="d">:EFFORT:</span>   0:30
+  <span class="d">:END:</span>
+  Notes go in the body, as usual.
+<span class="k">** TODO</span> Check the drag ghost</code></pre>
+  </section>
+
+  <section class="integrations">
+    <span class="eyebrow">Integrations</span>
+    <h2>Your work queue, beside your plan.</h2>
+    <ul>
+      <li><a href="/docs/github"><i style="--m:url(/marks/github.svg)"></i>GitHub</a></li>
+      <li><a href="/docs/forgejo"><i style="--m:url(/marks/forgejo.svg)"></i>Forgejo</a></li>
+      <li><a href="/docs/azure-devops"><i style="--m:url(/marks/azure-devops.svg)"></i>Azure DevOps</a></li>
+      <li><a href="/docs/plane"><i style="--m:url(/marks/plane.svg)"></i>Plane</a></li>
+      <li><a href="/docs/microsoft-planner"><i style="--m:url(/marks/microsoft-planner.svg)"></i>Microsoft Planner</a></li>
+    </ul>
+    <p>Issues, pull requests and work items from saved searches. Drag one onto a day to plan it. Calendars sync from Google and Outlook, several accounts at once.</p>
+  </section>
+
+  <section class="install" id="install">
+    <span class="eyebrow">Get it</span>
+    <h2>Install</h2>
+    <input type="radio" name="os" id="os-linux" checked>
+    <input type="radio" name="os" id="os-windows">
+    <div class="switch" role="group" aria-label="Platform"><label for="os-linux">Linux</label><label for="os-windows">Windows</label></div>
+    <div class="panes">
+    <div class="pane os-linux">
+      <div class="cmd"><button class="copy" type="button">Copy</button><pre><code>curl -fsSL https://git.hegdeatri.com/hegdeatri/samaya-releases/raw/branch/main/install.sh | sh</code></pre></div>
+      <p>x86_64, glibc 2.36 or newer. Verifies the checksum, and the signature when minisign is installed.</p>
+    </div>
+    <div class="pane os-windows">
+      <p><a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/download/v1.17.0/samaya-1.17.0-x86_64-windows.zip">Download samaya-1.17.0-x86_64-windows.zip</a></p>
+      <p>Extract it and open <code>samaya.exe</code>. No installer or admin rights needed.</p>
+    </div>
+    </div>
+    <a href="/docs/install">Full install guide →</a>
   </section>
 </main>
 
 <footer class="bar">
-  <span>© Atri Hegde</span>
-  <nav><a href="/docs/install">Docs</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases">Releases</a></nav>
+  <span>© Atri Hegde · Samaya v1.17.0, pre-beta</span>
+  <nav><a href="/docs/install">Docs</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases">Releases</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">Changelog</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/issues">Report an issue</a></nav>
 </footer>
+<script src="/site.js"></script>
 </body>
 </html>
