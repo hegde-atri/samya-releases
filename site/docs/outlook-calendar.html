@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Outlook calendars · Samaya</title>
+<link rel="icon" href="/icon-light.png">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="/"><img src="/icon-light.png" alt="">Samaya</a>
+  <nav><a href="/docs/install" aria-current="page">Docs</a><a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a></nav>
+</header>
+<div class="prebeta"><b>Pre-beta.</b> Samaya is early software: expect rough edges and changes between releases. Keep a backup of your Org files.</div>
+<div class="docs">
+  <aside><a href="/docs/install">Getting started</a><a href="/docs/org-files">Org files</a><a href="/docs/google-calendar">Google Calendar</a><a href="/docs/outlook-calendar" aria-current="page">Outlook calendars</a><a href="/docs/github">GitHub</a><a href="/docs/forgejo">Forgejo</a><a href="/docs/azure-devops">Azure DevOps</a><a href="/docs/plane">Plane</a><a href="/docs/microsoft-planner">Microsoft Planner</a><a href="/docs/microsoft-teams">Microsoft Teams</a><a href="/docs/desktop">Desktop integration</a></aside>
+  <article>
+    <h1>Outlook calendars</h1>
+    <section><p>Outlook calendars sync into the same <code>calendar.org</code> as Google&apos;s. Personal
+Microsoft accounts (outlook.com, Hotmail, Live) and work or school accounts
+(Microsoft 365) connect the same way. Everything in
+<a href="google-calendar">Google Calendar</a> about <code>samaya sync</code>, the calendar
+file, notes and the archive applies here too.
+</p></section><h2 id="connecting-an-account">Connecting an account</h2><section><p>In the app, open <b>Settings → Calendars → Connect calendar</b>, choose <b>Outlook</b>,
+give it a name and choose <b>Sign in with Microsoft</b>. From a terminal:
+</p><pre><code class="language-sh">samaya sync auth outlook --account work
+</code></pre><p>Account names are shared between Google and Outlook, so a Google account and an
+Outlook account cannot both be called <code>work</code>. <code>samaya sync reauth</code>, <code>status</code>
+and <code>disconnect</code> take the name and work the same for either.
+</p><p>Tasks can be scheduled into an Outlook calendar with <b>New task events</b>, as in
+<a href="google-calendar#scheduling-tasks-into-a-calendar">Scheduling tasks into a calendar</a>.
+</p></section><h3 id="work-and-school-accounts">Work and school accounts</h3><section><p>Your organization decides whether apps may read your calendar. If sign-in stops
+at <b>Need admin approval</b>, send the approval request, or ask an administrator to
+grant consent to Samaya. An app registered in your own organization&apos;s directory
+(below) may be approved more readily.
+</p></section><h2 id="your-own-app-registration-optional">Your own app registration (optional)</h2><section><p>Connecting needs no setup: Samaya signs in through its own app registration.
+Register your own instead if, for example, your organization only approves apps
+registered in its own directory. One registration serves every Outlook account,
+personal and work alike. It has no client secret.
+</p><ol><li><p>Sign in to <a href="https://entra.microsoft.com">https://entra.microsoft.com</a> and open <b>App registrations → New
+   registration</b>. Microsoft needs a directory to register apps in: use your
+   work account if it may register apps, or a free Azure account for a personal
+   one.
+</p></li><li><p>Name it <b>Samaya</b>. Under <b>Supported account types</b>, choose <b>Accounts in any
+   organizational directory and personal Microsoft accounts</b>.
+</p></li><li><p>Under <b>Redirect URI</b>, choose the platform <b>Public client/native (mobile &amp;
+   desktop)</b> and enter <code>http://localhost</code>.
+</p></li><li><p>Register it, and copy the <b>Application (client) ID</b> from its overview.
+</p></li><li><p>Leave <b>Authentication → Allow public client flows</b> off. Samaya does not need
+   it.
+</p></li></ol><p>There are no API permissions to add; you consent when you sign in. Samaya asks
+for:
+</p><table><thead><tr><td>Permission</td><td>For</td></tr></thead><tbody><tr><td><code>Calendars.ReadWrite</code></td><td>Your calendars and task events</td></tr><tr><td><code>User.Read</code></td><td>Your account</td></tr><tr><td><code>offline_access</code></td><td>Syncing without signing in each time</td></tr><tr><td><code>ProfilePhoto.Read.All</code></td><td>Guests&apos; pictures</td></tr><tr><td><code>Tasks.Read</code></td><td>The <a href="microsoft-planner">Microsoft Planner</a> panel</td></tr><tr><td><code>Presence.ReadWrite</code></td><td>Your <a href="microsoft-teams">Teams status</a></td></tr></tbody></table><p>In the app, choose <b>Sign in through → Your own app</b> and give the client ID.
+From a terminal:
+</p><pre><code class="language-sh">samaya sync auth outlook --account work --client-id 00000000-0000-0000-0000-000000000000
+</code></pre></section><h2 id="how-outlook-differs-from-google">How Outlook differs from Google</h2><section><ul><li><p><b>Changing an event&apos;s length always emails its guests.</b> Outlook has no way to
+  change a meeting quietly, so dragging the end of an Outlook event with guests
+  only asks whether to save.
+</p></li><li><p><b>Disconnecting cannot revoke access.</b> <code>samaya sync disconnect</code> removes
+  everything stored locally. Remove Samaya&apos;s access yourself at
+  <a href="https://account.live.com/consent/Manage">https://account.live.com/consent/Manage</a> (personal) or
+  <a href="https://myapps.microsoft.com">https://myapps.microsoft.com</a> (work or school).
+</p></li><li><p><b>Unused accounts expire.</b> An account not synced for about 90 days has to be
+  re-authorized.
+</p></li></ul></section><h2 id="troubleshooting">Troubleshooting</h2><section><table><thead><tr><td>Error</td><td>Fix</td></tr></thead><tbody><tr><td>AADSTS50011, redirect URI mismatch</td><td>Add <code>http://localhost</code> under the <b>Mobile and desktop applications</b> platform, not under <b>Web</b></td></tr><tr><td>AADSTS7000218, a client secret is required</td><td>The registration is treated as a web app. Check the redirect is under <b>Mobile and desktop applications</b></td></tr><tr><td>AADSTS50194 or AADSTS700016, app not found or not multi-tenant</td><td>Choose the supported account types that include personal accounts and every organization</td></tr><tr><td><b>Need admin approval</b></td><td>See <a href="#work-and-school-accounts">Work and school accounts</a></td></tr></tbody></table></section>
+  </article>
+</div>
+</body>
+</html>
