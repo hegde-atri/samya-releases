@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Getting started · Samaya</title>
+<link rel="icon" href="/icon-light.png">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="/"><img src="/icon-light.png" alt="">Samaya</a>
+  <nav><a href="/docs/install" aria-current="page">Docs</a><a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a></nav>
+</header>
+<div class="prebeta"><b>Pre-beta.</b> Samaya is early software: expect rough edges and changes between releases. Keep a backup of your Org files.</div>
+<div class="docs">
+  <aside><a href="/docs/install" aria-current="page">Getting started</a><a href="/docs/org-files">Org files</a><a href="/docs/google-calendar">Google Calendar</a><a href="/docs/outlook-calendar">Outlook calendars</a><a href="/docs/github">GitHub</a><a href="/docs/forgejo">Forgejo</a><a href="/docs/azure-devops">Azure DevOps</a><a href="/docs/plane">Plane</a><a href="/docs/microsoft-planner">Microsoft Planner</a><a href="/docs/microsoft-teams">Microsoft Teams</a><a href="/docs/desktop">Desktop integration</a></aside>
+  <article>
+    <h1>Getting started</h1>
+    <section><blockquote><p><b>Samaya is pre-beta.</b> Expect bugs, and changes between releases. Keep a backup
+of your Org folder, or keep it in version control.
+</p></blockquote><p>Samaya is one program, <code>samaya</code>:
+</p><ul><li><p><code>samaya</code> opens the app. While it is open it keeps your calendars in sync and
+  shows a tray icon. <code>samaya --hidden</code> starts it in the tray.
+</p></li><li><p><code>samaya compose</code> opens the task composer; <code>--window</code> pops it up on its own,
+  over whatever is open. See <a href="desktop">Desktop integration</a>.
+</p></li><li><p><code>samaya sync</code> sets up calendar accounts and keeps <code>calendar.org</code> current while
+  the app is closed.
+</p></li></ul><p>Releases are published at
+<a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases">samaya-releases</a>.
+</p></section><h2 id="linux">Linux</h2><section><p>For x86_64 Linux with glibc 2.36 or newer: Debian 12, Ubuntu 22.04, Fedora, Arch
+or anything newer.
+</p><pre><code class="language-sh">curl -fsSL https://git.hegdeatri.com/hegdeatri/samaya-releases/raw/branch/main/install.sh | sh
+</code></pre><p>The installer checks the download&apos;s checksum, and its signature if
+<a href="https://jedisct1.github.io/minisign/">minisign</a> is installed. It puts
+<code>samaya</code> in <code>~/.local/bin</code> and adds it to your app menu. If <code>~/.local/bin</code> is
+not on your <code>PATH</code>, open Samaya from the app menu or run <code>~/.local/bin/samaya</code>.
+</p><p>To install a particular version:
+</p><pre><code class="language-sh">curl -fsSL https://git.hegdeatri.com/hegdeatri/samaya-releases/raw/branch/main/install.sh | sh -s -- v1.17.0
+</code></pre></section><h3 id="nixos">NixOS</h3><section><p>The prebuilt binary does not find its graphics libraries on NixOS by itself.
+Enable <code>programs.nix-ld</code> and add <code>wayland</code>, <code>libxkbcommon</code>, <code>vulkan-loader</code> and
+<code>libGL</code> to <code>programs.nix-ld.libraries</code>.
+</p></section><h2 id="windows">Windows</h2><section><p>For Windows 10 and 11, x64.
+</p><ol><li><p>Download <code>samaya-X.Y.Z-x86_64-windows.zip</code>, with its <code>.sha256</code> and
+   <code>.minisig</code> files, from
+   <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases">releases</a>.
+</p></li><li><p>Check the hash in PowerShell, and compare it with the <code>.sha256</code> file:
+</p><pre><code class="language-powershell">   Get-FileHash .\samaya-X.Y.Z-x86_64-windows.zip -Algorithm SHA256
+</code></pre></li><li><p>Optionally, check the signature as in <a href="#verifying-a-release">Verifying a release</a>.
+</p></li><li><p>Extract the whole ZIP to a folder and double-click <code>samaya.exe</code>.
+</p></li></ol><p>No installer or administrator access is needed. The executable has no Windows
+publisher certificate, so Windows may show an unknown-publisher warning.
+</p><p>Settings are kept in <code>%APPDATA%\samaya</code> and caches in <code>%LOCALAPPDATA%\samaya</code>.
+Credentials go to Windows Credential Manager. <code>XDG_CONFIG_HOME</code> and
+<code>XDG_DATA_HOME</code> override the settings and cache locations.
+</p><p>Windows has no tray icon yet. Closing the window quits Samaya and stops
+syncing, and <code>--hidden</code> opens a regular window. To sync while the app is
+closed, run <code>.\samaya.exe sync run --watch</code> from PowerShell.
+</p></section><h2 id="verifying-a-release">Verifying a release</h2><section><p>Releases are signed with this key, also in
+<a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/minisign.pub">minisign.pub</a>:
+</p><pre><code class="language-text">RWReXZNuxj5aplTyPD4awKxzs/sL9nlCssugg1Cd9ZbRWrwksTyfsJNe
+</code></pre><p>Keep the <code>.minisig</code> file beside its download, then:
+</p><pre><code class="language-sh">minisign -V -P RWReXZNuxj5aplTyPD4awKxzs/sL9nlCssugg1Cd9ZbRWrwksTyfsJNe \
+  -m samaya-X.Y.Z-x86_64-linux.tar.gz
+</code></pre><p>For Windows, use <code>-m samaya-X.Y.Z-x86_64-windows.zip</code>. The trusted comment it
+prints is the archive&apos;s file name. Linux archives are signed from 1.8.0 on.
+</p></section><h2 id="first-run">First run</h2><section><ol><li><p>Make a folder for your tasks, such as <code>~/org</code>. An empty one is fine.
+</p></li><li><p>Open <b>Settings → Org files</b> and choose it. Each <code>.org</code> file in it is a
+   channel, such as <code>work.org</code> or <code>health.org</code>. Create, nest and colour
+   channels in <b>Settings → Channels</b>. See <a href="org-files">Org files</a>.
+</p></li><li><p>Plan tasks in <b>Today</b> and <b>Week</b>, then try <b>Focus</b> on one of them.
+</p></li></ol><p>Everything else is optional:
+</p><ul><li><p><b>Calendars.</b> <b>Settings → Calendars → Connect calendar</b>, then sign in with
+  Google or Microsoft. Nothing needs setting up first. See
+  <a href="google-calendar">Google Calendar</a> and
+  <a href="outlook-calendar">Outlook calendars</a>.
+</p></li><li><p><b>Issues and work items.</b> <a href="github">GitHub</a>,
+  <a href="forgejo">Forgejo</a>, <a href="azure-devops">Azure DevOps</a>,
+  <a href="plane">Plane</a> and <a href="microsoft-planner">Microsoft Planner</a>.
+</p></li><li><p><b>Teams status.</b> <a href="microsoft-teams">Microsoft Teams</a>.
+</p></li><li><p><b>Shortcuts, tray and bar widgets.</b> <a href="desktop">Desktop integration</a>.
+</p></li></ul></section><h2 id="updates">Updates</h2><section><p>Once a day Samaya checks whether a new version is out. When one is, a dot
+appears beside <b>Settings</b>, and <b>Settings → Update available</b> shows what
+changed since your version.
+</p><ul><li><p><b>Linux:</b> <b>Update</b> replaces the binary once the release&apos;s signature checks
+  out. Restart Samaya to finish. Running the install command again also
+  upgrades.
+</p></li><li><p><b>Windows:</b> <b>Open downloads</b> opens the releases page. Close Samaya and
+  replace the extracted files with the new release.
+</p></li></ul><p>What changed in each version is also under <b>Settings → Changelog</b>.
+</p></section><h2 id="syncing-while-the-app-is-closed">Syncing while the app is closed</h2><section><p>The app syncs calendars only while it is open. To keep <code>calendar.org</code> fresh for
+<code>org-agenda</code> at other times, run <code>samaya sync run --watch</code> as a systemd user
+service, <code>~/.config/systemd/user/samaya-sync.service</code>:
+</p><pre><code class="language-ini">[Unit]
+Description=Samaya calendar synchronization
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/samaya sync run --watch
+Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=default.target
+</code></pre><pre><code class="language-sh">systemctl --user enable --now samaya-sync.service
+</code></pre><p>Change <code>ExecStart</code> if <code>samaya</code> is installed somewhere else. While the app is
+open, <code>samaya sync run</code> exits with an error because the app is already
+syncing; <code>Restart=on-failure</code> lets the service take over within a minute of the
+app closing. For a timer instead, see
+<a href="google-calendar#syncing-from-the-terminal">Google Calendar → Syncing from the terminal</a>.
+</p></section><h2 id="upgrading-from-samaya-sync">Upgrading from <code>samaya-sync</code></h2><section><p><code>samaya-sync</code> is now <code>samaya sync</code>, with the same subcommands and flags. Its
+tray (<code>--tray</code>) is replaced by the app&apos;s. Remove the old <code>samaya-sync</code> binary,
+and change a systemd unit&apos;s <code>ExecStart</code> to <code>samaya sync run --watch</code>.
+</p></section><h2 id="uninstalling">Uninstalling</h2><section><p>On Linux:
+</p><pre><code class="language-sh">rm ~/.local/bin/samaya ~/.local/share/applications/samaya.desktop \
+  ~/.local/share/icons/hicolor/128x128/apps/samaya.png
+</code></pre><p>On Windows, delete the extracted folder. Your Org folder is never touched.
+</p></section>
+  </article>
+</div>
+</body>
+</html>
