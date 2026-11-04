@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google Calendar · Samaya</title>
+<link rel="icon" href="/icon-light.png">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="/"><img src="/icon-light.png" alt="">Samaya</a>
+  <nav><a href="/docs/install" aria-current="page">Docs</a><a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a></nav>
+</header>
+<div class="prebeta"><b>Pre-beta.</b> Samaya is early software: expect rough edges and changes between releases. Keep a backup of your Org files.</div>
+<div class="docs">
+  <aside><a href="/docs/install">Getting started</a><a href="/docs/org-files">Org files</a><a href="/docs/google-calendar" aria-current="page">Google Calendar</a><a href="/docs/outlook-calendar">Outlook calendars</a><a href="/docs/github">GitHub</a><a href="/docs/forgejo">Forgejo</a><a href="/docs/azure-devops">Azure DevOps</a><a href="/docs/plane">Plane</a><a href="/docs/microsoft-planner">Microsoft Planner</a><a href="/docs/microsoft-teams">Microsoft Teams</a><a href="/docs/desktop">Desktop integration</a></aside>
+  <article>
+    <h1>Google Calendar</h1>
+    <section><p>Samaya syncs your Google calendars into <code>calendar.org</code> in your Org folder. The
+app syncs while it is open; <code>samaya sync run</code> keeps the file fresh for
+<code>org-agenda</code> while it is closed.
+</p></section><h2 id="connecting-an-account">Connecting an account</h2><section><p>In the app, open <b>Settings → Calendars → + Connect calendar</b>. Give the account a
+name, then sign in with Google in the browser that opens.
+</p><p>An account connected this way syncs every calendar it has, including ones you
+add or are shared later. Each calendar has a switch that hides it from Samaya&apos;s
+views (it still syncs into <code>calendar.org</code>) and a colour, starting from its
+colour in Google. The account&apos;s card re-authorizes and disconnects it. <b>Sync all
+calendars</b> does the same for an account connected from the terminal.
+</p><p>From a terminal:
+</p><pre><code class="language-sh">samaya sync auth google
+</code></pre><p>It asks for an account name, the Org tag its events should carry and, the first
+time, your Org folder. It then opens your browser, and once you have signed in,
+lists the account&apos;s calendars so you can choose which to sync. Every prompt has
+a flag:
+</p><pre><code class="language-sh">samaya sync auth google \
+  --account work --tag work \
+  --calendar primary --calendar team@example.com \
+  --no-interactive
+</code></pre><p>Samaya asks to read your calendars and to edit events (<code>calendar.readonly</code> and
+<code>calendar.events</code>), so it can create task events, change event lengths and
+answer invitations.
+</p></section><h2 id="your-own-oauth-client-optional">Your own OAuth client (optional)</h2><section><p>Connecting needs no setup: Samaya signs in through its own OAuth client. Use
+your own instead to have your own API quota, or if your organization only
+allows its own apps. In the connect form, choose <b>Sign in through → Your own
+app</b>.
+</p><ol><li><p>Create a project at <a href="https://console.cloud.google.com/projectcreate">https://console.cloud.google.com/projectcreate</a>.
+</p></li><li><p>Enable the Google Calendar API for it.
+</p></li><li><p>Configure the OAuth consent screen with the <b>External</b> user type.
+</p></li><li><p><b>Set the publishing status to &quot;In production&quot;.</b> A client left in <b>Testing</b>
+   issues sign-ins that expire after seven days, so every account would need
+   re-authorizing each week. Publishing without verification costs one &quot;Google
+   hasn&apos;t verified this app&quot; screen, clicked through once per account.
+</p></li><li><p>Create an OAuth client ID of type <b>Desktop app</b>. Keep the client ID and
+   client secret to hand.
+</p></li></ol><p>From a terminal, pass them to the first account you connect. Later accounts
+reuse its client.
+</p><pre><code class="language-sh">samaya sync auth google --account work \
+  --client-id ....apps.googleusercontent.com --client-secret ...
+</code></pre><p>On Google Workspace, a client with user type <b>Internal</b> avoids the warning
+screen, but can only sign in accounts in that organization. One <b>External</b>
+client covering work and personal accounts is usually simpler.
+</p></section><h2 id="scheduling-tasks-into-a-calendar">Scheduling tasks into a calendar</h2><section><p>Choose a calendar in <b>Settings → Calendars → New task events</b>. Dropping a task
+onto a time slot then creates an event in that calendar with the task&apos;s title,
+notes and duration. The block keeps the task&apos;s channel colour.
+</p><ul><li><p>Moving or stretching the block updates its event.
+</p></li><li><p>Changing <b>New task events</b> affects newly scheduled tasks only.
+</p></li><li><p><b>Local tasks only</b> keeps new time blocks in the planner.
+</p></li><li><p>Removing a task&apos;s time block leaves its calendar event in place.
+</p></li></ul><p>Failed writes retry on later syncs, including after a restart. <b>Settings →
+Calendars</b> shows their progress, or a retry action. Pausing sync pauses them
+too.
+</p></section><h2 id="answering-invitations">Answering invitations</h2><section><p>An event&apos;s card, opened on hover or click, has a <b>Going?</b> row with <b>Yes</b>, <b>No</b>
+and <b>Maybe</b> for any upcoming invitation someone else organised. A reply changes
+only your own response, for that occurrence only, and Google tells the
+organiser. <code>calendar.org</code> picks up the new state straight after.
+</p><p>An account connected before replies were supported has read access only.
+Re-authorize it once from <b>Settings → Calendars</b>, or with <code>samaya sync reauth</code>,
+and accept the new permission.
+</p></section><h2 id="re-authorizing">Re-authorizing</h2><section><p>When an account&apos;s sign-in expires, the tray reports that it needs
+re-authorization. Re-authorize it from its card in <b>Settings → Calendars</b>, or
+from a terminal:
+</p><pre><code class="language-sh">samaya sync reauth --account personal
+</code></pre><p>This signs in again and changes nothing else. Sign in as the same Google
+account; a different one is refused. A running <code>samaya sync run --watch</code> needs
+no restart.
+</p></section><h2 id="changing-an-account-s-calendars-or-tag">Changing an account&apos;s calendars or tag</h2><section><p><code>samaya sync auth</code> refuses a name that is already connected. To change an
+account on purpose:
+</p><pre><code class="language-sh">samaya sync auth google --account personal --reconfigure
+</code></pre><p>Every prompt defaults to what the account already has. The calendar picker marks
+the calendars currently synced, and a blank answer keeps them.
+</p></section><h2 id="syncing-from-the-terminal">Syncing from the terminal</h2><section><pre><code class="language-sh">samaya sync run --once     # sync once, then exit
+samaya sync run --watch    # sync now, then every interval
+samaya sync status         # accounts, calendars, events and last sync
+samaya sync reauth --account work
+samaya sync disconnect --account work
+</code></pre><p>While the app is open it does the syncing, and <code>samaya sync run</code> refuses with
+an error. <code>status</code>, <code>auth</code>, <code>reauth</code> and <code>disconnect</code> always work.
+</p><p>To sync while the app is closed, use either a systemd user service with
+<code>--watch</code>, as in <a href="install#syncing-while-the-app-is-closed">Getting
+started</a>, or a timer with <code>--once</code>. Enable one, not both.
+</p><p>For a timer, <code>~/.config/systemd/user/samaya-sync.service</code>:
+</p><pre><code class="language-ini">[Unit]
+Description=Samaya calendar synchronization
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/samaya sync run --once
+</code></pre><p>and <code>~/.config/systemd/user/samaya-sync.timer</code>:
+</p><pre><code class="language-ini">[Unit]
+Description=Run Samaya calendar synchronization periodically
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=5min
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+</code></pre><pre><code class="language-sh">systemctl --user enable --now samaya-sync.timer
+</code></pre><p>While the app is open, the timer&apos;s runs are refused; they resume once it
+closes.
+</p></section><h2 id="configuration">Configuration</h2><section><p><code>~/.config/samaya/sync.toml</code> holds no secrets:
+</p><pre><code class="language-toml">[sync]
+org_directory = &quot;/home/you/org&quot;   # the folder the planner uses
+interval_minutes = 5
+
+[sync.window]
+past_days = 30
+future_days = 180
+
+[google.work]
+calendars = [&quot;primary&quot;, &quot;team@example.com&quot;]
+tag = &quot;work&quot;
+</code></pre><ul><li><p><code>interval_minutes</code> is how often <code>--watch</code> syncs.
+</p></li><li><p><code>window</code> is a rolling span of days around today. A wider <code>future_days</code> makes
+  a longer file: a daily standup over 180 days is about 130 entries.
+</p></li><li><p><code>calendars</code> lists the calendars to sync; <code>all_calendars = true</code> syncs every
+  calendar on the account instead.
+</p></li><li><p><code>tag</code> is the Org tag on the account&apos;s events; it defaults to the account&apos;s
+  name.
+</p></li></ul><p>Samaya writes the other fields of an account&apos;s table itself. Leave them as they
+are.
+</p></section><h2 id="credentials">Credentials</h2><section><p>Client secrets and sign-ins go to the system credential store: Secret Service
+on Linux, Credential Manager on Windows. Where none is reachable, as on most
+servers, they are kept in files under <code>~/.local/share/samaya/credentials/</code>,
+readable only by you.
+</p><p>A locked keyring is reported as such, and background syncs never prompt. If a
+<code>--watch</code> service starts before your session unlocks the keyring, its first
+sync fails and the next one succeeds.
+</p></section><h2 id="the-calendar-file">The calendar file</h2><section><p><code>calendar.org</code> is generated, and every sync rewrites it. Don&apos;t edit the
+generated parts of an event: its headline, planning line, <code>:PROPERTIES:</code> and
+<code>:DETAILS:</code>. Notes you write beneath an event are kept.
+</p><pre><code class="language-org">#+TITLE: Calendar
+#+TODO: MEETING ACCEPTED TENTATIVE EVENT | ATTENDED DECLINED CANCELLED
+
+* MEETING Design review                                          :work:
+DEADLINE: &lt;2026-08-10 Mon 14:00-15:00&gt;
+:PROPERTIES:
+:ID: gcal-work-...
+:CALENDAR: primary
+:CONFERENCE: https://meet.google.com/...
+:LOCATION: Meeting room 2
+:URL: https://calendar.example.com/event?eid=...
+:END:
+:DETAILS:
+Attendees:
+- Alice Smith &lt;alice@example.com&gt; :: organiser, accepted
+- you@example.com :: you, awaiting
+Description:
+  Quarterly roadmap review.
+:END:
+
+Bring the roadmap doc.
+
+* EVENT Dentist                                              :personal:
+DEADLINE: &lt;2026-08-11 Tue 11:00-12:00&gt;
+:PROPERTIES:
+:ID: gcal-personal-...
+:CALENDAR: primary
+:LOCATION: 12 High Street
+:END:
+</code></pre><p>&quot;Bring the roadmap doc.&quot; is a note: it stays beneath its event across syncs.
+</p><table><thead><tr><td>Keyword</td><td>Meaning</td></tr></thead><tbody><tr><td><code>MEETING</code></td><td>An invitation you have not answered: the only one that is a task</td></tr><tr><td><code>ACCEPTED</code></td><td>An invitation you accepted, still to come</td></tr><tr><td><code>TENTATIVE</code></td><td>An invitation you answered Maybe, still to come</td></tr><tr><td><code>EVENT</code></td><td>An event that asked nothing of you: your own entry, a birthday</td></tr><tr><td><code>ATTENDED</code></td><td>An event that has ended</td></tr><tr><td><code>DECLINED</code></td><td>An invitation you declined</td></tr><tr><td><code>CANCELLED</code></td><td>An event that was called off</td></tr></tbody></table><ul><li><p>The done keywords keep past and declined events out of <code>org-agenda</code>&apos;s task
+  views, and a TODO match on <code>MEETING</code> lists the replies you owe.
+</p></li><li><p>Times are on <code>DEADLINE:</code>. All-day events have a bare date; an event over
+  several days records its last day in <code>:EVENT_END:</code>.
+</p></li><li><p><code>:CONFERENCE:</code> holds the meeting link, so <code>org-open-at-point</code> opens it.
+</p></li><li><p>Each event is tagged with its account&apos;s tag, for filtering in <code>org-agenda</code>.
+</p></li><li><p><code>:DETAILS:</code> lists the guests, with <code>you</code>, <code>organiser</code> and each response
+  (<code>accepted</code>, <code>declined</code>, <code>maybe</code> or <code>awaiting</code>), then the description.
+</p></li><li><p>Recurring events appear as one entry per occurrence.
+</p></li></ul></section><h3 id="archive-calendar-org"><code>archive/calendar.org</code></h3><section><p>When an event with a note goes away, because it was deleted, aged out of the
+window, or its calendar or account was removed, its entry moves to
+<code>archive/calendar.org</code> with the note. Events without notes are simply dropped.
+</p><p>Samaya only ever adds to this file, so notes there are safe to edit. It is
+tagged <code>:ARCHIVE:</code>, so <code>org-agenda</code> leaves it out.
+</p><p>If an account can&apos;t be reached, its events and notes stay in <code>calendar.org</code>
+until it can.
+</p></section><h2 id="troubleshooting">Troubleshooting</h2><section><p><code>samaya sync status</code> names any account that needs signing in again;
+<code>samaya sync reauth --account &lt;name&gt;</code> fixes it. Other accounts keep syncing
+meanwhile, and the account&apos;s last known events stay in the file.
+</p><p>If the browser shows &quot;Something went wrong&quot;
+(<code>accounts.google.com/info/unknownerror</code>), the browser&apos;s Google session is
+usually confused by several signed-in accounts or a stale cookie. Copy the
+address the command prints into a private window; the command keeps waiting for
+it.
+</p><table><thead><tr><td>What Google says</td><td>What it means</td></tr></thead><tbody><tr><td><code>invalid_client</code> / &quot;OAuth client was not found&quot;</td><td>Wrong client ID, or a client created moments ago that is not ready yet</td></tr><tr><td><code>redirect_uri_mismatch</code></td><td>The client is a <b>Web application</b>; it needs to be a <b>Desktop app</b></td></tr><tr><td>&quot;Access blocked: … has not completed the Google verification process&quot;</td><td>The consent screen is in <b>Testing</b> and this account is not a test user. Publish it, or add the account</td></tr><tr><td>&quot;Something went wrong&quot; with no code</td><td>The browser session, as above, or a project whose consent screen was never configured</td></tr></tbody></table></section>
+  </article>
+</div>
+</body>
+</html>
