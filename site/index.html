@@ -38,8 +38,8 @@
     <input type="radio" name="theme" id="t-light">
     <input type="radio" name="theme" id="t-dark" checked>
     <input type="radio" name="theme" id="t-black">
-    <div class="switch" role="group" aria-label="Theme">
-      <label for="t-light">Light</label><label for="t-dark">Dark</label><label for="t-black">Black</label>
+    <div class="switch" role="group" aria-label="Theme" style="--n: 3">
+      <span class="thumb"></span><label for="t-light">Light</label><label for="t-dark">Dark</label><label for="t-black">Black</label>
     </div>
     <div class="frame-scroll"><div class="frame">
       <img class="s-light" src="/shots/today-light.webp" width="2880" height="1720" alt="Samaya's Today screen in the light theme">
@@ -50,47 +50,49 @@
   </section>
 
   <section id="features" class="feature wide">
-    <div>
+    <div class="text">
       <span class="eyebrow">Plan</span>
       <h2>Your week, on one screen.</h2>
       <p>Day columns or a calendar from one day to a month. Drag tasks between days and onto time slots, and stretch a block to change how long it takes. Your Google and Outlook events sit beside them.</p>
     </div>
-    <picture><source srcset="/shots/week-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/week-light.webp" width="1704" height="1106" alt="The week calendar with tasks and events" loading="lazy"></picture>
-    <small class="hint">Scroll sideways to see the whole week →</small>
+    <div class="media">
+      <div class="scroll"><picture><source srcset="/shots/week-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/week-light.webp" width="1704" height="1106" alt="The week calendar with tasks and events" loading="lazy"></picture></div>
+      <small class="hint">Scroll sideways to see the whole week →</small>
+    </div>
   </section>
 
   <section class="feature flip">
-    <div>
+    <div class="text">
       <span class="eyebrow">Goals</span>
       <h2>Year goals, worked a week at a time.</h2>
       <p>Quarter goals with steps, habits and a weekly time budget. Habits put their days on your week, and Progress shows whether each goal is ahead, on pace or behind.</p>
     </div>
-    <picture><source srcset="/shots/goals-dark.webp" media="(prefers-color-scheme: dark)"><img class="narrow" src="/shots/goals-light.webp" width="800" height="660" alt="Quarter goals with steps and habits" loading="lazy"></picture>
+    <div class="media"><picture><source srcset="/shots/goals-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/goals-light.webp" width="790" height="660" alt="Quarter goals with steps and habits" loading="lazy"></picture></div>
   </section>
 
   <section class="feature">
-    <div>
+    <div class="text">
       <span class="eyebrow">Focus</span>
       <h2>One task at a time.</h2>
       <p>A stopwatch or pomodoro rounds, the task's subtasks and its notes. Every stretch is logged as an Org clock entry, and can set your Teams status while you work.</p>
     </div>
-    <picture><source srcset="/shots/focus-dark.webp" media="(prefers-color-scheme: dark)"><img class="narrow" src="/shots/focus-light.webp" width="960" height="1040" alt="Focus mode with a stopwatch and subtasks" loading="lazy"></picture>
+    <div class="media"><picture><source srcset="/shots/focus-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/focus-light.webp" width="960" height="1040" alt="Focus mode with a stopwatch and subtasks" loading="lazy"></picture></div>
   </section>
 
-  <section class="org">
-    <div>
+  <section class="feature org">
+    <div class="text">
       <span class="eyebrow">Plain text</span>
       <h2>Org files are the source of truth.</h2>
       <p>Each file is a channel. Edit in Emacs and Samaya shows it straight away; Samaya changes only the parts of a file it understands, and never overwrites your edits.</p>
       <a href="/docs/org-files">How tasks map to Org →</a>
     </div>
-<pre><code><span class="k">* TODO</span> <span class="p">[#A]</span> Review the timeline widget
+    <div class="media"><pre><code><span class="k">* TODO</span> <span class="p">[#A]</span> Review the timeline widget
   <span class="m">SCHEDULED: &lt;2026-11-04 Wed 10:30-11:00&gt;</span>
   <span class="d">:PROPERTIES:</span>
   <span class="d">:EFFORT:</span>   0:30
   <span class="d">:END:</span>
   Notes go in the body, as usual.
-<span class="k">** TODO</span> Check the drag ghost</code></pre>
+<span class="k">** TODO</span> Check the drag ghost</code></pre></div>
   </section>
 
   <section class="integrations">
@@ -111,7 +113,7 @@
     <h2>Install</h2>
     <input type="radio" name="os" id="os-linux" checked>
     <input type="radio" name="os" id="os-windows">
-    <div class="switch" role="group" aria-label="Platform"><label for="os-linux">Linux</label><label for="os-windows">Windows</label></div>
+    <div class="switch" role="group" aria-label="Platform" style="--n: 2"><span class="thumb"></span><label for="os-linux">Linux</label><label for="os-windows">Windows</label></div>
     <div class="panes">
     <div class="pane os-linux">
       <div class="cmd"><button class="copy" type="button">Copy</button><pre><code>curl -fsSL https://git.hegdeatri.com/hegdeatri/samaya-releases/raw/branch/main/install.sh | sh</code></pre></div>
