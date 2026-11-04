@@ -5,16 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Forgejo · Samaya</title>
 <link rel="icon" href="/icon-light.png">
+<link rel="icon" href="/icon-dark.png" media="(prefers-color-scheme: dark)">
+<link rel="preload" href="/fonts/FiraSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/style.css">
 </head>
-<body>
-<header class="bar">
-  <a class="brand" href="/"><img src="/icon-light.png" alt="">Samaya</a>
+<body class="doc">
+<header class="top"><div class="bar">
+  <a class="brand" href="/"><picture><source srcset="/icon-dark.png" media="(prefers-color-scheme: dark)"><img src="/icon-light.png" alt=""></picture>Samaya</a>
   <nav><a href="/docs/install" aria-current="page">Docs</a><a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a></nav>
-</header>
-<div class="prebeta"><b>Pre-beta.</b> Samaya is early software: expect rough edges and changes between releases. Keep a backup of your Org files.</div>
+</div></header>
+<div class="prebeta"><b>Pre-beta.</b> Samaya is early software<span class="long">: expect rough edges and changes between releases</span>. Keep a backup of your Org files.</div>
 <div class="docs">
-  <aside><a href="/docs/install">Getting started</a><a href="/docs/org-files">Org files</a><a href="/docs/google-calendar">Google Calendar</a><a href="/docs/outlook-calendar">Outlook calendars</a><a href="/docs/github">GitHub</a><a href="/docs/forgejo" aria-current="page">Forgejo</a><a href="/docs/azure-devops">Azure DevOps</a><a href="/docs/plane">Plane</a><a href="/docs/microsoft-planner">Microsoft Planner</a><a href="/docs/microsoft-teams">Microsoft Teams</a><a href="/docs/desktop">Desktop integration</a></aside>
+  <aside><span class="group">Start</span><a href="/docs/install">Getting started</a><a href="/docs/org-files">Org files</a><span class="group">Calendars</span><a href="/docs/google-calendar">Google Calendar</a><a href="/docs/outlook-calendar">Outlook calendars</a><span class="group">Work items</span><a href="/docs/github">GitHub</a><a href="/docs/forgejo" aria-current="page">Forgejo</a><a href="/docs/azure-devops">Azure DevOps</a><a href="/docs/plane">Plane</a><a href="/docs/microsoft-planner">Microsoft Planner</a><span class="group">Desktop</span><a href="/docs/microsoft-teams">Microsoft Teams</a><a href="/docs/desktop">Desktop integration</a></aside>
+  <details class="menu"><summary>Documentation</summary><nav><span class="group">Start</span><a href="/docs/install">Getting started</a><a href="/docs/org-files">Org files</a><span class="group">Calendars</span><a href="/docs/google-calendar">Google Calendar</a><a href="/docs/outlook-calendar">Outlook calendars</a><span class="group">Work items</span><a href="/docs/github">GitHub</a><a href="/docs/forgejo" aria-current="page">Forgejo</a><a href="/docs/azure-devops">Azure DevOps</a><a href="/docs/plane">Plane</a><a href="/docs/microsoft-planner">Microsoft Planner</a><span class="group">Desktop</span><a href="/docs/microsoft-teams">Microsoft Teams</a><a href="/docs/desktop">Desktop integration</a></nav></details>
   <article>
     <h1>Forgejo</h1>
     <section><p>The Forgejo panel lists issues and pull requests from a saved search on one
@@ -44,7 +47,14 @@ SCHEDULED: &lt;2026-10-12 Mon&gt;
 :END:
 </code></pre><p>Drag the task back onto the Forgejo panel to un-plan it.
 </p></section>
+    <nav class="pager"><a rel="prev" href="/docs/github">GitHub</a><a rel="next" href="/docs/azure-devops">Azure DevOps</a></nav>
   </article>
+  <nav class="toc"><b>On this page</b><a href="#instance-and-sign-in">Instance and sign-in</a><a href="#filters">Filters</a><a href="#planning-an-item">Planning an item</a></nav>
 </div>
+<footer class="bar">
+  <span>© Atri Hegde · Samaya v1.17.0, pre-beta</span>
+  <nav><a href="/">Home</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases">Releases</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">Changelog</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/issues">Report an issue</a></nav>
+</footer>
+<script src="/site.js" defer></script>
 </body>
 </html>
