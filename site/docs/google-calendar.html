@@ -5,16 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Google Calendar · Samaya</title>
 <link rel="icon" href="/icon-light.png">
+<link rel="icon" href="/icon-dark.png" media="(prefers-color-scheme: dark)">
+<link rel="preload" href="/fonts/FiraSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/style.css">
 </head>
-<body>
-<header class="bar">
-  <a class="brand" href="/"><img src="/icon-light.png" alt="">Samaya</a>
+<body class="doc">
+<header class="top"><div class="bar">
+  <a class="brand" href="/"><picture><source srcset="/icon-dark.png" media="(prefers-color-scheme: dark)"><img src="/icon-light.png" alt=""></picture>Samaya</a>
   <nav><a href="/docs/install" aria-current="page">Docs</a><a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a></nav>
-</header>
-<div class="prebeta"><b>Pre-beta.</b> Samaya is early software: expect rough edges and changes between releases. Keep a backup of your Org files.</div>
+</div></header>
+<div class="prebeta"><b>Pre-beta.</b> Samaya is early software<span class="long">: expect rough edges and changes between releases</span>. Keep a backup of your Org files.</div>
 <div class="docs">
-  <aside><a href="/docs/install">Getting started</a><a href="/docs/org-files">Org files</a><a href="/docs/google-calendar" aria-current="page">Google Calendar</a><a href="/docs/outlook-calendar">Outlook calendars</a><a href="/docs/github">GitHub</a><a href="/docs/forgejo">Forgejo</a><a href="/docs/azure-devops">Azure DevOps</a><a href="/docs/plane">Plane</a><a href="/docs/microsoft-planner">Microsoft Planner</a><a href="/docs/microsoft-teams">Microsoft Teams</a><a href="/docs/desktop">Desktop integration</a></aside>
+  <aside><span class="group">Start</span><a href="/docs/install">Getting started</a><a href="/docs/org-files">Org files</a><span class="group">Calendars</span><a href="/docs/google-calendar" aria-current="page">Google Calendar</a><a href="/docs/outlook-calendar">Outlook calendars</a><span class="group">Work items</span><a href="/docs/github">GitHub</a><a href="/docs/forgejo">Forgejo</a><a href="/docs/azure-devops">Azure DevOps</a><a href="/docs/plane">Plane</a><a href="/docs/microsoft-planner">Microsoft Planner</a><span class="group">Desktop</span><a href="/docs/microsoft-teams">Microsoft Teams</a><a href="/docs/desktop">Desktop integration</a></aside>
+  <details class="menu"><summary>Documentation</summary><nav><span class="group">Start</span><a href="/docs/install">Getting started</a><a href="/docs/org-files">Org files</a><span class="group">Calendars</span><a href="/docs/google-calendar" aria-current="page">Google Calendar</a><a href="/docs/outlook-calendar">Outlook calendars</a><span class="group">Work items</span><a href="/docs/github">GitHub</a><a href="/docs/forgejo">Forgejo</a><a href="/docs/azure-devops">Azure DevOps</a><a href="/docs/plane">Plane</a><a href="/docs/microsoft-planner">Microsoft Planner</a><span class="group">Desktop</span><a href="/docs/microsoft-teams">Microsoft Teams</a><a href="/docs/desktop">Desktop integration</a></nav></details>
   <article>
     <h1>Google Calendar</h1>
     <section><p>Samaya syncs your Google calendars into <code>calendar.org</code> in your Org folder. The
@@ -28,16 +31,16 @@ views (it still syncs into <code>calendar.org</code>) and a colour, starting fro
 colour in Google. The account&apos;s card re-authorizes and disconnects it. <b>Sync all
 calendars</b> does the same for an account connected from the terminal.
 </p><p>From a terminal:
-</p><pre><code class="language-sh">samaya sync auth google
-</code></pre><p>It asks for an account name, the Org tag its events should carry and, the first
+</p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">samaya sync auth google
+</code></pre></div><p>It asks for an account name, the Org tag its events should carry and, the first
 time, your Org folder. It then opens your browser, and once you have signed in,
 lists the account&apos;s calendars so you can choose which to sync. Every prompt has
 a flag:
-</p><pre><code class="language-sh">samaya sync auth google \
+</p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">samaya sync auth google \
   --account work --tag work \
   --calendar primary --calendar team@example.com \
   --no-interactive
-</code></pre><p>Samaya asks to read your calendars and to edit events (<code>calendar.readonly</code> and
+</code></pre></div><p>Samaya asks to read your calendars and to edit events (<code>calendar.readonly</code> and
 <code>calendar.events</code>), so it can create task events, change event lengths and
 answer invitations.
 </p></section><h2 id="your-own-oauth-client-optional">Your own OAuth client (optional)</h2><section><p>Connecting needs no setup: Samaya signs in through its own OAuth client. Use
@@ -55,9 +58,9 @@ app</b>.
    client secret to hand.
 </p></li></ol><p>From a terminal, pass them to the first account you connect. Later accounts
 reuse its client.
-</p><pre><code class="language-sh">samaya sync auth google --account work \
+</p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">samaya sync auth google --account work \
   --client-id ....apps.googleusercontent.com --client-secret ...
-</code></pre><p>On Google Workspace, a client with user type <b>Internal</b> avoids the warning
+</code></pre></div><p>On Google Workspace, a client with user type <b>Internal</b> avoids the warning
 screen, but can only sign in accounts in that organization. One <b>External</b>
 client covering work and personal accounts is usually simpler.
 </p></section><h2 id="scheduling-tasks-into-a-calendar">Scheduling tasks into a calendar</h2><section><p>Choose a calendar in <b>Settings → Calendars → New task events</b>. Dropping a task
@@ -80,21 +83,21 @@ and accept the new permission.
 </p></section><h2 id="re-authorizing">Re-authorizing</h2><section><p>When an account&apos;s sign-in expires, the tray reports that it needs
 re-authorization. Re-authorize it from its card in <b>Settings → Calendars</b>, or
 from a terminal:
-</p><pre><code class="language-sh">samaya sync reauth --account personal
-</code></pre><p>This signs in again and changes nothing else. Sign in as the same Google
+</p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">samaya sync reauth --account personal
+</code></pre></div><p>This signs in again and changes nothing else. Sign in as the same Google
 account; a different one is refused. A running <code>samaya sync run --watch</code> needs
 no restart.
 </p></section><h2 id="changing-an-account-s-calendars-or-tag">Changing an account&apos;s calendars or tag</h2><section><p><code>samaya sync auth</code> refuses a name that is already connected. To change an
 account on purpose:
-</p><pre><code class="language-sh">samaya sync auth google --account personal --reconfigure
-</code></pre><p>Every prompt defaults to what the account already has. The calendar picker marks
+</p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">samaya sync auth google --account personal --reconfigure
+</code></pre></div><p>Every prompt defaults to what the account already has. The calendar picker marks
 the calendars currently synced, and a blank answer keeps them.
-</p></section><h2 id="syncing-from-the-terminal">Syncing from the terminal</h2><section><pre><code class="language-sh">samaya sync run --once     # sync once, then exit
+</p></section><h2 id="syncing-from-the-terminal">Syncing from the terminal</h2><section><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">samaya sync run --once     # sync once, then exit
 samaya sync run --watch    # sync now, then every interval
 samaya sync status         # accounts, calendars, events and last sync
 samaya sync reauth --account work
 samaya sync disconnect --account work
-</code></pre><p>While the app is open it does the syncing, and <code>samaya sync run</code> refuses with
+</code></pre></div><p>While the app is open it does the syncing, and <code>samaya sync run</code> refuses with
 an error. <code>status</code>, <code>auth</code>, <code>reauth</code> and <code>disconnect</code> always work.
 </p><p>To sync while the app is closed, use either a systemd user service with
 <code>--watch</code>, as in <a href="install#syncing-while-the-app-is-closed">Getting
@@ -119,8 +122,8 @@ Persistent=true
 
 [Install]
 WantedBy=timers.target
-</code></pre><pre><code class="language-sh">systemctl --user enable --now samaya-sync.timer
-</code></pre><p>While the app is open, the timer&apos;s runs are refused; they resume once it
+</code></pre><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">systemctl --user enable --now samaya-sync.timer
+</code></pre></div><p>While the app is open, the timer&apos;s runs are refused; they resume once it
 closes.
 </p></section><h2 id="configuration">Configuration</h2><section><p><code>~/.config/samaya/sync.toml</code> holds no secrets:
 </p><pre><code class="language-toml">[sync]
@@ -208,7 +211,14 @@ usually confused by several signed-in accounts or a stale cookie. Copy the
 address the command prints into a private window; the command keeps waiting for
 it.
 </p><table><thead><tr><td>What Google says</td><td>What it means</td></tr></thead><tbody><tr><td><code>invalid_client</code> / &quot;OAuth client was not found&quot;</td><td>Wrong client ID, or a client created moments ago that is not ready yet</td></tr><tr><td><code>redirect_uri_mismatch</code></td><td>The client is a <b>Web application</b>; it needs to be a <b>Desktop app</b></td></tr><tr><td>&quot;Access blocked: … has not completed the Google verification process&quot;</td><td>The consent screen is in <b>Testing</b> and this account is not a test user. Publish it, or add the account</td></tr><tr><td>&quot;Something went wrong&quot; with no code</td><td>The browser session, as above, or a project whose consent screen was never configured</td></tr></tbody></table></section>
+    <nav class="pager"><a rel="prev" href="/docs/org-files">Org files</a><a rel="next" href="/docs/outlook-calendar">Outlook calendars</a></nav>
   </article>
+  <nav class="toc"><b>On this page</b><a href="#connecting-an-account">Connecting an account</a><a href="#your-own-oauth-client-optional">Your own OAuth client (optional)</a><a href="#scheduling-tasks-into-a-calendar">Scheduling tasks into a calendar</a><a href="#answering-invitations">Answering invitations</a><a href="#re-authorizing">Re-authorizing</a><a href="#changing-an-account-s-calendars-or-tag">Changing an account&apos;s calendars or tag</a><a href="#syncing-from-the-terminal">Syncing from the terminal</a><a href="#configuration">Configuration</a><a href="#credentials">Credentials</a><a href="#the-calendar-file">The calendar file</a><a href="#troubleshooting">Troubleshooting</a></nav>
 </div>
+<footer class="bar">
+  <span>© Atri Hegde · Samaya v1.17.0, pre-beta</span>
+  <nav><a href="/">Home</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases">Releases</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">Changelog</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/issues">Report an issue</a></nav>
+</footer>
+<script src="/site.js" defer></script>
 </body>
 </html>
