@@ -5,16 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Outlook calendars · Samaya</title>
 <link rel="icon" href="/icon-light.png">
+<link rel="icon" href="/icon-dark.png" media="(prefers-color-scheme: dark)">
+<link rel="preload" href="/fonts/FiraSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/style.css">
 </head>
-<body>
-<header class="bar">
-  <a class="brand" href="/"><img src="/icon-light.png" alt="">Samaya</a>
+<body class="doc">
+<header class="top"><div class="bar">
+  <a class="brand" href="/"><picture><source srcset="/icon-dark.png" media="(prefers-color-scheme: dark)"><img src="/icon-light.png" alt=""></picture>Samaya</a>
   <nav><a href="/docs/install" aria-current="page">Docs</a><a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a></nav>
-</header>
-<div class="prebeta"><b>Pre-beta.</b> Samaya is early software: expect rough edges and changes between releases. Keep a backup of your Org files.</div>
+</div></header>
+<div class="prebeta"><b>Pre-beta.</b> Samaya is early software<span class="long">: expect rough edges and changes between releases</span>. Keep a backup of your Org files.</div>
 <div class="docs">
-  <aside><a href="/docs/install">Getting started</a><a href="/docs/org-files">Org files</a><a href="/docs/google-calendar">Google Calendar</a><a href="/docs/outlook-calendar" aria-current="page">Outlook calendars</a><a href="/docs/github">GitHub</a><a href="/docs/forgejo">Forgejo</a><a href="/docs/azure-devops">Azure DevOps</a><a href="/docs/plane">Plane</a><a href="/docs/microsoft-planner">Microsoft Planner</a><a href="/docs/microsoft-teams">Microsoft Teams</a><a href="/docs/desktop">Desktop integration</a></aside>
+  <aside><span class="group">Start</span><a href="/docs/install">Getting started</a><a href="/docs/org-files">Org files</a><span class="group">Calendars</span><a href="/docs/google-calendar">Google Calendar</a><a href="/docs/outlook-calendar" aria-current="page">Outlook calendars</a><span class="group">Work items</span><a href="/docs/github">GitHub</a><a href="/docs/forgejo">Forgejo</a><a href="/docs/azure-devops">Azure DevOps</a><a href="/docs/plane">Plane</a><a href="/docs/microsoft-planner">Microsoft Planner</a><span class="group">Desktop</span><a href="/docs/microsoft-teams">Microsoft Teams</a><a href="/docs/desktop">Desktop integration</a></aside>
+  <details class="menu"><summary>Documentation</summary><nav><span class="group">Start</span><a href="/docs/install">Getting started</a><a href="/docs/org-files">Org files</a><span class="group">Calendars</span><a href="/docs/google-calendar">Google Calendar</a><a href="/docs/outlook-calendar" aria-current="page">Outlook calendars</a><span class="group">Work items</span><a href="/docs/github">GitHub</a><a href="/docs/forgejo">Forgejo</a><a href="/docs/azure-devops">Azure DevOps</a><a href="/docs/plane">Plane</a><a href="/docs/microsoft-planner">Microsoft Planner</a><span class="group">Desktop</span><a href="/docs/microsoft-teams">Microsoft Teams</a><a href="/docs/desktop">Desktop integration</a></nav></details>
   <article>
     <h1>Outlook calendars</h1>
     <section><p>Outlook calendars sync into the same <code>calendar.org</code> as Google&apos;s. Personal
@@ -24,8 +27,8 @@ Microsoft accounts (outlook.com, Hotmail, Live) and work or school accounts
 file, notes and the archive applies here too.
 </p></section><h2 id="connecting-an-account">Connecting an account</h2><section><p>In the app, open <b>Settings → Calendars → Connect calendar</b>, choose <b>Outlook</b>,
 give it a name and choose <b>Sign in with Microsoft</b>. From a terminal:
-</p><pre><code class="language-sh">samaya sync auth outlook --account work
-</code></pre><p>Account names are shared between Google and Outlook, so a Google account and an
+</p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">samaya sync auth outlook --account work
+</code></pre></div><p>Account names are shared between Google and Outlook, so a Google account and an
 Outlook account cannot both be called <code>work</code>. <code>samaya sync reauth</code>, <code>status</code>
 and <code>disconnect</code> take the name and work the same for either.
 </p><p>Tasks can be scheduled into an Outlook calendar with <b>New task events</b>, as in
@@ -53,8 +56,8 @@ personal and work alike. It has no client secret.
 for:
 </p><table><thead><tr><td>Permission</td><td>For</td></tr></thead><tbody><tr><td><code>Calendars.ReadWrite</code></td><td>Your calendars and task events</td></tr><tr><td><code>User.Read</code></td><td>Your account</td></tr><tr><td><code>offline_access</code></td><td>Syncing without signing in each time</td></tr><tr><td><code>ProfilePhoto.Read.All</code></td><td>Guests&apos; pictures</td></tr><tr><td><code>Tasks.Read</code></td><td>The <a href="microsoft-planner">Microsoft Planner</a> panel</td></tr><tr><td><code>Presence.ReadWrite</code></td><td>Your <a href="microsoft-teams">Teams status</a></td></tr></tbody></table><p>In the app, choose <b>Sign in through → Your own app</b> and give the client ID.
 From a terminal:
-</p><pre><code class="language-sh">samaya sync auth outlook --account work --client-id 00000000-0000-0000-0000-000000000000
-</code></pre></section><h2 id="how-outlook-differs-from-google">How Outlook differs from Google</h2><section><ul><li><p><b>Changing an event&apos;s length always emails its guests.</b> Outlook has no way to
+</p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">samaya sync auth outlook --account work --client-id 00000000-0000-0000-0000-000000000000
+</code></pre></div></section><h2 id="how-outlook-differs-from-google">How Outlook differs from Google</h2><section><ul><li><p><b>Changing an event&apos;s length always emails its guests.</b> Outlook has no way to
   change a meeting quietly, so dragging the end of an Outlook event with guests
   only asks whether to save.
 </p></li><li><p><b>Disconnecting cannot revoke access.</b> <code>samaya sync disconnect</code> removes
@@ -64,7 +67,14 @@ From a terminal:
 </p></li><li><p><b>Unused accounts expire.</b> An account not synced for about 90 days has to be
   re-authorized.
 </p></li></ul></section><h2 id="troubleshooting">Troubleshooting</h2><section><table><thead><tr><td>Error</td><td>Fix</td></tr></thead><tbody><tr><td>AADSTS50011, redirect URI mismatch</td><td>Add <code>http://localhost</code> under the <b>Mobile and desktop applications</b> platform, not under <b>Web</b></td></tr><tr><td>AADSTS7000218, a client secret is required</td><td>The registration is treated as a web app. Check the redirect is under <b>Mobile and desktop applications</b></td></tr><tr><td>AADSTS50194 or AADSTS700016, app not found or not multi-tenant</td><td>Choose the supported account types that include personal accounts and every organization</td></tr><tr><td><b>Need admin approval</b></td><td>See <a href="#work-and-school-accounts">Work and school accounts</a></td></tr></tbody></table></section>
+    <nav class="pager"><a rel="prev" href="/docs/google-calendar">Google Calendar</a><a rel="next" href="/docs/github">GitHub</a></nav>
   </article>
+  <nav class="toc"><b>On this page</b><a href="#connecting-an-account">Connecting an account</a><a href="#your-own-app-registration-optional">Your own app registration (optional)</a><a href="#how-outlook-differs-from-google">How Outlook differs from Google</a><a href="#troubleshooting">Troubleshooting</a></nav>
 </div>
+<footer class="bar">
+  <span>© Atri Hegde · Samaya v1.17.0, pre-beta</span>
+  <nav><a href="/">Home</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases">Releases</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">Changelog</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/issues">Report an issue</a></nav>
+</footer>
+<script src="/site.js" defer></script>
 </body>
 </html>
