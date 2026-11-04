@@ -31,16 +31,14 @@ views (it still syncs into <code>calendar.org</code>) and a colour, starting fro
 colour in Google. The account&apos;s card re-authorizes and disconnects it. <b>Sync all
 calendars</b> does the same for an account connected from the terminal.
 </p><p>From a terminal:
-</p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">samaya sync auth google
-</code></pre></div><p>It asks for an account name, the Org tag its events should carry and, the first
+</p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">samaya sync auth google</code></pre></div><p>It asks for an account name, the Org tag its events should carry and, the first
 time, your Org folder. It then opens your browser, and once you have signed in,
 lists the account&apos;s calendars so you can choose which to sync. Every prompt has
 a flag:
 </p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">samaya sync auth google \
   --account work --tag work \
   --calendar primary --calendar team@example.com \
-  --no-interactive
-</code></pre></div><p>Samaya asks to read your calendars and to edit events (<code>calendar.readonly</code> and
+  --no-interactive</code></pre></div><p>Samaya asks to read your calendars and to edit events (<code>calendar.readonly</code> and
 <code>calendar.events</code>), so it can create task events, change event lengths and
 answer invitations.
 </p></section><h2 id="your-own-oauth-client-optional">Your own OAuth client (optional)</h2><section><p>Connecting needs no setup: Samaya signs in through its own OAuth client. Use
@@ -59,8 +57,7 @@ app</b>.
 </p></li></ol><p>From a terminal, pass them to the first account you connect. Later accounts
 reuse its client.
 </p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">samaya sync auth google --account work \
-  --client-id ....apps.googleusercontent.com --client-secret ...
-</code></pre></div><p>On Google Workspace, a client with user type <b>Internal</b> avoids the warning
+  --client-id ....apps.googleusercontent.com --client-secret ...</code></pre></div><p>On Google Workspace, a client with user type <b>Internal</b> avoids the warning
 screen, but can only sign in accounts in that organization. One <b>External</b>
 client covering work and personal accounts is usually simpler.
 </p></section><h2 id="scheduling-tasks-into-a-calendar">Scheduling tasks into a calendar</h2><section><p>Choose a calendar in <b>Settings → Calendars → New task events</b>. Dropping a task
@@ -83,21 +80,18 @@ and accept the new permission.
 </p></section><h2 id="re-authorizing">Re-authorizing</h2><section><p>When an account&apos;s sign-in expires, the tray reports that it needs
 re-authorization. Re-authorize it from its card in <b>Settings → Calendars</b>, or
 from a terminal:
-</p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">samaya sync reauth --account personal
-</code></pre></div><p>This signs in again and changes nothing else. Sign in as the same Google
+</p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">samaya sync reauth --account personal</code></pre></div><p>This signs in again and changes nothing else. Sign in as the same Google
 account; a different one is refused. A running <code>samaya sync run --watch</code> needs
 no restart.
 </p></section><h2 id="changing-an-account-s-calendars-or-tag">Changing an account&apos;s calendars or tag</h2><section><p><code>samaya sync auth</code> refuses a name that is already connected. To change an
 account on purpose:
-</p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">samaya sync auth google --account personal --reconfigure
-</code></pre></div><p>Every prompt defaults to what the account already has. The calendar picker marks
+</p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">samaya sync auth google --account personal --reconfigure</code></pre></div><p>Every prompt defaults to what the account already has. The calendar picker marks
 the calendars currently synced, and a blank answer keeps them.
 </p></section><h2 id="syncing-from-the-terminal">Syncing from the terminal</h2><section><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">samaya sync run --once     # sync once, then exit
 samaya sync run --watch    # sync now, then every interval
 samaya sync status         # accounts, calendars, events and last sync
 samaya sync reauth --account work
-samaya sync disconnect --account work
-</code></pre></div><p>While the app is open it does the syncing, and <code>samaya sync run</code> refuses with
+samaya sync disconnect --account work</code></pre></div><p>While the app is open it does the syncing, and <code>samaya sync run</code> refuses with
 an error. <code>status</code>, <code>auth</code>, <code>reauth</code> and <code>disconnect</code> always work.
 </p><p>To sync while the app is closed, use either a systemd user service with
 <code>--watch</code>, as in <a href="install#syncing-while-the-app-is-closed">Getting
@@ -122,8 +116,7 @@ Persistent=true
 
 [Install]
 WantedBy=timers.target
-</code></pre><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">systemctl --user enable --now samaya-sync.timer
-</code></pre></div><p>While the app is open, the timer&apos;s runs are refused; they resume once it
+</code></pre><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">systemctl --user enable --now samaya-sync.timer</code></pre></div><p>While the app is open, the timer&apos;s runs are refused; they resume once it
 closes.
 </p></section><h2 id="configuration">Configuration</h2><section><p><code>~/.config/samaya/sync.toml</code> holds no secrets:
 </p><pre><code class="language-toml">[sync]
