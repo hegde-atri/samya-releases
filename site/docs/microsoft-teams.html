@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Microsoft Teams · Samaya</title>
+<link rel="icon" href="/icon-light.png">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="/"><img src="/icon-light.png" alt="">Samaya</a>
+  <nav><a href="/docs/install" aria-current="page">Docs</a><a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a></nav>
+</header>
+<div class="prebeta"><b>Pre-beta.</b> Samaya is early software: expect rough edges and changes between releases. Keep a backup of your Org files.</div>
+<div class="docs">
+  <aside><a href="/docs/install">Getting started</a><a href="/docs/org-files">Org files</a><a href="/docs/google-calendar">Google Calendar</a><a href="/docs/outlook-calendar">Outlook calendars</a><a href="/docs/github">GitHub</a><a href="/docs/forgejo">Forgejo</a><a href="/docs/azure-devops">Azure DevOps</a><a href="/docs/plane">Plane</a><a href="/docs/microsoft-planner">Microsoft Planner</a><a href="/docs/microsoft-teams" aria-current="page">Microsoft Teams</a><a href="/docs/desktop">Desktop integration</a></aside>
+  <article>
+    <h1>Microsoft Teams</h1>
+    <section><p>Samaya can set your Teams status while you focus on a task, sit in a calendar
+event or work through a time-blocked task. What you are working on stays hidden
+unless the task is in a public Work channel.
+</p></section><h2 id="account-and-sign-in">Account and sign-in</h2><section><p>Samaya sets your status through an Outlook account connected in <b>Settings →
+Calendars</b>; see <a href="outlook-calendar">Outlook calendars</a>. Choose it as
+<b>Account</b> in <b>Settings → Teams</b>. With <b>Off</b> chosen, Samaya leaves your status
+alone.
+</p><ul><li><p><b>A work or school account is needed.</b> Personal Microsoft accounts have no
+  Teams status.
+</p></li><li><p><b>An account connected before Teams was supported needs re-authorizing once</b>,
+  to grant <code>Presence.ReadWrite</code>. Use <b>Reconnect</b> in <b>Settings → Teams</b>, its card
+  in <b>Settings → Calendars</b>, or <code>samaya sync reauth</code>. Until then <b>Settings →
+  Teams</b> says Teams refused.
+</p></li></ul></section><h2 id="what-teams-shows">What Teams shows</h2><section><p>Each situation sets an availability, or leaves it unchanged, and a status
+message, or none. Availability is one of <b>Don&apos;t change</b>, <b>Available</b>, <b>Busy</b>,
+<b>Do not disturb</b>, <b>Be right back</b> or <b>Away</b>.
+</p><table><thead><tr><td>Setting</td><td>Default</td></tr></thead><tbody><tr><td><b>While focusing</b></td><td>Do not disturb, &quot;Focusing on a task&quot;</td></tr><tr><td><b>During an event</b></td><td>Don&apos;t change, no message</td></tr><tr><td><b>During a time block</b></td><td>Busy, no message</td></tr></tbody></table><p>Focus comes first, then an event, then a time block. One left entirely
+unchanged gives way to the next. Teams already shows <b>In a meeting</b> for Outlook
+events, which is why events change nothing by default. Declined and cancelled
+events don&apos;t count.
+</p><p>When nothing applies any more, Samaya clears the availability and message it
+set, and only those. If Samaya quits, Teams clears them on its own.
+</p></section><h2 id="task-names-and-privacy">Task names and privacy</h2><section><p>With <b>Show the task&apos;s name</b> on, focusing shows &quot;Focusing on: /task/&quot;, but only
+for a task in a public Work channel. Every channel is Personal and private until
+changed in <b>Settings → Channels</b>. Personal channels are always private, and
+making a Work channel public asks first. See
+<a href="org-files#channel-keywords">Org files → Channel keywords</a>.
+</p></section>
+  </article>
+</div>
+</body>
+</html>
