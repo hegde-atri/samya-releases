@@ -27,8 +27,7 @@ Microsoft accounts (outlook.com, Hotmail, Live) and work or school accounts
 file, notes and the archive applies here too.
 </p></section><h2 id="connecting-an-account">Connecting an account</h2><section><p>In the app, open <b>Settings → Calendars → Connect calendar</b>, choose <b>Outlook</b>,
 give it a name and choose <b>Sign in with Microsoft</b>. From a terminal:
-</p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">samaya sync auth outlook --account work
-</code></pre></div><p>Account names are shared between Google and Outlook, so a Google account and an
+</p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">samaya sync auth outlook --account work</code></pre></div><p>Account names are shared between Google and Outlook, so a Google account and an
 Outlook account cannot both be called <code>work</code>. <code>samaya sync reauth</code>, <code>status</code>
 and <code>disconnect</code> take the name and work the same for either.
 </p><p>Tasks can be scheduled into an Outlook calendar with <b>New task events</b>, as in
@@ -56,8 +55,7 @@ personal and work alike. It has no client secret.
 for:
 </p><table><thead><tr><td>Permission</td><td>For</td></tr></thead><tbody><tr><td><code>Calendars.ReadWrite</code></td><td>Your calendars and task events</td></tr><tr><td><code>User.Read</code></td><td>Your account</td></tr><tr><td><code>offline_access</code></td><td>Syncing without signing in each time</td></tr><tr><td><code>ProfilePhoto.Read.All</code></td><td>Guests&apos; pictures</td></tr><tr><td><code>Tasks.Read</code></td><td>The <a href="microsoft-planner">Microsoft Planner</a> panel</td></tr><tr><td><code>Presence.ReadWrite</code></td><td>Your <a href="microsoft-teams">Teams status</a></td></tr></tbody></table><p>In the app, choose <b>Sign in through → Your own app</b> and give the client ID.
 From a terminal:
-</p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">samaya sync auth outlook --account work --client-id 00000000-0000-0000-0000-000000000000
-</code></pre></div></section><h2 id="how-outlook-differs-from-google">How Outlook differs from Google</h2><section><ul><li><p><b>Changing an event&apos;s length always emails its guests.</b> Outlook has no way to
+</p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">samaya sync auth outlook --account work --client-id 00000000-0000-0000-0000-000000000000</code></pre></div></section><h2 id="how-outlook-differs-from-google">How Outlook differs from Google</h2><section><ul><li><p><b>Changing an event&apos;s length always emails its guests.</b> Outlook has no way to
   change a meeting quietly, so dragging the end of an Outlook event with guests
   only asks whether to save.
 </p></li><li><p><b>Disconnecting cannot revoke access.</b> <code>samaya sync disconnect</code> removes
