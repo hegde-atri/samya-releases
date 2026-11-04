@@ -28,8 +28,7 @@ Releases are published at
 </p><p><a href="#linux">Linux</a> · <a href="#windows">Windows</a> · <a href="#first-run">First run</a>
 </p></section><h2 id="linux">Linux</h2><section><p>For x86_64 Linux with glibc 2.36 or newer: Debian 12, Ubuntu 22.04, Fedora, Arch
 or anything newer.
-</p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">curl -fsSL https://git.hegdeatri.com/hegdeatri/samaya-releases/raw/branch/main/install.sh | sh
-</code></pre></div><p>The installer checks the download&apos;s checksum, and its signature if
+</p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">curl -fsSL https://git.hegdeatri.com/hegdeatri/samaya-releases/raw/branch/main/install.sh | sh</code></pre></div><p>The installer checks the download&apos;s checksum, and its signature if
 <a href="https://jedisct1.github.io/minisign/">minisign</a> is installed. It puts
 <code>samaya</code> in <code>~/.local/bin</code> and adds it to your app menu. If <code>~/.local/bin</code> is
 not on your <code>PATH</code>, open Samaya from the app menu or run <code>~/.local/bin/samaya</code>.
@@ -40,8 +39,7 @@ not on your <code>PATH</code>, open Samaya from the app menu or run <code>~/.loc
    with its <code>.sha256</code> and <code>.minisig</code> files from
    <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">the latest release</a>.
 </p></li><li><p>Check the hash in PowerShell, and compare it with the <code>.sha256</code> file:
-</p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">   Get-FileHash .\samaya-1.17.0-x86_64-windows.zip -Algorithm SHA256
-</code></pre></div></li><li><p>Optionally, check the signature as in <a href="#verifying-a-release">Verifying a release</a>.
+</p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">Get-FileHash .\samaya-1.17.0-x86_64-windows.zip -Algorithm SHA256</code></pre></div></li><li><p>Optionally, check the signature as in <a href="#verifying-a-release">Verifying a release</a>.
 </p></li><li><p>Extract the whole ZIP to a folder and double-click <code>samaya.exe</code>.
 </p></li></ol><p>No installer or administrator access is needed. The executable has no Windows
 publisher certificate, so Windows may show an unknown-publisher warning.
@@ -98,14 +96,12 @@ RestartSec=60
 
 [Install]
 WantedBy=default.target
-</code></pre><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">systemctl --user enable --now samaya-sync.service
-</code></pre></div><p>Change <code>ExecStart</code> if <code>samaya</code> is installed somewhere else. While the app is
+</code></pre><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">systemctl --user enable --now samaya-sync.service</code></pre></div><p>Change <code>ExecStart</code> if <code>samaya</code> is installed somewhere else. While the app is
 open, <code>samaya sync run</code> exits with an error because the app is already
 syncing; <code>Restart=on-failure</code> lets the service take over within a minute of the
 app closing. For a timer instead, see
 <a href="google-calendar#syncing-from-the-terminal">Google Calendar → Syncing from the terminal</a>.
-</p></section><h2 id="other-ways-to-install">Other ways to install</h2><h3 id="a-particular-version">A particular version</h3><section><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">curl -fsSL https://git.hegdeatri.com/hegdeatri/samaya-releases/raw/branch/main/install.sh | sh -s -- v1.17.0
-</code></pre></div></section><h3 id="nixos">NixOS</h3><section><p>The prebuilt binary does not find its graphics libraries on NixOS by itself.
+</p></section><h2 id="other-ways-to-install">Other ways to install</h2><h3 id="a-particular-version">A particular version</h3><section><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">curl -fsSL https://git.hegdeatri.com/hegdeatri/samaya-releases/raw/branch/main/install.sh | sh -s -- v1.17.0</code></pre></div></section><h3 id="nixos">NixOS</h3><section><p>The prebuilt binary does not find its graphics libraries on NixOS by itself.
 Enable <code>programs.nix-ld</code> and add <code>wayland</code>, <code>libxkbcommon</code>, <code>vulkan-loader</code> and
 <code>libGL</code> to <code>programs.nix-ld.libraries</code>.
 </p></section><h2 id="verifying-a-release">Verifying a release</h2><section><p>Releases are signed with this key, also in
@@ -113,16 +109,14 @@ Enable <code>programs.nix-ld</code> and add <code>wayland</code>, <code>libxkbco
 </p><pre><code class="language-text">RWReXZNuxj5aplTyPD4awKxzs/sL9nlCssugg1Cd9ZbRWrwksTyfsJNe
 </code></pre><p>Keep the <code>.minisig</code> file beside its download, then:
 </p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">minisign -V -P RWReXZNuxj5aplTyPD4awKxzs/sL9nlCssugg1Cd9ZbRWrwksTyfsJNe \
-  -m samaya-X.Y.Z-x86_64-linux.tar.gz
-</code></pre></div><p>For Windows, use <code>-m samaya-X.Y.Z-x86_64-windows.zip</code>. The trusted comment it
+  -m samaya-X.Y.Z-x86_64-linux.tar.gz</code></pre></div><p>For Windows, use <code>-m samaya-X.Y.Z-x86_64-windows.zip</code>. The trusted comment it
 prints is the archive&apos;s file name. Linux archives are signed from 1.8.0 on.
 </p></section><h2 id="upgrading-from-samaya-sync">Upgrading from <code>samaya-sync</code></h2><section><p><code>samaya-sync</code> is now <code>samaya sync</code>, with the same subcommands and flags. Its
 tray (<code>--tray</code>) is replaced by the app&apos;s. Remove the old <code>samaya-sync</code> binary,
 and change a systemd unit&apos;s <code>ExecStart</code> to <code>samaya sync run --watch</code>.
 </p></section><h2 id="uninstalling">Uninstalling</h2><section><p>On Linux:
 </p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">rm ~/.local/bin/samaya ~/.local/share/applications/samaya.desktop \
-  ~/.local/share/icons/hicolor/128x128/apps/samaya.png
-</code></pre></div><p>On Windows, delete the extracted folder. Your Org folder is never touched.
+  ~/.local/share/icons/hicolor/128x128/apps/samaya.png</code></pre></div><p>On Windows, delete the extracted folder. Your Org folder is never touched.
 </p></section>
     <nav class="pager"><a rel="next" href="/docs/org-files">Org files</a></nav>
   </article>
