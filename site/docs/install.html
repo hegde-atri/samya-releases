@@ -35,11 +35,11 @@ not on your <code>PATH</code>, open Samaya from the app menu or run <code>~/.loc
 </p><p>On NixOS, see <a href="#nixos">NixOS</a>.
 </p></section><h2 id="windows">Windows</h2><section><p>For Windows 10 and 11, x64.
 </p><ol><li><p>Download
-   <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/download/v1.17.0/samaya-1.17.0-x86_64-windows.zip">samaya-1.17.0-x86_64-windows.zip</a>,
+   <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/download/v1.18.0/samaya-1.18.0-x86_64-windows.zip">samaya-1.18.0-x86_64-windows.zip</a>,
    with its <code>.sha256</code> and <code>.minisig</code> files from
    <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">the latest release</a>.
 </p></li><li><p>Check the hash in PowerShell, and compare it with the <code>.sha256</code> file:
-</p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">Get-FileHash .\samaya-1.17.0-x86_64-windows.zip -Algorithm SHA256</code></pre></div></li><li><p>Optionally, check the signature as in <a href="#verifying-a-release">Verifying a release</a>.
+</p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">Get-FileHash .\samaya-1.18.0-x86_64-windows.zip -Algorithm SHA256</code></pre></div></li><li><p>Optionally, check the signature as in <a href="#verifying-a-release">Verifying a release</a>.
 </p></li><li><p>Extract the whole ZIP to a folder and double-click <code>samaya.exe</code>.
 </p></li></ol><p>No installer or administrator access is needed. The executable has no Windows
 publisher certificate, so Windows may show an unknown-publisher warning.
@@ -123,7 +123,7 @@ and change a systemd unit&apos;s <code>ExecStart</code> to <code>samaya sync run
   <nav class="toc"><b>On this page</b><a href="#linux">Linux</a><a href="#windows">Windows</a><a href="#first-run">First run</a><a href="#commands">Commands</a><a href="#updates">Updates</a><a href="#syncing-while-the-app-is-closed">Syncing while the app is closed</a><a href="#other-ways-to-install">Other ways to install</a><a href="#verifying-a-release">Verifying a release</a><a href="#upgrading-from-samaya-sync">Upgrading from samaya-sync</a><a href="#uninstalling">Uninstalling</a></nav>
 </div>
 <footer class="bar">
-  <span>© Atri Hegde · Samaya v1.17.0, pre-beta</span>
+  <span>© Atri Hegde · Samaya v1.18.0, pre-beta</span>
   <nav><a href="/">Home</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases">Releases</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">Changelog</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/issues">Report an issue</a></nav>
 </footer>
 <script src="/site.js" defer></script>
