@@ -18,6 +18,18 @@ the way but not yet in a release.
 
 * Unreleased
 
+* 1.18.0 - 2026-11-05
+** New
+- *Untimed tasks on the calendar.* A day's open tasks with no time now sit in
+  its all-day row, under its all-day events, in their channel's colour. Tick
+  one off from its checkbox, click it to open it, or drag it onto the grid to
+  give it a time.
+
+** Improved
+- A crowded all-day row scrolls in place. Each day says how many of its items
+  are above and below, fades the lane at either edge, and shows a thin
+  scrollbar while it moves. Click a count to show every lane at once.
+
 * 1.17.0 - 2026-11-03
 ** New
 - *Tasks panel.* The backlog at the bottom of the rail is now a view of every
