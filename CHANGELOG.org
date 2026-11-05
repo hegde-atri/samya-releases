@@ -11,12 +11,22 @@ files in a way that older versions cannot follow. *Planned* lists what is on
 the way but not yet in a release.
 
 * Planned
+** Calendar
+- *Drag to create an event.* Drag across empty time on the calendar to make
+  an event spanning it, then name it in place.
+
 ** Integrations
 - *Slack status.* Your Slack status and notifications follow your focus
   sessions, events and time blocks, as Teams already does, with the same
   channel privacy deciding when a task's name is shown.
 
 * Unreleased
+
+* 1.18.1 - 2026-11-05
+** Improved
+- Drop a task on a day's all-day row to plan it for that day without a time,
+  whether it comes from the grid or the Tasks panel. The row now stays open
+  on quiet weeks so there is always somewhere to drop.
 
 * 1.18.0 - 2026-11-05
 ** New
