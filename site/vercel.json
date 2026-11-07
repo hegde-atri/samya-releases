@@ -1,5 +1,9 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [{ "source": "/docs", "destination": "/docs/install" }]
+  "redirects": [
+    { "source": "/docs", "destination": "/docs/install" },
+    { "source": "/privacy", "destination": "/docs/privacy" },
+    { "source": "/terms", "destination": "/docs/terms" }
+  ]
 }
