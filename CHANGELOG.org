@@ -11,16 +11,29 @@ files in a way that older versions cannot follow. *Planned* lists what is on
 the way but not yet in a release.
 
 * Planned
-** Calendar
-- *Drag to create an event.* Drag across empty time on the calendar to make
-  an event spanning it, then name it in place.
-
 ** Integrations
 - *Slack status.* Your Slack status and notifications follow your focus
   sessions, events and time blocks, as Teams already does, with the same
   channel privacy deciding when a task's name is shown.
 
 * Unreleased
+** New
+- *Events from the composer.* Press =E=, or =Ctrl+E= while typing, to make
+  an event rather than a task. Pick its calendar with =#name=, invite people
+  with =+name= or an address, add a location, suggested from your past
+  events and OpenStreetMap or Google, and a Google Meet or Teams call.
+- *Drag to create.* Drag across empty time on the calendar to name a task or
+  an event spanning it in the composer. Settings → Calendars chooses which
+  comes first, where events go, whether they get a call and each calendar's
+  =#name=.
+- *Move events.* Drag an event you organised to another time or day.
+
+** Improved
+- Blocks stretch from their top edge too, and both edges are easier to grab.
+
+** Fixed
+- A press on the calendar starts in the quarter hour under the pointer,
+  rather than the nearest one, so you no longer aim above the time you want.
 
 * 1.19.0 - 2026-11-07
 ** New
