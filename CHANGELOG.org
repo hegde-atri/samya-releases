@@ -22,6 +22,15 @@ the way but not yet in a release.
 
 * Unreleased
 
+* 1.19.0 - 2026-11-07
+** New
+- *Analytics.* A new screen under Plan shows a week, month, quarter or year
+  at a glance: time focused, tasks done and created, and focus per active
+  day, each against the period before. Focus is charted by channel, with a
+  table of every channel's time, tasks and estimate accuracy, a heatmap of
+  focus per day, and the hours you tend to work. Click a channel's row to
+  narrow the page to it, and click it again or press =Esc= to see everything.
+
 * 1.18.1 - 2026-11-05
 ** Improved
 - Drop a task on a day's all-day row to plan it for that day without a time,
