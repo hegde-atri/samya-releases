@@ -17,6 +17,8 @@ the way but not yet in a release.
   channel privacy deciding when a task's name is shown.
 
 * Unreleased
+
+* 1.20.0 - 2026-11-07
 ** New
 - *Events from the composer.* Press =E=, or =Ctrl+E= while typing, to make
   an event rather than a task. Pick its calendar with =#name=, invite people
