@@ -17,6 +17,13 @@ the way but not yet in a release.
   channel privacy deciding when a task's name is shown.
 
 * Unreleased
+** Improved
+- Done tasks without a time stay in the calendar's all-day row, ticked and
+  struck through, after the open ones. Hide done tasks hides them there too.
+
+** Fixed
+- Taking a done task off the calendar now deletes its calendar event too,
+  rather than leaving it behind. Completing a task still keeps its event.
 
 * 1.20.0 - 2026-11-07
 ** New
