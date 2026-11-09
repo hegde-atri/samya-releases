@@ -17,6 +17,14 @@ the way but not yet in a release.
   channel privacy deciding when a task's name is shown.
 
 * Unreleased
+
+* 1.21.0 - 2026-11-09
+** New
+- *Focus calendar.* Choose a calendar in Settings → Calendars to write the
+  time you focus there: one event per stretch, written as each session ends
+  and stretched over a short break when you carry on. Editing or deleting a
+  session moves or removes its event. Off by default.
+
 ** Improved
 - Done tasks without a time stay in the calendar's all-day row, ticked and
   struck through, after the open ones. Hide done tasks hides them there too.
