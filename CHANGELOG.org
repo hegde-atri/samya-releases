@@ -37,6 +37,8 @@ the way but not yet in a release.
   channel privacy deciding when a task's name is shown.
 
 * Unreleased
+
+* 1.22.0 - 2026-11-13
 ** New
 - *Azure DevOps task details.* Opening a task planned from a work item shows
   its state, fields, description, comments and links, and lets you change
@@ -45,6 +47,10 @@ the way but not yet in a release.
   task renames the work item, and ticking it offers to close the work item.
   Pull requests show their branches and reviewers' votes. Editing needs a
   token with *Work Items (Read & Write)*.
+
+** Improved
+- Azure DevOps only sends your token to an =https://= organization address,
+  so it never travels over plain HTTP.
 
 * 1.21.0 - 2026-11-09
 ** New
