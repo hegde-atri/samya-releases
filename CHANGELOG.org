@@ -29,6 +29,9 @@ the way but not yet in a release.
   own work Parallel, all written to your Org files like any other change.
 
 ** Integrations
+- *Mail.* Your Outlook and Gmail mail in a panel: archive, delete, flag or
+  mark it read in place, preview whole conversations, and plan one as a task
+  that keeps its thread to hand.
 - *Integration task details.* Tasks planned from GitHub, Forgejo, Plane and
   Planner show their item's details and let you edit them in place, as Azure
   DevOps tasks do.
