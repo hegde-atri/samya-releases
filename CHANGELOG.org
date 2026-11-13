@@ -11,12 +11,40 @@ files in a way that older versions cannot follow. *Planned* lists what is on
 the way but not yet in a release.
 
 * Planned
+** Planning
+- *Agentic daily planning.* Tell Samaya about your work once and give each
+  weekday a theme. Each morning, a short braindump becomes a planned day:
+  tasks drafted from your integrations and backlog, ranked by the theme and
+  your rules, and timeboxed around your calendar. Every change it makes is
+  listed with its own undo, and the moves it was unsure of are left for you to
+  decide.
+- *Parallel tasks and timers.* Mark a task Parallel when it runs alongside
+  other work, such as an agent fixing a bug or a build. Adjacent parallel
+  tasks share their time on the calendar, and their timers run together,
+  splitting the time evenly.
+
+** Agents
+- *Local MCP server.* Agents on your machine, such as Claude Code and Codex,
+  can read and edit your tasks, plan days, start and stop timers and mark their
+  own work Parallel, all written to your Org files like any other change.
+
 ** Integrations
+- *Integration task details.* Tasks planned from GitHub, Forgejo, Plane and
+  Planner show their item's details and let you edit them in place, as Azure
+  DevOps tasks do.
 - *Slack status.* Your Slack status and notifications follow your focus
   sessions, events and time blocks, as Teams already does, with the same
   channel privacy deciding when a task's name is shown.
 
 * Unreleased
+** New
+- *Azure DevOps task details.* Opening a task planned from a work item shows
+  its state, fields, description, comments and links, and lets you change
+  fields and post comments without leaving Samaya. Each change saves at once
+  and is refused if someone else changed the work item first. Renaming the
+  task renames the work item, and ticking it offers to close the work item.
+  Pull requests show their branches and reviewers' votes. Editing needs a
+  token with *Work Items (Read & Write)*.
 
 * 1.21.0 - 2026-11-09
 ** New
