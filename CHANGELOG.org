@@ -29,9 +29,8 @@ the way but not yet in a release.
   own work Parallel, all written to your Org files like any other change.
 
 ** Integrations
-- *Mail.* Your Outlook and Gmail mail in a panel: archive, delete, flag or
-  mark it read in place, preview whole conversations, and plan one as a task
-  that keeps its thread to hand.
+- *Gmail.* Your Gmail in a panel, with the same conversations, actions and
+  planning as Outlook mail.
 - *Integration task details.* Tasks planned from GitHub, Forgejo, Plane and
   Planner show their item's details and let you edit them in place, as Azure
   DevOps tasks do.
@@ -40,6 +39,17 @@ the way but not yet in a release.
   channel privacy deciding when a task's name is shown.
 
 * Unreleased
+
+* 1.23.0 - 2026-11-14
+** New
+- *Outlook mail.* A panel shows your Outlook mail beside your day, from an
+  account connected in Calendars. Archive, delete, flag or mark a
+  conversation read without leaving Samaya, with Undo; read the whole
+  conversation; and drag it onto a day or the backlog to plan it. A planned
+  conversation keeps its thread in the task, and ticking the task offers to
+  archive it. Mail shows as plain text with no pictures loaded. Press
+  =Shift+O= to open it. Accounts connected before need reconnecting once.
+- Tasks dragged from a panel onto the backlog land there, without a day.
 
 * 1.22.0 - 2026-11-13
 ** New
