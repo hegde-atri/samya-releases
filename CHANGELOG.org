@@ -40,6 +40,10 @@ the way but not yet in a release.
 
 * Unreleased
 
+* 1.23.1 - 2026-11-15
+** Fixed
+- Installing or upgrading Samaya with Nix builds again.
+
 * 1.23.0 - 2026-11-14
 ** New
 - *Outlook mail.* A panel shows your Outlook mail beside your day, from an
