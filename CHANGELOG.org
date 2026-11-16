@@ -40,6 +40,12 @@ the way but not yet in a release.
 
 * Unreleased
 
+* 1.23.2 - 2026-11-16
+** Fixed
+- The calendar's day columns fill the view again after resizing the window
+  or waking the laptop, instead of staying narrow with blank space beside
+  them.
+
 * 1.23.1 - 2026-11-15
 ** Fixed
 - Installing or upgrading Samaya with Nix builds again.
