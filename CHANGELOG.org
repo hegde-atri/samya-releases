@@ -40,6 +40,35 @@ the way but not yet in a release.
 
 * Unreleased
 
+* 2.3.0 - 2026-11-25
+Samaya 2.3 is a keyboard release: Goals, Progress and Analytics take the ring,
+and the editor's pickers take typing. *No breaking changes:* Org files and
+their format are untouched.
+[[https://samaya.hegdeatri.com/news/v2-3][What's new in Samaya 2.3]].
+
+** New
+- *Rings on Goals and Progress.* ↑ ↓ move one ring over Goals' rows, their
+  habit days and a goal's steps, and over Progress' goals, measures and
+  habits. ↵ opens the ringed goal and L logs a measure kept by hand. On
+  Progress, a ringed habit reads its week out over its own cell, and ← →
+  fold a year goal or step the week.
+- *Analytics period picker.* The period name opens a picker of months,
+  quarters or years, or a mini month for Week. ↑ ↓ ring the channels' rows
+  and ↵ narrows to the ringed one.
+- *Typed day and time.* The editor's Scheduled picker reads "fri 9:30" as
+  quick add does, shows the day and time it resolves to with anything it
+  overlaps, and writes it on ↵ or a click.
+- Shift ↑ ↓ extends a channel's selection from its anchor, as Shift-click
+  does.
+- The editor's Goal picker filters as you type.
+
+** Improved
+- A channel's "N hidden" unfolds every group and parent hiding a pick.
+- On Today's day calendar and Week's grids, a block takes the column's full
+  width where it runs alone, and its lane only where it shares time.
+- A goal's Log shows on hover and on the ring.
+- Esc clears a picker's typed text before it closes the picker.
+
 * 2.2.0 - 2026-11-25
 Samaya 2.2 adds a first run for new users. *No breaking changes:* it shows
 only when no org folder is set up, so existing users never see it.
