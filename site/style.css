@@ -366,3 +366,38 @@ footer.bar nav { flex-wrap: wrap; margin-left: -10px; }
 @media (max-width: 420px) {
   .bar nav a[href="#features"] { display: none; }
 }
+
+/* News */
+.news { max-width: 960px; margin: 0 auto; padding: 0 20px 96px; }
+.news .intro { padding: 48px 0 24px; }
+.news h1 { font-size: clamp(36px, 8vw, 52px); letter-spacing: -0.025em; margin: 8px 0 14px; }
+.news .intro p { color: var(--muted); font-size: 18px; max-width: 38em; margin: 0 0 24px; }
+.news .actions { justify-content: flex-start; }
+.news h2 { font-size: 26px; letter-spacing: -0.015em; margin: 0 0 8px; }
+.news section { padding-top: 56px; }
+.news section > p { color: var(--muted); max-width: 42em; margin: 0 0 20px; }
+.news .part { font-size: clamp(28px, 6vw, 36px); padding-top: 72px; margin: 0; }
+.safe { margin: 8px 0 0; padding: 18px 22px; border: 1px solid color-mix(in srgb, #2f9e6b 45%, var(--bg)); background: color-mix(in srgb, #2f9e6b 9%, var(--bg)); border-radius: 10px; }
+.safe h2 { font-size: 20px; }
+.safe ul { margin: 0 0 8px; padding-left: 20px; }
+.safe p { margin: 0; color: var(--muted); }
+.jump { display: flex; flex-wrap: wrap; gap: 6px; padding-top: 28px; }
+.jump a { padding: 4px 12px; border: 1px solid var(--weak); border-radius: 999px; background: var(--panel); color: var(--muted); font-size: 14px; }
+.news figure { margin: 0 0 16px; }
+.news figure img, .before img, .docs article img { display: block; width: 100%; height: auto; border: 1px solid var(--weak); border-radius: 10px; }
+.news figure img { box-shadow: var(--shadow); }
+.before { margin: 0 0 24px; }
+.before summary { cursor: pointer; width: fit-content; color: var(--muted); font-size: 14px; padding: 4px 0; }
+.before img { margin-top: 8px; opacity: 0.92; }
+.news .table { overflow-x: auto; }
+.news table { border-collapse: collapse; width: 100%; font-size: 15px; }
+.news td { border: 1px solid var(--weak); padding: 6px 10px; vertical-align: top; }
+.news thead td { font-weight: 600; background: var(--hover); }
+kbd { font: 0.85em "Fira Mono", ui-monospace, monospace; padding: 0.1em 0.4em; border: 1px solid var(--weak); border-radius: 4px; background: var(--panel); }
+@media (max-width: 520px) {
+  .top .bar nav a[href="/news/v2"] { display: none; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .jump a:hover { color: var(--text); border-color: var(--accent); text-decoration: none; }
+  .before summary:hover { color: var(--text); }
+}
