@@ -40,6 +40,31 @@ the way but not yet in a release.
 
 * Unreleased
 
+* 2.0.1 - 2026-11-25
+
+** Improved
+- Sign-in tokens are kept until they expire, not refreshed on every request.
+- Week and Today redraw faster with many events and guests.
+- A task card's channel menu lists an archived channel the task is still in,
+  as the editor's does.
+- An event card's link and calendar name are cut to fit its width.
+
+** Fixed
+- Day totals leave out tasks carried over from earlier days; their tooltip
+  adds the time carried over.
+- The add rows on boards and Today read channels, priorities and days as
+  quick add does, instead of keeping them in the title.
+- A change made while a calendar drop is still saving, such as Unpin, is no
+  longer lost to the next one.
+- An image attached while its task saves or after its editor closes keeps
+  its link in the notes, and a failed attach is reported.
+- A locked keyring is no longer read as a missing token, which sent Azure
+  DevOps to =az= and had Plane ask for its token again.
+- Switching Teams accounts clears Samaya's status on the old one without
+  touching the new account's own status.
+- Adding a task, goal or step when the planner failed to open says so, and
+  quick add keeps the task to retry.
+
 * 2.0.0 - 2026-11-25
 Samaya 2 redesigns the whole app on one design language. *No breaking
 changes:* your Org files and their format are untouched, settings in
