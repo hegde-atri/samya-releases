@@ -40,6 +40,39 @@ the way but not yet in a release.
 
 * Unreleased
 
+* 2.1.0 - 2026-11-25
+Samaya 2.1 adds rituals: short guided routines to plan your day, end it and
+review your week. *No breaking changes:* nothing new is written to your Org
+files; a ritual's progress is kept in the planner's state file.
+[[https://samaya.hegdeatri.com/news/v2-1][What's new in Samaya 2.1]].
+
+** New
+- *Daily planning.* Plan the day in four steps. Carry over decides each task
+  left from yesterday: Today, Move to… or Delete. Pick adds goal steps and
+  backlog tasks, with today's habits ticked. Fit lays the day beside its
+  calendar and names every overlap. Commit starts the day. The header reads
+  the day's planned time against its capacity throughout.
+- *Shutdown.* End the day with what got done, then the leftovers, each moved
+  to tomorrow, another day or the backlog, or deleted, then tomorrow's plan.
+- *Weekly review.* Done compares the week's focus, tasks done, planned done
+  and meetings with the week before. Goals shows each quarter goal's steps
+  done since the last review, its logged time, habit days and health. Open
+  decides the week's unfinished tasks, and Plan fills next week's days
+  against their capacity. The review is due on its review day and reads
+  Late after it.
+- *Rituals in the sidebar.* The new RITUALS group shows each ritual's step
+  while it runs, a check once done and a dot once due. It prompts but never
+  opens a ritual by itself. On a narrow window, the rail's Rituals cell
+  opens a menu of the three.
+- G then D, S or R and the command palette open Daily planning, Shutdown and
+  the weekly review, and Today's Plan day opens Daily planning. In a ritual,
+  digits jump between steps, Ctrl ↵ takes the step's action, Alt ← goes back
+  and Ctrl Z undoes a choice not yet written.
+- Settings › Planning sets when Daily planning is due: at the first open of
+  the day or at a time.
+- A ritual keeps its step and choices when you leave it or quit, and each
+  step's choices are written when you move on, with the usual Undo.
+
 * 2.0.1 - 2026-11-25
 
 ** Improved
