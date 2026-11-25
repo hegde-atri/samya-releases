@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Samaya 2.2 · First run</title>
+<meta name="description" content="Samaya 2.2 adds a first run for new users: pick your Org folder, connect calendars and set preferences. No breaking changes.">
+<meta property="og:title" content="Samaya 2.2 · First run">
+<meta property="og:description" content="Pick your Org folder, connect calendars and set preferences. No breaking changes.">
+<meta property="og:image" content="https://samaya.hegdeatri.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://samaya.hegdeatri.com/news/v2-2">
+<link rel="icon" href="/icon-light.png">
+<link rel="icon" href="/icon-dark.png" media="(prefers-color-scheme: dark)">
+<link rel="preload" href="/fonts/FiraSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css">
+<script>try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch {}</script>
+</head>
+<body>
+<header class="top"><div class="bar">
+  <a class="brand" href="/"><img class="i-light" src="/icon-light.png" alt=""><img class="i-dark" src="/icon-dark.png" alt="">Samaya</a>
+  <nav><a href="/news/v2-2" aria-current="page">What's new</a><a href="/docs/welcome">Docs</a><a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a></nav>
+</div></header>
+
+<main class="news">
+  <header class="intro">
+    <span class="eyebrow">v2.2.0 · 25 November 2026</span>
+    <h1>First run</h1>
+    <p>Samaya 2.2 greets new users with three short steps: where your Org files live, which calendars to connect, and how the app should look and plan. Plus a round of small fixes.</p>
+    <div class="actions">
+      <a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a>
+      <a class="button quiet" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">Changelog</a>
+    </div>
+  </header>
+
+  <aside class="safe" aria-labelledby="safe">
+    <h2 id="safe">No breaking changes</h2>
+    <ul>
+      <li><b>Existing users</b> never see first run: it opens only when no Org folder is set up.</li>
+      <li><b>Org files</b> and their format are untouched.</li>
+    </ul>
+    <p>Samaya offers the update in <b>Settings › Update</b>; or run the installer again.</p>
+  </aside>
+
+  <nav class="jump" aria-label="First run"><a href="#org">Org files</a><a href="#calendars">Calendars</a><a href="#preferences">Preferences</a><a href="#fixed">Fixed</a></nav>
+
+  <section class="screen" id="org">
+    <h2>Org files</h2>
+    <p>Type or browse to a folder and Samaya checks it as you go: its files and tasks, or that it is empty, missing or read-only, with Use ~/org as the way out. Continue saves it.</p>
+    <figure><picture><source srcset="/shots/v2-2/org-files-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-2/org-files-light.webp" width="1440" height="900" alt="First run on Org files: ~/org typed, 5 files and 85 tasks found" loading="lazy"></picture></figure>
+  </section>
+
+  <section class="screen" id="calendars">
+    <h2>Calendars</h2>
+    <p>Connect Google or Outlook accounts with the same form as Settings, or continue without connecting.</p>
+    <figure><picture><source srcset="/shots/v2-2/calendars-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-2/calendars-light.webp" width="1440" height="900" alt="Calendars: the new account form with Google and Outlook, and Continue without connecting" loading="lazy"></picture></figure>
+  </section>
+
+  <section class="screen" id="preferences">
+    <h2>Preferences</h2>
+    <p>Pick the theme and accent colour, your capacity per day and the day the week starts on, then Open Today. Skip setup opens Today from any step, asking first if it would create ~/org.</p>
+    <figure><picture><source srcset="/shots/v2-2/preferences-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-2/preferences-light.webp" width="1440" height="900" alt="Preferences: theme, accent colour, capacity per day and week start" loading="lazy"></picture></figure>
+  </section>
+
+  <section id="fixed">
+    <h2>Also in 2.2</h2>
+    <ul>
+      <li>Progress' Log popover names the measure and the last value logged.</li>
+      <li>Settings search scrolls to the result you move to, and its Clear sits inside the field.</li>
+      <li>All sources shows one sign-in banner per signed-out account, and rows from that account say Signed out.</li>
+      <li>When an add to a channel fails, the composer offers Add to Inbox; an event taken to connect a calendar comes back with its draft.</li>
+      <li>Month cells keep "+N" at small sizes, the New goal form's Channel works from the keyboard, and the shortcut sheet ends on whole rows.</li>
+    </ul>
+  </section>
+
+  <section class="next">
+    <h2>Get it</h2>
+    <p>The full list of changes is in the <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">changelog</a>. Downloads are on <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">samaya-releases</a>. Missed rituals? Read <a href="/news/v2-1">Samaya 2.1</a>.</p>
+  </section>
+</main>
+
+<footer class="bar">
+  <span>© Atri Hegde · Samaya v2.2.0</span>
+  <nav><a href="/docs/welcome">Docs</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases">Releases</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">Changelog</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/issues">Report an issue</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></nav>
+</footer>
+<script src="/site.js" defer></script>
+</body>
+</html>
