@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Samaya (pre-beta) · A calm daily planner over your own Org files</title>
+<title>Samaya · A calm daily planner over your own Org files</title>
 <meta name="description" content="A local-first desktop planner for Linux and Windows. Your tasks live in plain Org files, beside your Google and Outlook calendars.">
 <meta property="og:title" content="Samaya · A calm daily planner over your own Org files">
 <meta property="og:description" content="A local-first desktop planner. Your tasks live in plain Org files, beside your calendars.">
@@ -13,103 +13,107 @@
 <link rel="icon" href="/icon-light.png">
 <link rel="icon" href="/icon-dark.png" media="(prefers-color-scheme: dark)">
 <link rel="preload" href="/fonts/FiraSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/FiraSans-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/style.css">
+<script>try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch {}</script>
 </head>
-<body>
+<body class="landing">
+<a class="skip" href="#main">Skip to content</a>
 <header class="top"><div class="bar">
-  <a class="brand" href="/"><picture><source srcset="/icon-dark.png" media="(prefers-color-scheme: dark)"><img src="/icon-light.png" alt=""></picture>Samaya</a>
+  <a class="brand" href="/"><img class="i-light" src="/icon-light.png" alt=""><img class="i-dark" src="/icon-dark.png" alt="">Samaya</a>
   <nav><a href="#features">Features</a><a href="/news/v2-1">What's new</a><a href="/docs/welcome">Docs</a><a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a></nav>
 </div></header>
-<div class="prebeta"><b>Pre-beta.</b> Samaya is early software<span class="long">: expect rough edges and changes between releases</span>. Keep a backup of your Org files.</div>
 
-<main class="home">
+<main id="main" class="home">
   <section class="hero">
-    <a class="tag" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">Pre-beta · v2.1.0</a>
+    <a class="pill" href="/news/v2-1"><b>v2.1.0</b><span>New: daily planning, shutdown and weekly review</span><span aria-hidden="true">→</span></a>
     <h1>A calm daily planner over your own Org files.</h1>
-    <p>Plan the day, focus on one task, and keep everything in plain text you can also edit in Emacs. No account, no server.</p>
-    <div class="actions">
-      <a class="button large" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a>
-      <a class="button large quiet" href="/docs/welcome">Get started</a>
+    <div class="lede">
+      <p>Plan the day, focus on one task at a time, and keep everything in plain text you can still edit in Emacs. No account, no server.</p>
+      <div class="actions">
+        <a class="button large" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a>
+        <a class="button large quiet" href="/docs/welcome">Get started</a>
+        <small>Linux x86_64 · Windows x64 · Free</small>
+      </div>
     </div>
-    <small>Linux x86_64 · Windows x64 · Free</small>
   </section>
 
-  <section class="showcase" aria-label="Samaya in its three themes">
-    <input type="radio" name="theme" id="t-light">
-    <input type="radio" name="theme" id="t-dark" checked>
-    <input type="radio" name="theme" id="t-black">
-    <div class="switch" role="group" aria-label="Theme" style="--n: 3">
-      <span class="thumb"></span><label for="t-light">Light</label><label for="t-dark">Dark</label><label for="t-black">Black</label>
-    </div>
-    <div class="frame-scroll"><div class="frame">
-      <img class="s-light" src="/shots/today-light.webp" width="2880" height="1720" alt="Samaya's Today screen in the light theme">
-      <img class="s-dark" src="/shots/today-dark.webp" width="2880" height="1720" alt="Samaya's Today screen in the dark theme">
-      <img class="s-black" src="/shots/today-black.webp" width="2880" height="1720" alt="Samaya's Today screen in the pitch-black theme" loading="lazy">
+  <section class="stage" aria-label="Samaya's Today screen">
+    <div class="window-scroll"><div class="window">
+      <picture><source srcset="/shots/today-light.webp" media="(prefers-color-scheme: light)"><img data-shot="today" src="/shots/today-dark.webp" width="2880" height="1800" alt="Samaya's Today screen: the day's tasks beside a calendar of today's events and time blocks" fetchpriority="high"></picture>
     </div></div>
-    <small class="hint">Scroll sideways to see the whole window →</small>
+    <div class="themes">
+      <span>Light, dark, or pitch black for OLED screens.</span>
+      <div class="seg" role="radiogroup" aria-label="Page and screenshot theme">
+        <button type="button" role="radio" data-pick="light">Light</button><button type="button" role="radio" data-pick="dark">Dark</button><button type="button" role="radio" data-pick="black">Black</button>
+      </div>
+    </div>
   </section>
 
-  <section id="features" class="feature wide">
-    <div class="text">
+  <ul class="facts">
+    <li><b>Plain Org files</b><span>Each file is a channel. Edit it in Emacs at the same time.</span></li>
+    <li><b>No account, no server</b><span>Your plan stays on your disk. Sync it however you like.</span></li>
+    <li><b>Your calendars</b><span>Google and Outlook, several accounts at once.</span></li>
+    <li><b>Keyboard first</b><span>A command palette, and a key for every action.</span></li>
+  </ul>
+
+  <section id="features" class="feature">
+    <header>
       <span class="eyebrow">Plan</span>
       <h2>Your week, on one screen.</h2>
       <p>Day columns or a calendar from one day to a month. Drag tasks between days and onto time slots, and stretch a block to change how long it takes. Your Google and Outlook events sit beside them.</p>
-    </div>
-    <div class="media">
-      <div class="scroll"><picture><source srcset="/shots/week-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/week-light.webp" width="1704" height="1106" alt="The week calendar with tasks and events" loading="lazy"></picture></div>
-      <small class="hint">Scroll sideways to see the whole week →</small>
-    </div>
-  </section>
-
-  <section class="feature flip">
-    <div class="text">
-      <span class="eyebrow">Goals</span>
-      <h2>Year goals, worked a week at a time.</h2>
-      <p>Quarter goals with steps, habits and a weekly time budget. Habits put their days on your week, and Progress shows whether each goal is ahead, on pace or behind.</p>
-    </div>
-    <div class="media"><picture><source srcset="/shots/goals-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/goals-light.webp" width="790" height="660" alt="Quarter goals with steps and habits" loading="lazy"></picture></div>
+    </header>
+    <figure class="shot fade"><picture><source srcset="/shots/week-light.webp" media="(prefers-color-scheme: light)"><img data-shot="week" src="/shots/week-dark.webp" width="2414" height="1736" alt="The week calendar with tasks and events" loading="lazy"></picture></figure>
   </section>
 
   <section class="feature">
-    <div class="text">
-      <span class="eyebrow">Focus</span>
-      <h2>One task at a time.</h2>
-      <p>A stopwatch or pomodoro rounds, the task's subtasks and its notes. Every stretch is logged as an Org clock entry, and can set your Teams status while you work.</p>
-    </div>
-    <div class="media"><picture><source srcset="/shots/focus-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/focus-light.webp" width="960" height="1040" alt="Focus mode with a stopwatch and subtasks" loading="lazy"></picture></div>
+    <header>
+      <span class="eyebrow">Goals</span>
+      <h2>Year goals, worked a week at a time.</h2>
+      <p>Quarter goals with steps, habits and a weekly time budget. Habits put their days on your week, and Progress shows whether each goal is ahead, on pace or behind.</p>
+    </header>
+    <figure class="shot fade"><picture><source srcset="/shots/progress-light.webp" media="(prefers-color-scheme: light)"><img data-shot="progress" src="/shots/progress-dark.webp" width="2414" height="1736" alt="Progress for the year: each goal against its pace, with its steps, habits and measures" loading="lazy"></picture></figure>
   </section>
 
-  <section class="feature wide">
-    <div class="text">
-      <span class="eyebrow">Analytics</span>
-      <h2>See where the time went.</h2>
-      <p>Focus by channel, day and hour, and tasks created and done, for any week, month, quarter or year. Pick a channel to see only its share. It all comes from the clock entries already in your Org files.</p>
-    </div>
-    <div class="media">
-      <div class="scroll"><picture><source srcset="/shots/analytics-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/analytics-light.webp" width="1800" height="1746" alt="Analytics for a quarter: focus by week and channel, a channel table, tasks created and done, and a heatmap of focus per day" loading="lazy"></picture></div>
-      <small class="hint">Scroll sideways to see the whole screen →</small>
-    </div>
-  </section>
-
-  <section class="feature org">
-    <div class="text">
-      <span class="eyebrow">Plain text</span>
-      <h2>Org files are the source of truth.</h2>
-      <p>Each file is a channel. Edit in Emacs and Samaya shows it straight away; Samaya changes only the parts of a file it understands, and never overwrites your edits.</p>
-      <a href="/docs/org-files">How tasks map to Org →</a>
-    </div>
-    <div class="media"><pre><code><span class="k">* TODO</span> <span class="p">[#A]</span> Review the timeline widget
-  <span class="m">SCHEDULED: &lt;2026-11-04 Wed 10:30-11:00&gt;</span>
+  <section class="bento" aria-label="Focus and plain text">
+    <article class="card">
+      <header>
+        <span class="eyebrow">Focus</span>
+        <h3>One task at a time.</h3>
+        <p>A stopwatch or pomodoro rounds, with the task's subtasks and notes. Every stretch is logged as an Org clock entry, and can set your Teams status while you work.</p>
+      </header>
+      <div class="card-shot"><picture><source srcset="/shots/focus-light.webp" media="(prefers-color-scheme: light)"><img data-shot="focus" src="/shots/focus-dark.webp" width="1320" height="1200" alt="Focus mode with a running stopwatch and subtasks" loading="lazy"></picture></div>
+    </article>
+    <article class="card">
+      <header>
+        <span class="eyebrow">Plain text</span>
+        <h3>Org files are the source of truth.</h3>
+        <p>Each file is a channel. Edit in Emacs and Samaya shows it straight away; it changes only the parts of a file it understands, and never overwrites your edits. <a href="/docs/org-files">How tasks map to Org →</a></p>
+      </header>
+      <figure class="editor">
+        <figcaption><i></i><i></i><i></i><span>~/org/work.org</span></figcaption>
+<pre><code><span class="k">* TODO</span> <span class="p">[#A]</span> Review the timeline widget
+  <span class="m">SCHEDULED: &lt;2026-11-25 Wed 10:30-11:00&gt;</span>
   <span class="d">:PROPERTIES:</span>
   <span class="d">:EFFORT:</span>   0:30
   <span class="d">:END:</span>
   Notes go in the body, as usual.
-<span class="k">** TODO</span> Check the drag ghost</code></pre></div>
+<span class="k">** TODO</span> Check the drag ghost
+<span class="k">** DONE</span> Read the review comments
+  <span class="m">CLOSED: [2026-11-25 Wed 09:12]</span>
+  <span class="d">:LOGBOOK:</span>
+  <span class="d">CLOCK:</span> [2026-11-25 Wed 08:30]--[2026-11-25 Wed 09:10] =&gt;  0:40
+  <span class="d">:END:</span></code></pre>
+      </figure>
+    </article>
   </section>
 
   <section class="integrations">
-    <span class="eyebrow">Integrations</span>
-    <h2>Your work queue, beside your plan.</h2>
+    <header>
+      <span class="eyebrow">Integrations</span>
+      <h2>Your work queue, beside your plan.</h2>
+      <p>Issues, pull requests and work items from saved searches. Drag one onto a day to plan it. Calendars sync from <a href="/docs/google-calendar">Google</a> and <a href="/docs/outlook-calendar">Outlook</a>.</p>
+    </header>
     <ul>
       <li><a href="/docs/github"><i style="--m:url(/marks/github.svg)"></i>GitHub</a></li>
       <li><a href="/docs/forgejo"><i style="--m:url(/marks/forgejo.svg)"></i>Forgejo</a></li>
@@ -117,31 +121,35 @@
       <li><a href="/docs/plane"><i style="--m:url(/marks/plane.svg)"></i>Plane</a></li>
       <li><a href="/docs/microsoft-planner"><i style="--m:url(/marks/microsoft-planner.svg)"></i>Microsoft Planner</a></li>
     </ul>
-    <p>Issues, pull requests and work items from saved searches. Drag one onto a day to plan it. Calendars sync from Google and Outlook, several accounts at once.</p>
   </section>
 
   <section class="install" id="install">
-    <span class="eyebrow">Get it</span>
-    <h2>Install</h2>
-    <input type="radio" name="os" id="os-linux" checked>
-    <input type="radio" name="os" id="os-windows">
-    <div class="switch" role="group" aria-label="Platform" style="--n: 2"><span class="thumb"></span><label for="os-linux">Linux</label><label for="os-windows">Windows</label></div>
-    <div class="panes">
-    <div class="pane os-linux">
-      <div class="cmd"><button class="copy" type="button">Copy</button><pre><code>curl -fsSL https://git.hegdeatri.com/hegdeatri/samaya-releases/raw/branch/main/install.sh | sh</code></pre></div>
-      <p>x86_64, glibc 2.36 or newer. Verifies the checksum, and the signature when minisign is installed.</p>
+    <header>
+      <span class="eyebrow">Get it</span>
+      <h2>Install in a minute.</h2>
+      <p>Free for Linux and Windows. Samaya offers each new release in Settings, so you install it once.</p>
+    </header>
+    <div class="install-box">
+      <input type="radio" name="os" id="os-linux" checked>
+      <input type="radio" name="os" id="os-windows">
+      <div class="switch" role="group" aria-label="Platform"><label for="os-linux">Linux</label><label for="os-windows">Windows</label></div>
+      <div class="panes">
+        <div class="pane os-linux">
+          <div class="cmd"><button class="copy" type="button">Copy</button><pre><code>curl -fsSL https://git.hegdeatri.com/hegdeatri/samaya-releases/raw/branch/main/install.sh | sh</code></pre></div>
+          <p>x86_64, glibc 2.36 or newer. Verifies the checksum, and the signature when minisign is installed.</p>
+        </div>
+        <div class="pane os-windows">
+          <p><a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/download/v2.1.0/samaya-2.1.0-x86_64-windows.zip">Download samaya-2.1.0-x86_64-windows.zip</a></p>
+          <p>Extract it and open <code>samaya.exe</code>. No installer or admin rights needed.</p>
+        </div>
+      </div>
+      <a class="more" href="/docs/install">Full install guide →</a>
     </div>
-    <div class="pane os-windows">
-      <p><a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/download/v2.1.0/samaya-2.1.0-x86_64-windows.zip">Download samaya-2.1.0-x86_64-windows.zip</a></p>
-      <p>Extract it and open <code>samaya.exe</code>. No installer or admin rights needed.</p>
-    </div>
-    </div>
-    <a href="/docs/install">Full install guide →</a>
   </section>
 </main>
 
 <footer class="bar">
-  <span>© Atri Hegde · Samaya v2.1.0, pre-beta</span>
+  <span>© Atri Hegde · Samaya v2.1.0</span>
   <nav><a href="/docs/welcome">Docs</a><a href="/news/v2-1">What's new</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases">Releases</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">Changelog</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/issues">Report an issue</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></nav>
 </footer>
 <script src="/site.js"></script>
