@@ -395,7 +395,7 @@ footer.bar nav { flex-wrap: wrap; margin-left: -10px; }
 .news thead td { font-weight: 600; background: var(--hover); }
 kbd { font: 0.85em "Fira Mono", ui-monospace, monospace; padding: 0.1em 0.4em; border: 1px solid var(--weak); border-radius: 4px; background: var(--panel); }
 @media (max-width: 520px) {
-  .top .bar nav a[href="/news/v2"] { display: none; }
+  .top .bar nav a[href^="/news/v2"] { display: none; }
 }
 @media (hover: hover) and (pointer: fine) {
   .jump a:hover { color: var(--text); border-color: var(--accent); text-decoration: none; }
