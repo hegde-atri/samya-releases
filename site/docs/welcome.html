@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Welcome to Samaya · Samaya</title>
+<link rel="icon" href="/icon-light.png">
+<link rel="icon" href="/icon-dark.png" media="(prefers-color-scheme: dark)">
+<link rel="preload" href="/fonts/FiraSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body class="doc">
+<header class="top"><div class="bar">
+  <a class="brand" href="/"><picture><source srcset="/icon-dark.png" media="(prefers-color-scheme: dark)"><img src="/icon-light.png" alt=""></picture>Samaya</a>
+  <nav><a href="/news/v2">What's new</a><a href="/docs/welcome" aria-current="page">Docs</a><a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a></nav>
+</div></header>
+<div class="prebeta"><b>Pre-beta.</b> Samaya is early software<span class="long">: expect rough edges and changes between releases</span>. Keep a backup of your Org files.</div>
+<div class="docs">
+  <aside><span class="group">Start</span><a href="/docs/welcome" aria-current="page">Welcome to Samaya</a><a href="/docs/install">Getting started</a><a href="/docs/org-files">Org files</a><span class="group">Calendars</span><a href="/docs/google-calendar">Google Calendar</a><a href="/docs/outlook-calendar">Outlook calendars</a><span class="group">Work items</span><a href="/docs/github">GitHub</a><a href="/docs/forgejo">Forgejo</a><a href="/docs/azure-devops">Azure DevOps</a><a href="/docs/plane">Plane</a><a href="/docs/microsoft-planner">Microsoft Planner</a><span class="group">Desktop</span><a href="/docs/microsoft-teams">Microsoft Teams</a><a href="/docs/desktop">Desktop integration</a><span class="group">Legal</span><a href="/docs/privacy">Privacy policy</a><a href="/docs/terms">Terms of service</a></aside>
+  <details class="menu"><summary>Documentation</summary><nav><span class="group">Start</span><a href="/docs/welcome" aria-current="page">Welcome to Samaya</a><a href="/docs/install">Getting started</a><a href="/docs/org-files">Org files</a><span class="group">Calendars</span><a href="/docs/google-calendar">Google Calendar</a><a href="/docs/outlook-calendar">Outlook calendars</a><span class="group">Work items</span><a href="/docs/github">GitHub</a><a href="/docs/forgejo">Forgejo</a><a href="/docs/azure-devops">Azure DevOps</a><a href="/docs/plane">Plane</a><a href="/docs/microsoft-planner">Microsoft Planner</a><span class="group">Desktop</span><a href="/docs/microsoft-teams">Microsoft Teams</a><a href="/docs/desktop">Desktop integration</a><span class="group">Legal</span><a href="/docs/privacy">Privacy policy</a><a href="/docs/terms">Terms of service</a></nav></details>
+  <article>
+    <h1>Welcome to Samaya</h1>
+    <section><p>Samaya is a desktop planner for Linux and Windows. Your tasks, goals and focus
+time live in plain Org files in a folder you choose, beside your Google and
+Outlook calendars and the issues you work on. There is no account and no
+server: edit the same files in Emacs, and Samaya shows the change.
+</p><p><picture><source srcset="/shots/v2/today-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/today-light.webp" alt="Today: the day&apos;s tasks on the left, its calendar on the right" loading="lazy"></picture>
+</p></section><h2 id="install">Install</h2><section><p>Linux (x86_64) and Windows (x64) builds are on
+<a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">samaya-releases</a>.
+On Linux, one command installs it:
+</p><div class="cmd"><button class="copy" type="button">Copy</button><pre><code class="language-sh">curl -fsSL https://git.hegdeatri.com/hegdeatri/samaya-releases/raw/branch/main/install.sh | sh</code></pre></div><p><a href="install">Getting started</a> covers Windows, Nix, updates and
+verifying a download.
+</p></section><h2 id="point-it-at-your-org-folder">Point it at your Org folder</h2><section><ol><li><p>Make a folder for your tasks, such as <code>~/org</code>. An empty one is fine, and
+   so is a folder you already use with Emacs.
+</p></li><li><p>Open <b>Settings → Org files</b> and choose it. Each <code>.org</code> file in it is a
+   channel, such as <code>work.org</code> or <code>health.org</code>.
+</p></li><li><p>Name, nest and colour channels in <b>Settings → Channels</b>.
+</p></li></ol><p><picture><source srcset="/shots/v2/org-files-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/org-files-light.webp" alt="Settings → Org files: the folder, and each file with its open tasks" loading="lazy"></picture>
+</p><p>Samaya changes only the parts of a file it understands. See
+<a href="org-files">Org files</a> for how tasks, goals and clock entries map
+to Org.
+</p></section><h2 id="connect-calendars-and-sources">Connect calendars and sources</h2><section><p><b>Settings → All sources</b> lists what is connected and what is available.
+</p><ul><li><p><b>Calendars.</b> <b>Connect</b>, choose Google or Outlook, name the account and sign
+  in. Events sync into <code>calendar.org</code>. See
+  <a href="google-calendar">Google Calendar</a> and
+  <a href="outlook-calendar">Outlook calendars</a>.
+</p></li><li><p><b>Work items.</b> <a href="github">GitHub</a>, <a href="forgejo">Forgejo</a>,
+  <a href="azure-devops">Azure DevOps</a>, <a href="plane">Plane</a> and
+  <a href="microsoft-planner">Microsoft Planner</a> show saved searches in a
+  side panel. Drag an item onto a day to plan it.
+</p></li><li><p><b>Mail and status.</b> Outlook mail opens in a side panel, and
+  <a href="microsoft-teams">Microsoft Teams</a> status follows your focus.
+</p></li></ul><p><picture><source srcset="/shots/v2/calendars-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/calendars-light.webp" alt="Connecting a Google or Outlook calendar account" loading="lazy"></picture>
+</p></section><h2 id="a-tour-of-the-screens">A tour of the screens</h2><h3 id="today">Today</h3><section><p>The day&apos;s tasks, in order, with the day&apos;s calendar beside them. The header
+reads the planned time against the day&apos;s capacity. Press N to add a task.
+</p></section><h3 id="week">Week</h3><section><p>Seven day columns as a board, or a time grid of one, three, five or seven
+days, or a month. Drag tasks between days and onto time slots. Press B, 1, 3,
+5, W or M to switch views.
+</p><p><picture><source srcset="/shots/v2/week-board-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/week-board-light.webp" alt="Week as a board, with the day calendar beside it" loading="lazy"></picture>
+</p></section><h3 id="focus">Focus</h3><section><p>One task at a time, with a stopwatch or pomodoro rounds, its subtasks and
+notes. Each stretch is logged as an Org clock entry.
+</p><p><picture><source srcset="/shots/v2/focus-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/focus-light.webp" alt="Focus on a running task, with its subtasks" loading="lazy"></picture>
+</p></section><h3 id="goals">Goals</h3><section><p>Year and quarter goals with steps, habits and a weekly time budget. Each goal
+shows its health and next step.
+</p><p><picture><source srcset="/shots/v2/goals-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/goals-light.webp" alt="Quarter goals with logged time, habits and next steps" loading="lazy"></picture>
+</p></section><h3 id="progress">Progress</h3><section><p>Every goal&apos;s pace across the year: ahead, on pace or slipping.
+</p></section><h3 id="analytics">Analytics</h3><section><p>Focus by channel, day and hour, and tasks done and created, for a week, month,
+quarter or year.
+</p><p><picture><source srcset="/shots/v2/analytics-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/analytics-light.webp" alt="Analytics for a month: focus by day and channel" loading="lazy"></picture>
+</p></section><h3 id="channels">Channels</h3><section><p>One channel&apos;s tasks, grouped by day, with the backlog below. Pick one in the
+sidebar.
+</p></section><h2 id="keyboard">Keyboard</h2><section><p>Press <code>?</code> in the app for every shortcut.
+</p><table><thead><tr><td>Keys</td><td>Does</td></tr></thead><tbody><tr><td>Ctrl K</td><td>Command palette: find a screen, task or setting, or run an action</td></tr><tr><td>N</td><td>Add a task</td></tr><tr><td>A</td><td>Quick add, from anywhere</td></tr><tr><td>G then T</td><td>Go to Today; W Week, G Goals, P Progress, A Analytics, F Focus, I Inbox</td></tr><tr><td>↑ ↓</td><td>Move the ring over cards and rows</td></tr><tr><td>Space</td><td>Complete the ringed task</td></tr><tr><td>F</td><td>Focus on the ringed task</td></tr><tr><td>.</td><td>Jump to today</td></tr><tr><td>Esc</td><td>Close the top layer</td></tr><tr><td>Alt ←</td><td>Back</td></tr><tr><td>?</td><td>Every shortcut</td></tr></tbody></table><p><picture><source srcset="/shots/v2/shortcuts-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/shortcuts-light.webp" alt="The shortcut sheet, with its filter" loading="lazy"></picture>
+</p></section><h2 id="settings">Settings</h2><section><p>Open them with Ctrl , or from the foot of the sidebar. Settings opens on an
+overview, and its search finds any setting. Changes save as you make them.
+</p><p>Settings are kept in <code>~/.config/samaya</code> on Linux and <code>%APPDATA%\samaya</code> on
+Windows: <code>desktop.toml</code> for the app and <code>sync.toml</code> for calendar sync.
+Passwords and tokens are kept in the system keyring or Windows Credential
+Manager, never in those files.
+</p></section>
+    <nav class="pager"><a rel="next" href="/docs/install">Getting started</a></nav>
+  </article>
+  <nav class="toc"><b>On this page</b><a href="#install">Install</a><a href="#point-it-at-your-org-folder">Point it at your Org folder</a><a href="#connect-calendars-and-sources">Connect calendars and sources</a><a href="#a-tour-of-the-screens">A tour of the screens</a><a href="#keyboard">Keyboard</a><a href="#settings">Settings</a></nav>
+</div>
+<footer class="bar">
+  <span>© Atri Hegde · Samaya v2.0.0, pre-beta</span>
+  <nav><a href="/">Home</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases">Releases</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">Changelog</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/issues">Report an issue</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></nav>
+</footer>
+<script src="/site.js" defer></script>
+</body>
+</html>
