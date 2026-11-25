@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Samaya 2.3 · Keyboard first</title>
+<meta name="description" content="Samaya 2.3 brings the ring to Goals, Progress and Analytics, and typing to the editor's pickers. No breaking changes.">
+<meta property="og:title" content="Samaya 2.3 · Keyboard first">
+<meta property="og:description" content="The ring on Goals, Progress and Analytics, and a typed day and time in Scheduled. No breaking changes.">
+<meta property="og:image" content="https://samaya.hegdeatri.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://samaya.hegdeatri.com/news/v2-3">
+<link rel="icon" href="/icon-light.png">
+<link rel="icon" href="/icon-dark.png" media="(prefers-color-scheme: dark)">
+<link rel="preload" href="/fonts/FiraSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css">
+<script>try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch {}</script>
+</head>
+<body>
+<header class="top"><div class="bar">
+  <a class="brand" href="/"><img class="i-light" src="/icon-light.png" alt=""><img class="i-dark" src="/icon-dark.png" alt="">Samaya</a>
+  <nav><a href="/news/v2-3" aria-current="page">What's new</a><a href="/docs/welcome">Docs</a><a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a></nav>
+</div></header>
+
+<main class="news">
+  <header class="intro">
+    <span class="eyebrow">v2.3.0 · 25 November 2026</span>
+    <h1>Keyboard first</h1>
+    <p>Samaya 2.3 takes the ring to Goals, Progress and Analytics, so you can walk them with ↑ ↓ and act with ↵, and lets you type into the editor's pickers.</p>
+    <div class="actions">
+      <a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a>
+      <a class="button quiet" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">Changelog</a>
+    </div>
+  </header>
+
+  <aside class="safe" aria-labelledby="safe">
+    <h2 id="safe">No breaking changes</h2>
+    <ul>
+      <li><b>Org files</b> and their format are untouched.</li>
+    </ul>
+    <p>Samaya offers the update in <b>Settings › Update</b>; or run the installer again.</p>
+  </aside>
+
+  <nav class="jump" aria-label="Keyboard first"><a href="#goals">Goals</a><a href="#progress">Progress</a><a href="#analytics">Analytics</a><a href="#scheduled">Scheduled</a><a href="#also">Also</a></nav>
+
+  <section class="screen" id="goals">
+    <h2>Goals</h2>
+    <p>↑ ↓ move one ring over the goals, their habit days and a goal's steps. ↵ opens the ringed goal and L logs a measure kept by hand.</p>
+    <figure><picture><source srcset="/shots/v2-3/goals-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-3/goals-light.webp" width="1440" height="900" alt="Goals with today's Run habit day ringed and its week read out: Run, W48, 1/4" loading="lazy"></picture></figure>
+  </section>
+
+  <section class="screen" id="progress">
+    <h2>Progress</h2>
+    <p>The ring walks goals, measures and habits. A ringed habit reads its week out over its own cell, and ← → fold a year goal or step the week.</p>
+    <figure><picture><source srcset="/shots/v2-3/progress-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-3/progress-light.webp" width="1440" height="900" alt="Progress with the Run habit ringed: W48, 23–29 Nov, 1/4, this week so far" loading="lazy"></picture></figure>
+  </section>
+
+  <section class="screen" id="analytics">
+    <h2>Analytics</h2>
+    <p>The period name opens a picker of months, quarters or years, or a mini month for Week. ↑ ↓ ring the channels and ↵ narrows to the ringed one.</p>
+    <figure><picture><source srcset="/shots/v2-3/analytics-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-3/analytics-light.webp" width="1440" height="900" alt="Analytics for November 2026 with the month picker open" loading="lazy"></picture></figure>
+  </section>
+
+  <section class="screen" id="scheduled">
+    <h2>Scheduled</h2>
+    <p>Type "fri 9:30" as you would in quick add. Scheduled shows the day and time it reads, with anything it overlaps, and writes it on ↵. The Goal picker filters as you type.</p>
+    <figure><picture><source srcset="/shots/v2-3/scheduled-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-3/scheduled-light.webp" width="1440" height="900" alt="The editor's Scheduled picker with thu 18:15 typed: Thu 26 Nov, 18:15–18:40, overlaps Gym by 25m" loading="lazy"></picture></figure>
+  </section>
+
+  <section id="also">
+    <h2>Also in 2.3</h2>
+    <ul>
+      <li>Shift ↑ ↓ extends a channel's selection, as Shift-click does, and "N hidden" unfolds every group hiding a pick.</li>
+      <li>On Today's calendar and Week's grids, a block takes the full width where it runs alone.</li>
+      <li>Esc clears a picker's typed text before it closes the picker.</li>
+    </ul>
+  </section>
+
+  <section class="next">
+    <h2>Get it</h2>
+    <p>The full list of changes is in the <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">changelog</a>. Downloads are on <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">samaya-releases</a>. Missed first run? Read <a href="/news/v2-2">Samaya 2.2</a>.</p>
+  </section>
+</main>
+
+<footer class="bar">
+  <span>© Atri Hegde · Samaya v2.3.0</span>
+  <nav><a href="/docs/welcome">Docs</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases">Releases</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">Changelog</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/issues">Report an issue</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></nav>
+</footer>
+<script src="/site.js" defer></script>
+</body>
+</html>
