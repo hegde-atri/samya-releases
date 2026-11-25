@@ -40,6 +40,39 @@ the way but not yet in a release.
 
 * Unreleased
 
+* 2.2.0 - 2026-11-25
+Samaya 2.2 adds a first run for new users. *No breaking changes:* it shows
+only when no org folder is set up, so existing users never see it.
+[[https://samaya.hegdeatri.com/news/v2-2][What's new in Samaya 2.2]].
+
+** New
+- *First run.* With no org folder set up, Samaya opens on three steps. Org
+  files checks the folder you type or browse to: its files and tasks, or
+  that it is empty, missing or read-only, with Use ~/org as the way out.
+  Calendars connects your accounts, or Continue without connecting.
+  Preferences sets the theme, accent colour, capacity per day and the day
+  the week starts on. Skip setup opens Today from any step, asking first if
+  it would create ~/org.
+
+** Improved
+- Progress' Log popover names the measure and the last value logged and
+  its day, and a failed log's mark follows the measure's name.
+- Settings search scrolls just far enough to show the result you move to.
+- All sources shows one sign-in banner per signed-out account, with its
+  Reconnect.
+- Settings search's Clear sits inside the field.
+
+** Fixed
+- When an add to a channel fails, the composer offers Add to Inbox, keeping
+  its day, time, estimate and priority.
+- An event taken to Settings › Calendars to connect a calendar opens again
+  with its draft when you leave Settings.
+- Month cells show "+N" for hidden items at small window sizes.
+- The New goal form's Channel select works from the keyboard.
+- The shortcut sheet ends on whole rows instead of half a row.
+- Planner and Outlook mail rows from a signed-out account say Signed out,
+  not Couldn't reach.
+
 * 2.1.0 - 2026-11-25
 Samaya 2.1 adds rituals: short guided routines to plan your day, end it and
 review your week. *No breaking changes:* nothing new is written to your Org
