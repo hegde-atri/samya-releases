@@ -40,6 +40,87 @@ the way but not yet in a release.
 
 * Unreleased
 
+* 2.0.0 - 2026-11-25
+Samaya 2 redesigns the whole app on one design language. *No breaking
+changes:* your Org files and their format are untouched, settings in
+=desktop.toml= and =sync.toml= carry over, and connected calendars and
+integrations keep working. Some keyboard shortcuts changed; see Improved.
+[[https://samaya.hegdeatri.com/news/v2][What's new in Samaya 2]].
+
+** New
+- *A new design.* Every screen is rebuilt on one set of colours, type,
+  spacing and components: the sidebar and its rail, the header, Today, Week,
+  channels, Focus, the task editor, quick add, Goals, Progress, Analytics, the
+  side panels, mail, Settings and the tray menu. Icons are Iconsax, and move
+  slightly under the pointer.
+- *Command palette.* Press Ctrl K to find a screen, channel, Settings page,
+  task, event or goal, or to run an action. Empty, it lists your recent picks
+  and what fits the moment, such as Back to Focus.
+- *Keyboard everywhere.* Arrow keys move a ring over cards, rows, panels,
+  calendar bookings, month days, goals and charts, and keys act on the ringed
+  item: Space completes, F starts focus, T plans for today, D moves, C
+  changes the channel, P sets the priority, Shift E the estimate, Del
+  deletes and Shift F10 opens its menu. Every menu and dialog works from the
+  keyboard.
+- *Go to keys.* G then T, W, G, P, A, F or I opens Today, Week, Goals,
+  Progress, Analytics, Focus or Inbox. Alt ← goes back through the screens and
+  channels you visited.
+- *Shortcut sheet.* Press =?= for every shortcut, with a filter.
+- *Settings › Planning.* Set how much you plan to work on each weekday, your
+  shutdown time, the weekly review day and the first day of the week. Today
+  reads its planned time against the day's capacity, and Week marks a day
+  only once it runs past it.
+- *Settings overview and search.* Settings opens on an overview of each page
+  and what needs attention. Search finds any setting on any page. Changed
+  settings are marked, with Reset per setting and per page, and a list of
+  everything you have changed.
+- *One undo.* Ctrl Z undoes completing, deleting, moving and nesting tasks as
+  well as calendar edits, from one history. A toast offers Undo after each.
+  Undo refuses, with "Changed elsewhere", if the Org file changed since.
+- *Quit safely.* Quitting waits for writes in flight, and asks before quitting
+  while any change is still unsaved.
+
+** Improved
+- *Changed shortcuts.* Ctrl \ shows and hides the sidebar (was Ctrl B). In
+  Week, =.= jumps to today (was T), 1 shows one day (was D), [ and ] page
+  the period (was Shift ← →), and ← → move between days. In Focus, F starts
+  and pauses (was Space), Space completes the task, and C is gone. In mail, Y
+  archives (was E); E is now New event everywhere. In quick add, ↵ or a click
+  takes a suggestion (was Tab), and Tab moves focus. Esc closes one layer per
+  press, the latest first, and no longer leaves Settings: use Alt ← or Ctrl ,.
+- A hidden sidebar folds to a narrow rail of icons instead of disappearing,
+  and Focus folds it to the rail.
+- Quick add is one card with suggestions inline. It opens under Add task on
+  Today and in a channel, and beside a slot drawn on a calendar.
+- The task editor is one list of properties: scheduled, estimate, logged,
+  due, priority, channel and goal.
+- Week names its period and view in the header and merges the filters into
+  one menu. Month lays out six weeks, and a day's extra items drop below it.
+  The time grids show the Day lane, open at the first booking, and zoom with
+  Ctrl and the scroll wheel.
+- Logged focus is drawn as a thin line in the day's margin, not as a block.
+- Mail opens a conversation in a reading pane beside the panel, which takes
+  the panel's place in a narrow window.
+- The Backlog panel shows the backlog by default, with one filter menu.
+- Analytics compares a period under way with as many days of the one before,
+  such as 1–25 Nov against 1–25 Oct.
+- Settings save when you let go of a control or press ↵, and each save
+  replaces the file in one step. Corner radius is a choice of 0, 2, 4 or 6.
+- A connected source is shown in Sources; the separate show switch is gone.
+  Disconnect deletes the token and keeps the saved searches.
+- Time blocks are coloured by channel or neutral; a saved Accent colour now
+  reads as Neutral.
+
+** Fixed
+- A write that fails is held and marked on its task, with Retry in place,
+  instead of one error for everything. A failed add keeps its text.
+- Retrying an event never sends its invitations twice.
+- An editor draft survives the task being edited outside Samaya, and is saved
+  on quit along with the goal page's text.
+- Links in tasks and mail open in the browser only when they are web links.
+- Integration credentials are never sent over plain HTTP or to a redirect's
+  host.
+
 * 1.23.2 - 2026-11-16
 ** Fixed
 - The calendar's day columns fill the view again after resizing the window
