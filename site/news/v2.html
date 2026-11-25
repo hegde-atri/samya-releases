@@ -14,13 +14,13 @@
 <link rel="icon" href="/icon-dark.png" media="(prefers-color-scheme: dark)">
 <link rel="preload" href="/fonts/FiraSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/style.css">
+<script>try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch {}</script>
 </head>
 <body>
 <header class="top"><div class="bar">
-  <a class="brand" href="/"><picture><source srcset="/icon-dark.png" media="(prefers-color-scheme: dark)"><img src="/icon-light.png" alt=""></picture>Samaya</a>
+  <a class="brand" href="/"><img class="i-light" src="/icon-light.png" alt=""><img class="i-dark" src="/icon-dark.png" alt="">Samaya</a>
   <nav><a href="/news/v2" aria-current="page">What's new</a><a href="/docs/welcome">Docs</a><a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a></nav>
 </div></header>
-<div class="prebeta"><b>Pre-beta.</b> Samaya is early software<span class="long">: expect rough edges and changes between releases</span>. Keep a backup of your Org files.</div>
 
 <main class="news">
   <header class="intro">
@@ -187,7 +187,7 @@
 </main>
 
 <footer class="bar">
-  <span>© Atri Hegde · Samaya v2.1.0, pre-beta</span>
+  <span>© Atri Hegde · Samaya v2.1.0</span>
   <nav><a href="/docs/welcome">Docs</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases">Releases</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">Changelog</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/issues">Report an issue</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></nav>
 </footer>
 <script src="/site.js" defer></script>
