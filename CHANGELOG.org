@@ -40,6 +40,41 @@ the way but not yet in a release.
 
 * Unreleased
 
+* 2.4.0 - 2026-11-26
+Samaya 2.4 shows the calendar's look in Settings as pictures, and adds a
+choice of where logged focus draws. *No breaking changes:* Org files and
+their format are untouched.
+[[https://samaya.hegdeatri.com/news/v2-4][What's new in Samaya 2.4]].
+
+** New
+- *Settings previews.* Scheduling shows Time-block colour, Logged focus and
+  Overlapping activities as true-size pictures of a calendar, drawn with
+  your other choices in force: click one to pick it. Activity bar width
+  sets the bar against a live strip, and Garmin's Sleep on the calendar
+  pictures Shade sleep hours and Show in activity bar.
+- *Logged focus inside its block.* The new Logged focus setting keeps a
+  session as a hatched box beside its task's block (Beside block), or fills
+  the logged stretch into the block itself (Inside block).
+- With Time-block colour By channel, a task block carries its channel's
+  colour bar, as an event carries its calendar's.
+
+** Improved
+- Read mail is muted, so unread conversations stand out.
+- Archiving or deleting the conversation being read opens the next one.
+- The activity bar's Stripes are solid bands across the whole bar, and
+  Nested one unbroken line down the longer activity.
+- New setups draw overlapping activities Side by side.
+- Settings' Back button and Ctrl , return to the screen Settings was opened
+  from; Alt ← still steps back through Settings' pages.
+- Ctrl B hides and shows the sidebar, in place of Ctrl \.
+
+** Fixed
+- Logged focus draws as hatched boxes again.
+- Week's Day lane scrolls again when a day holds more than fits, and a day
+  with hidden events leads it with their count, which shows them.
+- A New goal that failed to save is no longer lost on quit: quitting asks
+  first.
+
 * 2.3.0 - 2026-11-25
 Samaya 2.3 is a keyboard release: Goals, Progress and Analytics take the ring,
 and the editor's pickers take typing. *No breaking changes:* Org files and
