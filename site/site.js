@@ -40,7 +40,7 @@ const fade = () => {
 for (const pre of fades) pre.addEventListener("scroll", fade, { passive: true });
 addEventListener("resize", fade);
 fade();
-const marks = [...document.querySelectorAll(".toc a")];
+const marks = [...document.querySelectorAll(".toc a[href^='#']")];
 const heads = marks.map((a) => document.getElementById(decodeURIComponent(a.hash.slice(1))));
 const spy = () => {
   const end = innerHeight + scrollY >= document.documentElement.scrollHeight - 2;
