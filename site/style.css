@@ -319,7 +319,7 @@ html:not(.js) .themes .seg { display: none; }
   .integrations li a:hover { border-color: var(--accent); }
   .copy:hover { color: var(--text); }
   .docs aside a:hover { background: var(--hover); color: var(--text); text-decoration: none; }
-  .docs .toc a:hover { color: var(--text); text-decoration: none; }
+  .toc a:hover { color: var(--text); text-decoration: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -343,7 +343,7 @@ html:not(.js) .themes .seg { display: none; }
 .docs .menu nav { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; padding-top: 8px; }
 .docs .menu a { color: var(--muted); padding: 5px 10px; border-radius: var(--radius); font-size: 15px; }
 .docs .menu a[aria-current] { color: var(--link); font-weight: 500; }
-.docs .toc { display: none; }
+.toc { display: none; }
 .docs article { min-width: 0; overflow-wrap: break-word; }
 .docs article a, .docs article :not(pre) > code { overflow-wrap: anywhere; }
 .docs article h1 { font-size: 32px; margin-top: 0; letter-spacing: -0.015em; }
@@ -373,10 +373,15 @@ html:not(.js) .themes .seg { display: none; }
   .docs { max-width: 1280px; grid-template-columns: 220px minmax(0, 760px) 200px; }
   .doc .top .bar { max-width: 1280px; }
   .docs article > h1 + section > p:has(> a[href^="#"]:first-child) { display: none; }
-  .docs .toc { display: flex; flex-direction: column; gap: 4px; position: sticky; top: 72px; align-self: start; font-size: 13px; }
-  .docs .toc b { font-weight: 600; margin-bottom: 4px; }
-  .docs .toc a { color: var(--muted); padding-left: 10px; margin-left: -12px; border-left: 2px solid transparent; transition: color 150ms ease, border-color 150ms ease; }
-  .docs .toc a[aria-current] { color: var(--text); border-left-color: var(--accent); }
+  .toc { display: flex; flex-direction: column; gap: 4px; position: sticky; top: 72px; align-self: start; font-size: 13px; }
+  .toc b { font-weight: 600; margin-bottom: 4px; }
+  .toc a { color: var(--muted); padding-left: 10px; margin-left: -12px; border-left: 2px solid transparent; transition: color 150ms ease, border-color 150ms ease; }
+  .toc a[aria-current] { color: var(--text); border-left-color: var(--accent); }
+  /* A news post lists every release beside it, as a doc lists its sections. */
+  .releases { display: grid; grid-template-columns: minmax(0, 960px) 200px; gap: 48px; justify-content: center; }
+  .releases .news { margin: 0; }
+  .releases .toc { margin-top: 48px; }
+  .top:has(+ .releases) .bar { max-width: 1208px; padding-inline: 20px; }
 }
 @media (max-width: 420px) {
   .bar nav a[href="#features"] { display: none; }
