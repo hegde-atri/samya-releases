@@ -40,6 +40,21 @@ the way but not yet in a release.
 
 * Unreleased
 
+* 2.4.1 - 2026-11-26
+** Fixed
+- The suggestions for a channel, day, priority or guest you are typing in the
+  task composer open as a small menu under what you type, instead of a list
+  that pushed the rest of the composer down.
+- Tab takes the highlighted suggestion. While suggestions are open, Enter takes
+  it too, so Enter no longer adds a task with a token half typed; press Enter
+  again to add.
+- Enter after picking a chip in the composer, such as Priority, no longer adds
+  the task. The chips and the Task or Event switch can be reached with Tab,
+  and Enter or Space opens a chip's choices instead.
+- The composer window from =samaya compose --window= no longer closes as soon
+  as you move the pointer on Hyprland and other desktops where focus follows
+  the mouse. Escape, Close or adding the task puts it away.
+
 * 2.4.0 - 2026-11-26
 Samaya 2.4 shows the calendar's look in Settings as pictures, and adds a
 choice of where logged focus draws. *No breaking changes:* Org files and
