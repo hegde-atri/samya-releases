@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Samaya 2.4 · See it before you pick it</title>
+<meta name="description" content="Samaya 2.4 draws the calendar's look in Settings as pictures, adds Logged focus inside its block and channel colour bars on task blocks. No breaking changes.">
+<meta property="og:title" content="Samaya 2.4 · See it before you pick it">
+<meta property="og:description" content="Settings drawn as pictures, logged focus inside its block, channel colour bars and quieter read mail. No breaking changes.">
+<meta property="og:image" content="https://samaya.hegdeatri.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://samaya.hegdeatri.com/news/v2-4">
+<link rel="icon" href="/icon-light.png">
+<link rel="icon" href="/icon-dark.png" media="(prefers-color-scheme: dark)">
+<link rel="preload" href="/fonts/FiraSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css">
+<script>try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch {}</script>
+</head>
+<body>
+<header class="top"><div class="bar">
+  <a class="brand" href="/"><img class="i-light" src="/icon-light.png" alt=""><img class="i-dark" src="/icon-dark.png" alt="">Samaya</a>
+  <nav><a href="/news/v2-4" aria-current="page">What's new</a><a href="/docs/welcome">Docs</a><a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a></nav>
+</div></header>
+
+<div class="releases">
+<main class="news">
+  <header class="intro">
+    <span class="eyebrow">v2.4.0 · 26 November 2026</span>
+    <h1>See it before you pick it</h1>
+    <p>Samaya 2.4 draws the calendar's look in Settings as pictures, so each choice shows what it does. It adds a choice of where logged focus draws, and gives task blocks their channel's colour.</p>
+    <div class="actions">
+      <a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a>
+      <a class="button quiet" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">Changelog</a>
+    </div>
+  </header>
+
+  <aside class="safe" aria-labelledby="safe">
+    <h2 id="safe">No breaking changes</h2>
+    <ul>
+      <li><b>Org files</b> and their format are untouched.</li>
+      <li><b>Settings</b> you saved carry over. Only new setups start on Side by side.</li>
+    </ul>
+    <p>The sidebar now hides with <kbd>Ctrl B</kbd>, in place of <kbd>Ctrl \</kbd>. Samaya offers the update in <b>Settings › Update</b>; or run the installer again.</p>
+  </aside>
+
+  <nav class="jump" aria-label="See it before you pick it"><a href="#settings">Settings</a><a href="#logged-focus">Logged focus</a><a href="#channels">Channel colours</a><a href="#mail">Mail</a><a href="#day-lane">Day lane</a><a href="#also">Also</a></nav>
+
+  <section class="screen" id="settings">
+    <h2>Settings</h2>
+    <p>Scheduling shows Time-block colour, Logged focus and Overlapping activities as true-size pictures of a calendar, drawn with your other choices in force. Click one to pick it. Activity bar width sets the bar beside a live strip, and Garmin's Sleep on the calendar is pictured too.</p>
+    <figure><picture><source srcset="/shots/v2-4/settings-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-4/settings-light.webp" width="1440" height="900" alt="Settings › Scheduling: Time-block colour, Logged focus and Overlapping activities as pictures, and the Activity bar width slider with its strip" loading="lazy"></picture></figure>
+  </section>
+
+  <section class="screen" id="logged-focus">
+    <h2>Logged focus</h2>
+    <p>Beside block keeps a session as a hatched box beside its task's block. The new Inside block fills the logged stretch into the block itself.</p>
+    <figure><picture><source srcset="/shots/v2-4/inside-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-4/inside-light.webp" width="1440" height="900" alt="Week with Logged focus set to Inside block: logged time filled into each task's block" loading="lazy"></picture></figure>
+  </section>
+
+  <section class="screen" id="channels">
+    <h2>Channel colours</h2>
+    <p>With Time-block colour By channel, a task block carries its channel's colour bar, as an event carries its calendar's.</p>
+    <figure><picture><source srcset="/shots/v2-4/channels-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-4/channels-light.webp" width="1440" height="900" alt="Today's calendar: task blocks with a bar in their channel's colour beside the events" loading="lazy"></picture></figure>
+  </section>
+
+  <section class="screen" id="mail">
+    <h2>Mail</h2>
+    <p>Read conversations are muted, so the unread ones stand out. Archiving or deleting the one you are reading opens the next.</p>
+    <figure><picture><source srcset="/shots/v2-4/mail-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-4/mail-light.webp" width="1440" height="900" alt="Outlook mail with a conversation open: unread rows bold with a dot, read rows muted" loading="lazy"></picture></figure>
+  </section>
+
+  <section class="screen" id="day-lane">
+    <h2>Day lane</h2>
+    <p>Week's Day lane scrolls again when a day holds more than fits. A day with hidden events leads it with their count, which shows them.</p>
+    <figure><picture><source srcset="/shots/v2-4/daylane-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-4/daylane-light.webp" width="1440" height="900" alt="Week: Friday's Day lane led by one hidden event's count, its all-day events scrolling" loading="lazy"></picture></figure>
+  </section>
+
+  <section id="also">
+    <h2>Also in 2.4</h2>
+    <ul>
+      <li>The activity bar's Stripes are solid bands across the whole bar, and Nested one unbroken line down the longer activity.</li>
+      <li>Settings' Back button and <kbd>Ctrl ,</kbd> return to the screen Settings was opened from.</li>
+      <li>A New goal that failed to save is no longer lost on quit: quitting asks first.</li>
+      <li>Logged focus draws as hatched boxes again.</li>
+    </ul>
+  </section>
+
+  <section class="next">
+    <h2>Get it</h2>
+    <p>The full list of changes is in the <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">changelog</a>. Downloads are on <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">samaya-releases</a>. Missed the keyboard release? Read <a href="/news/v2-3">Samaya 2.3</a>.</p>
+  </section>
+</main>
+<nav class="toc" aria-label="Releases"><b>Releases</b><a href="/news/v2-4" aria-current="page">Samaya 2.4 · See it before you pick it</a><a href="/news/v2-3">Samaya 2.3 · Keyboard first</a><a href="/news/v2-2">Samaya 2.2 · First run</a><a href="/news/v2-1">Samaya 2.1 · Rituals</a><a href="/news/v2">Samaya 2 · What's new</a></nav>
+</div>
+
+<footer class="bar">
+  <span>© Atri Hegde · Samaya v2.4.0</span>
+  <nav><a href="/docs/welcome">Docs</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases">Releases</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">Changelog</a><a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/issues">Report an issue</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></nav>
+</footer>
+<script src="/site.js" defer></script>
+</body>
+</html>
