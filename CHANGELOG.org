@@ -40,6 +40,34 @@ the way but not yet in a release.
 
 * Unreleased
 
+* 2.5.0 - 2026-11-27
+Samaya 2.5 adds a Time view to Analytics: where your hours went, between
+focus, meetings and the rest of your calendar. *No breaking changes:* Org
+files and their format are untouched.
+[[https://samaya.hegdeatri.com/news/v2-5][What's new in Samaya 2.5]].
+
+** New
+- *Analytics › Time.* The view switch in Analytics' header (or =V=) turns
+  between Tasks and Time. Time shows your logged focus, calendar meetings and
+  other calendar events, with each minute counted once: focus first, then
+  meetings, then events. Declined, cancelled and all-day events, and calendars
+  you hide, are left out.
+- *Time blocks as the plan.* With Focus picked, the chart draws your time
+  blocks as an outline that logged focus fills, and the Blocks kept tile says
+  how much of their time went to their own task.
+- *Meetings and events in detail.* Each meeting or event lists the time it
+  booked beside the time it counted, and a heat map shows the weekdays and
+  hours each kind of time took.
+
+** Improved
+- In Analytics, a period still under way compares with the same moment in the
+  period before, on both Tasks and Time: the 1st to 23rd of a month at 13:12
+  against the same days of the month before, to 13:12.
+
+** Fixed
+- The weekly review's Meetings figure counts only meetings, events with
+  another guest or a join link, instead of every event.
+
 * 2.4.1 - 2026-11-26
 ** Fixed
 - The suggestions for a channel, day, priority or guest you are typing in the
