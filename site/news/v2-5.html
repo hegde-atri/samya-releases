@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Samaya 2.5 · Where the hours went</title>
-<meta name="description" content="Samaya 2.5 adds a Time view to Analytics: logged focus, meetings and events, each minute counted once, with time blocks drawn as the plan. No breaking changes.">
+<meta name="description" content="Analytics has a new Time view that shows where your week actually went: focus, meetings and everything else on your calendar. No breaking changes.">
 <meta property="og:title" content="Samaya 2.5 · Where the hours went">
-<meta property="og:description" content="Analytics' new Time view: focus, meetings and events counted once, time blocks as the plan, and a heat map of your week. No breaking changes.">
+<meta property="og:description" content="See how much of your week was focus, meetings or other events, and how much of your plan actually happened. No breaking changes.">
 <meta property="og:image" content="https://samaya.hegdeatri.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://samaya.hegdeatri.com/news/v2-5">
@@ -27,7 +27,7 @@
   <header class="intro">
     <span class="eyebrow">v2.5.0 · 27 November 2026</span>
     <h1>Where the hours went</h1>
-    <p>Samaya 2.5 adds a Time view to Analytics. It sets your logged focus beside your calendar's meetings and events, counts each minute once, and draws your time blocks as the plan that focus fills.</p>
+    <p>I wanted to actually see where my week goes. Was it deep work, or was it meetings again? So Analytics has a new Time view. It splits your week into focus, meetings and everything else on your calendar, and shows the time blocks you planned next to the focus you actually logged.</p>
     <div class="actions">
       <a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a>
       <a class="button quiet" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">Changelog</a>
@@ -37,52 +37,53 @@
   <aside class="safe" aria-labelledby="safe">
     <h2 id="safe">No breaking changes</h2>
     <ul>
-      <li><b>Org files</b> and their format are untouched.</li>
-      <li><b>Settings</b> you saved carry over. Analytics opens on Tasks until you switch.</li>
+      <li><b>Org files</b> and their format haven't changed.</li>
+      <li><b>Settings</b> you've saved stay as they are. Analytics still opens on Tasks until you switch it.</li>
     </ul>
-    <p>Samaya offers the update in <b>Settings › Update</b>; or run the installer again.</p>
+    <p>You'll get the update in <b>Settings › Update</b>, or you can just run the installer again.</p>
   </aside>
 
   <nav class="jump" aria-label="Where the hours went"><a href="#time">Time</a><a href="#meetings">Meetings</a><a href="#switch">Tasks or Time</a><a href="#month">Month and quarter</a><a href="#also">Also</a></nav>
 
   <section class="screen" id="time">
     <h2>Time</h2>
-    <p>Three tiles split the week into logged focus, calendar meetings and other calendar events, each with its share. Every minute counts once: focus first, then meetings, then events. Declined, cancelled and all-day events, and calendars you hide, are left out.</p>
-    <p>With Focus picked, each bar outlines the time you blocked, and logged focus fills it. Blocks kept says how much of your blocks' time went to their own task.</p>
-    <figure><picture><source srcset="/shots/v2-5/week-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-5/week-light.webp" width="1440" height="900" alt="Analytics › Time for this week: Logged focus, Calendar meetings, Calendar events and Blocks kept tiles, a stacked chart by day with time blocks outlined, Focus by channel and a heat map" loading="lazy"></picture></figure>
+    <p>The tiles at the top show your logged focus, your calendar meetings and your other calendar events, and how much of the week each one took. If a meeting overlaps a focus session, it only gets counted once, so the totals add up to a real week. Focus wins, then meetings, then everything else. Declined, cancelled and all-day events don't count, and neither do calendars you've hidden.</p>
+    <p>With Focus selected, the time you blocked out shows as an outline on each bar, and the focus you logged fills it in. You can see at a glance how much of the plan actually happened. The Blocks kept tile puts a number on it: how much of your blocked time you really spent on the task it was for.</p>
+    <figure><picture><source srcset="/shots/v2-5/week-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-5/week-light.webp" width="1440" height="900" alt="Analytics › Time for this week: tiles for Logged focus, Calendar meetings, Calendar events and Blocks kept, a bar chart by day with time blocks outlined, focus by channel and a heat map" loading="lazy"></picture></figure>
   </section>
 
   <section class="screen" id="meetings">
     <h2>Meetings</h2>
-    <p>Pick Meetings or Events and the table lists each one with the time it booked beside the time it counted, after focus and earlier bookings. Hover a row for its readout against the period before. The heat map shows the weekdays and hours that time took.</p>
-    <figure><picture><source srcset="/shots/v2-5/meetings-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-5/meetings-light.webp" width="1440" height="900" alt="A meeting-heavy week in Analytics › Time: the Meetings table with Bookings, Booked and Counted, and Design review's readout beside it" loading="lazy"></picture></figure>
+    <p>Switch to Meetings or Events and you get a table of every one of them. Booked is how long it sat on your calendar. Counted is what's left once your focus and anything booked before it are taken out. Hover over a row to compare it with the period before. The heat map underneath shows which days and hours all that time landed on.</p>
+    <figure><picture><source srcset="/shots/v2-5/meetings-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-5/meetings-light.webp" width="1440" height="900" alt="A week full of meetings in Analytics › Time: the Meetings table with Bookings, Booked and Counted columns, and the comparison for Design review next to it" loading="lazy"></picture></figure>
   </section>
 
   <section class="screen" id="switch">
     <h2>Tasks or Time</h2>
-    <p>The view switch in Analytics' header turns between Tasks and Time; <kbd>V</kbd> opens it. The period, span and channel carry across, and Samaya remembers the view you left.</p>
-    <figure><picture><source srcset="/shots/v2-5/view-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-5/view-light.webp" width="1440" height="900" alt="Analytics' view menu open under the header, with Tasks and Time" loading="lazy"></picture></figure>
+    <p>There's a switch at the top of Analytics to flip between Tasks and Time (or press <kbd>V</kbd>). Whatever week, month or channel you're looking at stays put when you switch, and it remembers which one you were on last.</p>
+    <figure><picture><source srcset="/shots/v2-5/view-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-5/view-light.webp" width="1440" height="900" alt="The view menu open at the top of Analytics, showing Tasks and Time" loading="lazy"></picture></figure>
   </section>
 
   <section class="screen" id="month">
     <h2>Month and quarter</h2>
-    <p>A month draws a bar a day and a quarter a bar a week. Narrow to a channel and the chart, its outline and the heat map follow it. A period still under way compares with the same moment in the period before, on Tasks too: 1–27 November to now against 1–27 October to the same time.</p>
-    <figure><picture><source srcset="/shots/v2-5/month-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-5/month-light.webp" width="1440" height="900" alt="November in Analytics › Time narrowed to work focus: a bar a day with work time blocks outlined, and the work row's readout" loading="lazy"></picture></figure>
+    <p>Look at a month and you get a bar for each day. A quarter gives you a bar for each week. Narrow it down to one channel and the chart, the outlines and the heat map all follow.</p>
+    <p>I also changed how a period that isn't over yet gets compared, on Tasks as well. Half of today used to be up against the whole of the same day last time. Now 1–27 November up to right now is compared with 1–27 October up to the same time of day.</p>
+    <figure><picture><source srcset="/shots/v2-5/month-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-5/month-light.webp" width="1440" height="900" alt="November in Analytics › Time narrowed to work focus: a bar for each day with work time blocks outlined, and the comparison for the work row" loading="lazy"></picture></figure>
   </section>
 
   <section id="also">
     <h2>Also in 2.5</h2>
     <ul>
-      <li>The weekly review's Meetings figure counts only meetings, events with another guest or a join link, instead of every event.</li>
+      <li>The Meetings number in the weekly review used to count every event. Now it only counts actual meetings, meaning events with another guest or a join link.</li>
     </ul>
   </section>
 
   <section class="next">
     <h2>Get it</h2>
-    <p>The full list of changes is in the <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">changelog</a>. Downloads are on <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">samaya-releases</a>. Missed the Settings previews? Read <a href="/news/v2-4">Samaya 2.4</a>.</p>
+    <p>Everything else that changed is in the <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">changelog</a>, and you can download it from <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">samaya-releases</a>. If you missed the settings with pictures, that was <a href="/news/v2-4">Samaya 2.4</a>.</p>
   </section>
 </main>
-<nav class="toc" aria-label="Releases"><b>Releases</b><a href="/news/v2-5" aria-current="page">Samaya 2.5 · Where the hours went</a><a href="/news/v2-4">Samaya 2.4 · See it before you pick it</a><a href="/news/v2-3">Samaya 2.3 · Keyboard first</a><a href="/news/v2-2">Samaya 2.2 · First run</a><a href="/news/v2-1">Samaya 2.1 · Rituals</a><a href="/news/v2">Samaya 2 · What's new</a></nav>
+<nav class="toc" aria-label="Releases"><b>Releases</b><a href="/news/v2-5" aria-current="page">Samaya 2.5 · Where the hours went</a><a href="/news/v2-4">Samaya 2.4 · Settings with pictures</a><a href="/news/v2-3">Samaya 2.3 · Keyboard first</a><a href="/news/v2-2">Samaya 2.2 · First run</a><a href="/news/v2-1">Samaya 2.1 · Rituals</a><a href="/news/v2">Samaya 2 · What's new</a></nav>
 </div>
 
 <footer class="bar">
