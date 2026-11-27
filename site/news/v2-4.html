@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Samaya 2.4 · See it before you pick it</title>
-<meta name="description" content="Samaya 2.4 draws the calendar's look in Settings as pictures, adds Logged focus inside its block and channel colour bars on task blocks. No breaking changes.">
-<meta property="og:title" content="Samaya 2.4 · See it before you pick it">
-<meta property="og:description" content="Settings drawn as pictures, logged focus inside its block, channel colour bars and quieter read mail. No breaking changes.">
+<title>Samaya 2.4 · Settings with pictures</title>
+<meta name="description" content="The calendar settings now show you a picture of each option. Plus logged focus inside its block, and channel colours on task blocks. No breaking changes.">
+<meta property="og:title" content="Samaya 2.4 · Settings with pictures">
+<meta property="og:description" content="Pictures in Settings, logged focus inside its block, channel colours on task blocks and quieter read mail. No breaking changes.">
 <meta property="og:image" content="https://samaya.hegdeatri.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://samaya.hegdeatri.com/news/v2-4">
@@ -26,8 +26,8 @@
 <main class="news">
   <header class="intro">
     <span class="eyebrow">v2.4.0 · 26 November 2026</span>
-    <h1>See it before you pick it</h1>
-    <p>Samaya 2.4 draws the calendar's look in Settings as pictures, so each choice shows what it does. It adds a choice of where logged focus draws, and gives task blocks their channel's colour.</p>
+    <h1>Settings with pictures</h1>
+    <p>A lot of the calendar settings were hard to understand from their names alone. You'd pick one, go back to the calendar to see what it did, then go back to Settings. Now Settings just shows you a picture of each option. I also added a setting for where logged focus shows up, and task blocks can take their channel's colour.</p>
     <div class="actions">
       <a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a>
       <a class="button quiet" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">Changelog</a>
@@ -37,60 +37,60 @@
   <aside class="safe" aria-labelledby="safe">
     <h2 id="safe">No breaking changes</h2>
     <ul>
-      <li><b>Org files</b> and their format are untouched.</li>
-      <li><b>Settings</b> you saved carry over. Only new setups start on Side by side.</li>
+      <li><b>Org files</b> and their format haven't changed.</li>
+      <li><b>Settings</b> you've saved stay as they are. Only new setups start with overlapping activities Side by side.</li>
     </ul>
-    <p>The sidebar now hides with <kbd>Ctrl B</kbd>, in place of <kbd>Ctrl \</kbd>. Samaya offers the update in <b>Settings › Update</b>; or run the installer again.</p>
+    <p>One shortcut did change. <kbd>Ctrl B</kbd> now hides the sidebar, instead of <kbd>Ctrl \</kbd>. You'll get the update in <b>Settings › Update</b>, or you can run the installer again.</p>
   </aside>
 
-  <nav class="jump" aria-label="See it before you pick it"><a href="#settings">Settings</a><a href="#logged-focus">Logged focus</a><a href="#channels">Channel colours</a><a href="#mail">Mail</a><a href="#day-lane">Day lane</a><a href="#also">Also</a></nav>
+  <nav class="jump" aria-label="Settings with pictures"><a href="#settings">Settings</a><a href="#logged-focus">Logged focus</a><a href="#channels">Channel colours</a><a href="#mail">Mail</a><a href="#day-lane">Day lane</a><a href="#also">Also</a></nav>
 
   <section class="screen" id="settings">
     <h2>Settings</h2>
-    <p>Scheduling shows Time-block colour, Logged focus and Overlapping activities as true-size pictures of a calendar, drawn with your other choices in force. Click one to pick it. Activity bar width sets the bar beside a live strip, and Garmin's Sleep on the calendar is pictured too.</p>
-    <figure><picture><source srcset="/shots/v2-4/settings-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-4/settings-light.webp" width="1440" height="900" alt="Settings › Scheduling: Time-block colour, Logged focus and Overlapping activities as pictures, and the Activity bar width slider with its strip" loading="lazy"></picture></figure>
+    <p>In <b>Settings › Scheduling</b>, Time-block colour, Logged focus and Overlapping activities now show each option as a real-size bit of calendar, with the rest of your settings already applied. Click a picture to pick it. Activity bar width has a strip next to the slider that changes as you move it, and the Garmin settings for showing sleep on the calendar get pictures too.</p>
+    <figure><picture><source srcset="/shots/v2-4/settings-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-4/settings-light.webp" width="1440" height="900" alt="Settings › Scheduling: Time-block colour, Logged focus and Overlapping activities shown as pictures, and the Activity bar width slider with its preview strip" loading="lazy"></picture></figure>
   </section>
 
   <section class="screen" id="logged-focus">
     <h2>Logged focus</h2>
-    <p>Beside block keeps a session as a hatched box beside its task's block. The new Inside block fills the logged stretch into the block itself.</p>
-    <figure><picture><source srcset="/shots/v2-4/inside-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-4/inside-light.webp" width="1440" height="900" alt="Week with Logged focus set to Inside block: logged time filled into each task's block" loading="lazy"></picture></figure>
+    <p>Logged focus has two options now. Beside block is how it worked before, with each session as a hatched box next to its task's block. Inside block is new. It fills the time you logged into the block itself.</p>
+    <figure><picture><source srcset="/shots/v2-4/inside-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-4/inside-light.webp" width="1440" height="900" alt="A week with Logged focus set to Inside block, so logged time fills each task's block" loading="lazy"></picture></figure>
   </section>
 
   <section class="screen" id="channels">
     <h2>Channel colours</h2>
-    <p>With Time-block colour By channel, a task block carries its channel's colour bar, as an event carries its calendar's.</p>
-    <figure><picture><source srcset="/shots/v2-4/channels-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-4/channels-light.webp" width="1440" height="900" alt="Today's calendar: task blocks with a bar in their channel's colour beside the events" loading="lazy"></picture></figure>
+    <p>Events already had a bar in their calendar's colour. Now task blocks get one in their channel's colour, if you set Time-block colour to By channel.</p>
+    <figure><picture><source srcset="/shots/v2-4/channels-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-4/channels-light.webp" width="1440" height="900" alt="Today's calendar: task blocks with a bar in their channel's colour, next to the events" loading="lazy"></picture></figure>
   </section>
 
   <section class="screen" id="mail">
     <h2>Mail</h2>
-    <p>Read conversations are muted, so the unread ones stand out. Archiving or deleting the one you are reading opens the next.</p>
-    <figure><picture><source srcset="/shots/v2-4/mail-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-4/mail-light.webp" width="1440" height="900" alt="Outlook mail with a conversation open: unread rows bold with a dot, read rows muted" loading="lazy"></picture></figure>
+    <p>Conversations you've already read are greyed out now, so the unread ones stand out. And when you archive or delete the one you're reading, the next one opens, so you can keep going.</p>
+    <figure><picture><source srcset="/shots/v2-4/mail-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-4/mail-light.webp" width="1440" height="900" alt="Outlook mail with a conversation open: unread rows in bold with a dot, read rows greyed out" loading="lazy"></picture></figure>
   </section>
 
   <section class="screen" id="day-lane">
     <h2>Day lane</h2>
-    <p>Week's Day lane scrolls again when a day holds more than fits. A day with hidden events leads it with their count, which shows them.</p>
-    <figure><picture><source srcset="/shots/v2-4/daylane-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-4/daylane-light.webp" width="1440" height="900" alt="Week: Friday's Day lane led by one hidden event's count, its all-day events scrolling" loading="lazy"></picture></figure>
+    <p>The Day lane in Week scrolls again when a day has more in it than fits. If a day has hidden events, the lane starts with a count of them, and you can click it to see them.</p>
+    <figure><picture><source srcset="/shots/v2-4/daylane-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-4/daylane-light.webp" width="1440" height="900" alt="Week: Friday's Day lane starting with a count of one hidden event, with its all-day events scrolling below" loading="lazy"></picture></figure>
   </section>
 
   <section id="also">
     <h2>Also in 2.4</h2>
     <ul>
-      <li>The activity bar's Stripes are solid bands across the whole bar, and Nested one unbroken line down the longer activity.</li>
-      <li>Settings' Back button and <kbd>Ctrl ,</kbd> return to the screen Settings was opened from.</li>
-      <li>A New goal that failed to save is no longer lost on quit: quitting asks first.</li>
-      <li>Logged focus draws as hatched boxes again.</li>
+      <li>In the activity bar, Stripes are now solid bands across the whole bar, and Nested is one unbroken line down the longer activity.</li>
+      <li>The Back button in Settings and <kbd>Ctrl ,</kbd> take you back to whatever screen you opened Settings from.</li>
+      <li>If a New goal didn't save, quitting used to just lose it. Now it asks you first.</li>
+      <li>Logged focus shows up as hatched boxes again.</li>
     </ul>
   </section>
 
   <section class="next">
     <h2>Get it</h2>
-    <p>The full list of changes is in the <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">changelog</a>. Downloads are on <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">samaya-releases</a>. Missed the keyboard release? Read <a href="/news/v2-3">Samaya 2.3</a>.</p>
+    <p>You can grab it from <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">samaya-releases</a>, and the <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">changelog</a> has every change. The keyboard stuff before this was in <a href="/news/v2-3">Samaya 2.3</a>.</p>
   </section>
 </main>
-<nav class="toc" aria-label="Releases"><b>Releases</b><a href="/news/v2-5">Samaya 2.5 · Where the hours went</a><a href="/news/v2-4" aria-current="page">Samaya 2.4 · See it before you pick it</a><a href="/news/v2-3">Samaya 2.3 · Keyboard first</a><a href="/news/v2-2">Samaya 2.2 · First run</a><a href="/news/v2-1">Samaya 2.1 · Rituals</a><a href="/news/v2">Samaya 2 · What's new</a></nav>
+<nav class="toc" aria-label="Releases"><b>Releases</b><a href="/news/v2-5">Samaya 2.5 · Where the hours went</a><a href="/news/v2-4" aria-current="page">Samaya 2.4 · Settings with pictures</a><a href="/news/v2-3">Samaya 2.3 · Keyboard first</a><a href="/news/v2-2">Samaya 2.2 · First run</a><a href="/news/v2-1">Samaya 2.1 · Rituals</a><a href="/news/v2">Samaya 2 · What's new</a></nav>
 </div>
 
 <footer class="bar">
