@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Samaya 2.1 · Rituals</title>
-<meta name="description" content="Samaya 2.1 adds rituals: daily planning, shutdown and a weekly review, prompted from the sidebar. No breaking changes.">
+<meta name="description" content="Plan the day in the morning, shut it down in the evening and review your week, with a nudge from the sidebar when each one is due. No breaking changes.">
 <meta property="og:title" content="Samaya 2.1 · Rituals">
-<meta property="og:description" content="Daily planning, shutdown and a weekly review, prompted from the sidebar. No breaking changes.">
+<meta property="og:description" content="Daily planning, an end-of-day shutdown and a weekly review, with a nudge from the sidebar when each one is due. No breaking changes.">
 <meta property="og:image" content="https://samaya.hegdeatri.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://samaya.hegdeatri.com/news/v2-1">
@@ -27,7 +27,7 @@
   <header class="intro">
     <span class="eyebrow">v2.1.0 · 25 November 2026</span>
     <h1>Rituals</h1>
-    <p>Samaya 2.1 adds three short, guided routines: plan the day in the morning, shut it down in the evening, and review the week. Each is a few steps, one decision per row, written to your Org files as you go.</p>
+    <p>I wanted a proper routine for starting the day, ending it, and looking back at the week, instead of doing it all in my head. So there are three of them now. You plan the day in the morning, shut it down in the evening, and review the week at the end of it. Each one is a few short steps where you decide one thing at a time, and everything gets written to your Org files as you go.</p>
     <div class="actions">
       <a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a>
       <a class="button quiet" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">Changelog</a>
@@ -37,62 +37,62 @@
   <aside class="safe" aria-labelledby="safe">
     <h2 id="safe">No breaking changes</h2>
     <ul>
-      <li><b>Org files</b> and their format are untouched. A ritual's choices are ordinary moves, skips and deletes, each with Undo.</li>
-      <li><b>Ritual progress</b>, the step you are on and the choices not yet written, lives in the planner's state file, so it survives leaving and quitting.</li>
+      <li><b>Org files</b> and their format haven't changed. Everything a ritual does is a normal move, skip or delete, and you can undo each one.</li>
+      <li><b>Ritual progress</b> (which step you're on and any choices that aren't written yet) is kept in the planner's state file. You can leave or even quit, and pick up where you left off.</li>
     </ul>
-    <p>Samaya offers the update in <b>Settings › Update</b>; or run the installer again.</p>
+    <p>You'll get the update in <b>Settings › Update</b>, or you can run the installer again.</p>
   </aside>
 
   <nav class="jump" aria-label="Rituals"><a href="#daily">Daily planning</a><a href="#shutdown">Shutdown</a><a href="#weekly">Weekly review</a><a href="#sidebar">In the sidebar</a><a href="#keys">Keys</a></nav>
 
   <section class="screen" id="daily">
     <h2>Daily planning</h2>
-    <p>Carry over decides each task left from yesterday: Today, Move to… or Delete. The header reads the day's planned time against its capacity at every step.</p>
-    <figure><picture><source srcset="/shots/v2-1/daily-carry-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-1/daily-carry-light.webp" width="1440" height="900" alt="Daily planning on Carry over: two tasks from yesterday, each with Today, Move to and Delete" loading="lazy"></picture></figure>
-    <p>Pick adds goal steps and backlog tasks; today's habits come ticked.</p>
-    <figure><picture><source srcset="/shots/v2-1/daily-pick-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-1/daily-pick-light.webp" width="1440" height="900" alt="Pick: goal steps, today&#x27;s habits ticked, and the backlog" loading="lazy"></picture></figure>
-    <p>Fit lays the day beside its calendar and names every overlap. Drag a task to a time, or Ctrl → to move it to tomorrow. Commit starts the day; while something overlaps, it offers Back to Fit first.</p>
-    <figure><picture><source srcset="/shots/v2-1/daily-fit-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-1/daily-fit-light.webp" width="1440" height="900" alt="Fit: the day&#x27;s tasks with their times and estimates beside the day calendar, one overlap named" loading="lazy"></picture></figure>
+    <p>It starts with Carry over. For each task left from yesterday, you choose Today, Move to… or Delete. The whole way through, the header shows how much you've planned against how much time you have that day.</p>
+    <figure><picture><source srcset="/shots/v2-1/daily-carry-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-1/daily-carry-light.webp" width="1440" height="900" alt="Daily planning on the Carry over step: two tasks from yesterday, each with Today, Move to and Delete" loading="lazy"></picture></figure>
+    <p>In Pick you add goal steps and tasks from your backlog. Today's habits are already ticked for you.</p>
+    <figure><picture><source srcset="/shots/v2-1/daily-pick-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-1/daily-pick-light.webp" width="1440" height="900" alt="Pick: goal steps, today&#x27;s habits already ticked, and the backlog" loading="lazy"></picture></figure>
+    <p>Fit puts your day next to your calendar and points out anything that overlaps. Drag a task to a time, or press Ctrl → to push it to tomorrow. Commit starts the day. If something still overlaps, it'll offer to take you Back to Fit first.</p>
+    <figure><picture><source srcset="/shots/v2-1/daily-fit-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-1/daily-fit-light.webp" width="1440" height="900" alt="Fit: the day&#x27;s tasks with their times and estimates next to the day calendar, with one overlap pointed out" loading="lazy"></picture></figure>
   </section>
 
   <section class="screen" id="shutdown">
     <h2>Shutdown</h2>
-    <p>End the day with what got done, then the leftovers, each moved to tomorrow, another day or the backlog, or deleted. The header reads tomorrow's load, so you see it fill as you go. Last, tomorrow's plan.</p>
+    <p>At the end of the day you see what got done first, then what's left over. Each leftover goes to tomorrow, another day or the backlog, or you delete it. The header shows how full tomorrow is getting while you do this. Last up is tomorrow's plan.</p>
     <figure><picture><source srcset="/shots/v2-1/shutdown-leftovers-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-1/shutdown-leftovers-light.webp" width="1440" height="900" alt="Shutdown on Leftovers: each open task with Thu 26, Move to and Delete" loading="lazy"></picture></figure>
   </section>
 
   <section class="screen" id="weekly">
     <h2>Weekly review</h2>
-    <p>Done compares the week's focus, tasks done, planned done and meetings with the week before, then lists what got done by channel.</p>
-    <figure><picture><source srcset="/shots/v2-1/weekly-done-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-1/weekly-done-light.webp" width="1440" height="900" alt="Weekly review on Done: focus, tasks done, planned done and meetings against the week before" loading="lazy"></picture></figure>
-    <p>Goals shows each quarter goal's steps done since the last review, its logged time and habit days that week, its health and its next step.</p>
-    <figure><picture><source srcset="/shots/v2-1/weekly-goals-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-1/weekly-goals-light.webp" width="1440" height="900" alt="Goals: each quarter goal&#x27;s steps, change since the last review and health" loading="lazy"></picture></figure>
-    <p>Open decides the week's unfinished tasks. Plan fills next week's days against their capacity: drag a goal's next step onto a day, or press D.</p>
-    <figure><picture><source srcset="/shots/v2-1/weekly-plan-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-1/weekly-plan-light.webp" width="1440" height="900" alt="Plan: next week&#x27;s days with planned time against capacity, the goals&#x27; next steps and habits below" loading="lazy"></picture></figure>
+    <p>Done compares this week with the one before: your focus time, tasks done, planned tasks done and meetings. Then it lists what you got done in each channel.</p>
+    <figure><picture><source srcset="/shots/v2-1/weekly-done-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-1/weekly-done-light.webp" width="1440" height="900" alt="Weekly review on Done: focus, tasks done, planned done and meetings compared with the week before" loading="lazy"></picture></figure>
+    <p>Goals goes through each quarter goal. You see the steps you've finished since your last review, the time you logged and the habit days you hit that week, how the goal is doing, and what's next.</p>
+    <figure><picture><source srcset="/shots/v2-1/weekly-goals-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-1/weekly-goals-light.webp" width="1440" height="900" alt="Goals: each quarter goal&#x27;s steps, what changed since the last review, and its health" loading="lazy"></picture></figure>
+    <p>Open is where you deal with whatever's still unfinished from the week. Then Plan lays out next week's days against how much time each one has. Drag a goal's next step onto a day, or press D.</p>
+    <figure><picture><source srcset="/shots/v2-1/weekly-plan-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-1/weekly-plan-light.webp" width="1440" height="900" alt="Plan: next week&#x27;s days with planned time against capacity, and the goals&#x27; next steps and habits underneath" loading="lazy"></picture></figure>
   </section>
 
   <section class="screen" id="sidebar">
-    <h2>In the sidebar, never in the way</h2>
-    <p>The RITUALS group shows each ritual's step while it runs, a check once done and a dot once due; the weekly review reads Late after its day. Samaya prompts but never opens a ritual by itself. On a narrow window, the rail's Rituals cell opens a menu of the three.</p>
-    <p>Settings › Planning sets when Daily planning is due, at the first open of the day or at a time, beside the shutdown time and the review day.</p>
-    <figure><picture><source srcset="/shots/v2-1/planning-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-1/planning-light.webp" width="1440" height="900" alt="Settings › Planning: Daily planning at first open or at a time, Shutdown at 18:00, Weekly review on Friday" loading="lazy"></picture></figure>
+    <h2>In the sidebar</h2>
+    <p>The rituals live in the sidebar under RITUALS. While one is running you can see which step you're on. It gets a check when you're done and a dot when it's due, and the weekly review says Late once its day has passed. Samaya will remind you, but it never opens a ritual on its own. I didn't want it taking over the screen the moment I open the app. If your window is narrow, the Rituals icon in the rail opens a menu with all three.</p>
+    <p>In <b>Settings › Planning</b> you choose when Daily planning is due, either the first time you open the app that day or at a set time. The shutdown time and the review day are there too.</p>
+    <figure><picture><source srcset="/shots/v2-1/planning-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-1/planning-light.webp" width="1440" height="900" alt="Settings › Planning: Daily planning at first open or at a set time, Shutdown at 18:00, Weekly review on Friday" loading="lazy"></picture></figure>
   </section>
 
   <section id="keys">
     <h2>Keys</h2>
-    <p>Every step works from the keyboard. Press <kbd>?</kbd> in the app for every shortcut.</p>
+    <p>You can do every step from the keyboard. Press <kbd>?</kbd> in the app to see all the shortcuts.</p>
     <div class="table"><table>
       <thead><tr><td>Key</td><td>Does</td></tr></thead>
-      <tbody><tr><td>G then D, S, R</td><td>Open Daily planning, Shutdown, the weekly review (also in the palette, Ctrl K)</td></tr><tr><td>1–4</td><td>Jump to a step you reached</td></tr><tr><td>Ctrl ↵</td><td>The step's action: Next, Commit, Finish</td></tr><tr><td>Alt ←</td><td>Back a step</td></tr><tr><td>↑ ↓</td><td>Move between rows</td></tr><tr><td>T, D, Del</td><td>Today, Move to…, Delete the row's task</td></tr><tr><td>Space</td><td>Tick a row in Pick</td></tr><tr><td>Ctrl Z</td><td>Undo a choice not yet written, then the usual Undo</td></tr></tbody>
+      <tbody><tr><td>G then D, S, R</td><td>Open Daily planning, Shutdown, the weekly review (also in the palette, Ctrl K)</td></tr><tr><td>1–4</td><td>Jump to a step you reached</td></tr><tr><td>Ctrl ↵</td><td>The step's action: Next, Commit, Finish</td></tr><tr><td>Alt ←</td><td>Back a step</td></tr><tr><td>↑ ↓</td><td>Move between rows</td></tr><tr><td>T, D, Del</td><td>Today, Move to…, Delete the row's task</td></tr><tr><td>Space</td><td>Tick a row in Pick</td></tr><tr><td>Ctrl Z</td><td>Undo a choice that isn't written yet, then the usual Undo</td></tr></tbody>
     </table></div>
   </section>
 
   <section class="next">
     <h2>Get it</h2>
-    <p>The full list of changes is in the <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">changelog</a>. Downloads are on <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">samaya-releases</a>. Missed the redesign? Read <a href="/news/v2">Samaya 2</a>.</p>
+    <p>Downloads are on <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">samaya-releases</a>, and the <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">changelog</a> has everything that changed. If you haven't seen the big redesign yet, that's <a href="/news/v2">Samaya 2</a>.</p>
   </section>
 </main>
-<nav class="toc" aria-label="Releases"><b>Releases</b><a href="/news/v2-5">Samaya 2.5 · Where the hours went</a><a href="/news/v2-4">Samaya 2.4 · See it before you pick it</a><a href="/news/v2-3">Samaya 2.3 · Keyboard first</a><a href="/news/v2-2">Samaya 2.2 · First run</a><a href="/news/v2-1" aria-current="page">Samaya 2.1 · Rituals</a><a href="/news/v2">Samaya 2 · What's new</a></nav>
+<nav class="toc" aria-label="Releases"><b>Releases</b><a href="/news/v2-5">Samaya 2.5 · Where the hours went</a><a href="/news/v2-4">Samaya 2.4 · Settings with pictures</a><a href="/news/v2-3">Samaya 2.3 · Keyboard first</a><a href="/news/v2-2">Samaya 2.2 · First run</a><a href="/news/v2-1" aria-current="page">Samaya 2.1 · Rituals</a><a href="/news/v2">Samaya 2 · What's new</a></nav>
 </div>
 
 <footer class="bar">
