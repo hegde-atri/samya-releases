@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Samaya 2.2 · First run</title>
-<meta name="description" content="Samaya 2.2 adds a first run for new users: pick your Org folder, connect calendars and set preferences. No breaking changes.">
+<meta name="description" content="New users now get a short setup the first time they open Samaya: pick your Org folder, connect your calendars and set a few preferences. No breaking changes.">
 <meta property="og:title" content="Samaya 2.2 · First run">
-<meta property="og:description" content="Pick your Org folder, connect calendars and set preferences. No breaking changes.">
+<meta property="og:description" content="A short setup for new users. Pick your Org folder, connect your calendars and set a few preferences. No breaking changes.">
 <meta property="og:image" content="https://samaya.hegdeatri.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://samaya.hegdeatri.com/news/v2-2">
@@ -27,7 +27,7 @@
   <header class="intro">
     <span class="eyebrow">v2.2.0 · 25 November 2026</span>
     <h1>First run</h1>
-    <p>Samaya 2.2 greets new users with three short steps: where your Org files live, which calendars to connect, and how the app should look and plan. Plus a round of small fixes.</p>
+    <p>If you're new to Samaya, it now walks you through setup the first time you open it. It's three quick steps. Tell it where your Org files live, connect your calendars, and choose how you want it to look and plan. There's also a bunch of small fixes in here.</p>
     <div class="actions">
       <a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a>
       <a class="button quiet" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">Changelog</a>
@@ -37,49 +37,49 @@
   <aside class="safe" aria-labelledby="safe">
     <h2 id="safe">No breaking changes</h2>
     <ul>
-      <li><b>Existing users</b> never see first run: it opens only when no Org folder is set up.</li>
-      <li><b>Org files</b> and their format are untouched.</li>
+      <li><b>Existing users</b> won't see any of this. It only shows up when no Org folder is set up yet.</li>
+      <li><b>Org files</b> and their format haven't changed.</li>
     </ul>
-    <p>Samaya offers the update in <b>Settings › Update</b>; or run the installer again.</p>
+    <p>You'll get the update in <b>Settings › Update</b>, or you can run the installer again.</p>
   </aside>
 
   <nav class="jump" aria-label="First run"><a href="#org">Org files</a><a href="#calendars">Calendars</a><a href="#preferences">Preferences</a><a href="#fixed">Fixed</a></nav>
 
   <section class="screen" id="org">
     <h2>Org files</h2>
-    <p>Type or browse to a folder and Samaya checks it as you go: its files and tasks, or that it is empty, missing or read-only, with Use ~/org as the way out. Continue saves it.</p>
-    <figure><picture><source srcset="/shots/v2-2/org-files-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-2/org-files-light.webp" width="1440" height="900" alt="First run on Org files: ~/org typed, 5 files and 85 tasks found" loading="lazy"></picture></figure>
+    <p>Type a folder path or browse to one, and it gets checked while you type. You'll see how many files and tasks it found, or a heads-up if the folder is empty, missing or read-only. If you get stuck, you can always pick Use ~/org. Continue saves it.</p>
+    <figure><picture><source srcset="/shots/v2-2/org-files-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-2/org-files-light.webp" width="1440" height="900" alt="The Org files step of first run: ~/org typed in, with 5 files and 85 tasks found" loading="lazy"></picture></figure>
   </section>
 
   <section class="screen" id="calendars">
     <h2>Calendars</h2>
-    <p>Connect Google or Outlook accounts with the same form as Settings, or continue without connecting.</p>
-    <figure><picture><source srcset="/shots/v2-2/calendars-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-2/calendars-light.webp" width="1440" height="900" alt="Calendars: the new account form with Google and Outlook, and Continue without connecting" loading="lazy"></picture></figure>
+    <p>Connect your Google or Outlook accounts here, using the same form you'd find in Settings. Or skip it for now and continue without connecting.</p>
+    <figure><picture><source srcset="/shots/v2-2/calendars-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-2/calendars-light.webp" width="1440" height="900" alt="The Calendars step: the new account form with Google and Outlook, and Continue without connecting" loading="lazy"></picture></figure>
   </section>
 
   <section class="screen" id="preferences">
     <h2>Preferences</h2>
-    <p>Pick the theme and accent colour, your capacity per day and the day the week starts on, then Open Today. Skip setup opens Today from any step, asking first if it would create ~/org.</p>
-    <figure><picture><source srcset="/shots/v2-2/preferences-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-2/preferences-light.webp" width="1440" height="900" alt="Preferences: theme, accent colour, capacity per day and week start" loading="lazy"></picture></figure>
+    <p>Choose a theme and accent colour, your capacity per day and which day your week starts on, then hit Open Today. You can also hit Skip setup on any step to go straight to Today. If that would mean creating ~/org, it asks you first.</p>
+    <figure><picture><source srcset="/shots/v2-2/preferences-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2-2/preferences-light.webp" width="1440" height="900" alt="The Preferences step: theme, accent colour, capacity per day and week start" loading="lazy"></picture></figure>
   </section>
 
   <section id="fixed">
     <h2>Also in 2.2</h2>
     <ul>
-      <li>Progress' Log popover names the measure and the last value logged.</li>
-      <li>Settings search scrolls to the result you move to, and its Clear sits inside the field.</li>
-      <li>All sources shows one sign-in banner per signed-out account, and rows from that account say Signed out.</li>
-      <li>When an add to a channel fails, the composer offers Add to Inbox; an event taken to connect a calendar comes back with its draft.</li>
-      <li>Month cells keep "+N" at small sizes, the New goal form's Channel works from the keyboard, and the shortcut sheet ends on whole rows.</li>
+      <li>The Log popover on Progress now tells you which measure you're logging and the last value you logged.</li>
+      <li>Settings search scrolls to the result you move to, and the Clear button is inside the search field now.</li>
+      <li>All sources shows one sign-in banner for each signed-out account, and that account's rows say Signed out.</li>
+      <li>If adding a task to a channel fails, the composer offers Add to Inbox instead. And if a new event sends you off to Settings to connect a calendar, it opens again with your draft when you leave Settings.</li>
+      <li>Month cells keep their "+N" when they're small, Channel in the New goal form works from the keyboard, and the shortcut sheet no longer ends on half a row.</li>
     </ul>
   </section>
 
   <section class="next">
     <h2>Get it</h2>
-    <p>The full list of changes is in the <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">changelog</a>. Downloads are on <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">samaya-releases</a>. Missed rituals? Read <a href="/news/v2-1">Samaya 2.1</a>.</p>
+    <p>The <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">changelog</a> has the full list, and downloads are on <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">samaya-releases</a>. Haven't tried rituals yet? They came in <a href="/news/v2-1">Samaya 2.1</a>.</p>
   </section>
 </main>
-<nav class="toc" aria-label="Releases"><b>Releases</b><a href="/news/v2-5">Samaya 2.5 · Where the hours went</a><a href="/news/v2-4">Samaya 2.4 · See it before you pick it</a><a href="/news/v2-3">Samaya 2.3 · Keyboard first</a><a href="/news/v2-2" aria-current="page">Samaya 2.2 · First run</a><a href="/news/v2-1">Samaya 2.1 · Rituals</a><a href="/news/v2">Samaya 2 · What's new</a></nav>
+<nav class="toc" aria-label="Releases"><b>Releases</b><a href="/news/v2-5">Samaya 2.5 · Where the hours went</a><a href="/news/v2-4">Samaya 2.4 · Settings with pictures</a><a href="/news/v2-3">Samaya 2.3 · Keyboard first</a><a href="/news/v2-2" aria-current="page">Samaya 2.2 · First run</a><a href="/news/v2-1">Samaya 2.1 · Rituals</a><a href="/news/v2">Samaya 2 · What's new</a></nav>
 </div>
 
 <footer class="bar">
