@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Samaya 2 · What's new</title>
-<meta name="description" content="Samaya 2 redesigns every screen on one design language, adds a command palette, per-day capacity and keyboard control everywhere. No breaking changes.">
+<meta name="description" content="I redesigned every screen in Samaya, and added a command palette, a capacity for each day of the week and keyboard control everywhere. No breaking changes.">
 <meta property="og:title" content="Samaya 2 · What's new">
-<meta property="og:description" content="Every screen redesigned, a command palette, per-day capacity and keyboard control everywhere. No breaking changes.">
+<meta property="og:description" content="Every screen redesigned, plus a command palette, a capacity for each day and keyboard control everywhere. No breaking changes.">
 <meta property="og:image" content="https://samaya.hegdeatri.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://samaya.hegdeatri.com/news/v2">
@@ -27,7 +27,7 @@
   <header class="intro">
     <span class="eyebrow">v2.0.0 · 25 November 2026</span>
     <h1>Samaya 2</h1>
-    <p>Every screen is rebuilt on one design language: one set of colours, type, spacing and components, with Iconsax icons. Samaya 2 adds a command palette, a capacity for each weekday, and keyboard control of every card, panel, menu and dialog.</p>
+    <p>Samaya 2 is a redesign of the whole app. Over time the screens in version 1 had each ended up looking a bit different, so I rebuilt every one of them with the same colours, type, spacing and components. The icons are Iconsax now, which I really like. On top of that there's a command palette, you can set a capacity for each day of the week, and every card, panel, menu and dialog works from the keyboard.</p>
     <div class="actions">
       <a class="button" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">Download</a>
       <a class="button quiet" href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">Changelog</a>
@@ -37,31 +37,31 @@
   <aside class="safe" aria-labelledby="safe">
     <h2 id="safe">No breaking changes</h2>
     <ul>
-      <li><b>Org files</b> and their format are untouched.</li>
-      <li><b>Settings</b> in <code>desktop.toml</code> and <code>sync.toml</code> carry over. A value you saved wins over a new default.</li>
-      <li><b>Calendars, integrations and accounts</b> keep working, with no new sign-in.</li>
+      <li><b>Org files</b> and their format haven't changed.</li>
+      <li><b>Settings</b> in <code>desktop.toml</code> and <code>sync.toml</code> stay as they are. If you saved a value, it wins over any new default.</li>
+      <li><b>Calendars, integrations and accounts</b> keep working, and you don't have to sign in again.</li>
     </ul>
-    <p>Some keyboard shortcuts changed: see <a href="#shortcuts">Changed shortcuts</a>. Samaya offers the update in <b>Settings › Update</b>; or run the installer again.</p>
+    <p>A few keyboard shortcuts did change, so have a look at <a href="#shortcuts">Changed shortcuts</a>. You'll get the update in <b>Settings › Update</b>, or you can run the installer again.</p>
   </aside>
 
   <nav class="jump" aria-label="Screens"><a href="#sidebar">Sidebar and header</a><a href="#today">Today</a><a href="#week">Week</a><a href="#channels">Channels</a><a href="#focus">Focus</a><a href="#editor">Task editor and quick add</a><a href="#goals">Goals</a><a href="#progress">Progress</a><a href="#analytics">Analytics</a><a href="#panels">Side panels and mail</a><a href="#settings">Settings</a><a href="#tray">Tray</a><a href="#new">New</a><a href="#shortcuts">Shortcuts</a></nav>
 
   <section class="screen" id="sidebar">
     <h2>Sidebar and header</h2>
-    <p>The sidebar lists Plan and your channels, with Search and Focus on top and sync state at its foot. Ctrl \ folds it to a rail of icons; Focus folds it for you. Every screen shares one header: its title, period, view and panel toggles.</p>
+    <p>The sidebar has Plan and your channels, with Search and Focus at the top and sync status at the bottom. Ctrl \ folds it down to a rail of icons, and Focus folds it for you. Every screen also has the same header now, with its title, period, view and the toggles for its panels.</p>
     <figure><picture><source srcset="/shots/v2/rail-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/rail-light.webp" width="1440" height="900" alt="Today with the sidebar folded to a rail of icons" loading="lazy"></picture></figure>
   </section>
 
   <section class="screen" id="today">
     <h2>Today</h2>
-    <p>The day's tasks beside its calendar. The header reads planned time against the day's capacity. Add task opens quick add in place, and every card works from the keyboard.</p>
+    <p>Your tasks for the day, next to the day's calendar. The header shows how much you've planned against the day's capacity. Add task opens quick add right where you are, and every card works from the keyboard.</p>
     <figure><picture><source srcset="/shots/v2/today-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/today-light.webp" width="1440" height="900" alt="Today: a list of tasks on the left and the day&#x27;s calendar on the right" loading="lazy"></picture></figure>
     <details class="before"><summary>Version 1</summary><picture><source srcset="/shots/v1/today-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v1/today-light.webp" width="1440" height="860" alt="Today in version 1" loading="lazy"></picture></details>
   </section>
 
   <section class="screen" id="week">
     <h2>Week</h2>
-    <p>The header names the period and the view; one menu holds the filters. The board's columns are a fixed width, the time grids open at the first booking and zoom with Ctrl and the wheel, and Month shows six weeks.</p>
+    <p>The header shows which period and view you're on, and all the filters are in one menu. The board's columns have a fixed width now. The time grids open at the first thing on your calendar, and you can zoom them with Ctrl and the scroll wheel. Month shows six weeks.</p>
     <figure><picture><source srcset="/shots/v2/week-board-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/week-board-light.webp" width="1440" height="900" alt="Week as a board: one column of task cards per day, with the day calendar beside it" loading="lazy"></picture></figure>
     <details class="before"><summary>Version 1</summary><picture><source srcset="/shots/v1/week-board-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v1/week-board-light.webp" width="1440" height="860" alt="Week&#x27;s board in version 1" loading="lazy"></picture></details>
     <figure><picture><source srcset="/shots/v2/week-grid-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/week-grid-light.webp" width="1440" height="900" alt="Week as a seven-day time grid with tasks and events" loading="lazy"></picture></figure>
@@ -72,21 +72,21 @@
 
   <section class="screen" id="channels">
     <h2>Channels</h2>
-    <p>One channel's tasks grouped by day, then the backlog and done. Add task (N) calls up quick add, and a selection gets its own bar.</p>
+    <p>A channel shows its tasks grouped by day, then the backlog, then what's done. Add task (N) brings up quick add, and when you select a few tasks you get a bar of actions for them.</p>
     <figure><picture><source srcset="/shots/v2/channel-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/channel-light.webp" width="1440" height="900" alt="The work channel: tasks grouped by Today, Tomorrow, Friday and Backlog" loading="lazy"></picture></figure>
     <details class="before"><summary>Version 1</summary><picture><img src="/shots/v1/channel-dark.webp" width="1440" height="860" alt="A channel in version 1" loading="lazy"></picture></details>
   </section>
 
   <section class="screen" id="focus">
     <h2>Focus</h2>
-    <p>The task, its timer and its subtasks in one column. F starts and pauses, Space completes the task, and End focus saves the session without completing it.</p>
+    <p>Focus puts the task, its timer and its subtasks in one column. F starts and pauses, Space completes the task, and End focus saves the session without completing it.</p>
     <figure><picture><source srcset="/shots/v2/focus-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/focus-light.webp" width="1440" height="900" alt="Focus running a stopwatch on one task, with its subtasks below" loading="lazy"></picture></figure>
     <details class="before"><summary>Version 1</summary><picture><source srcset="/shots/v1/focus-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v1/focus-light.webp" width="1440" height="860" alt="Focus in version 1" loading="lazy"></picture></details>
   </section>
 
   <section class="screen" id="editor">
     <h2>Task editor and quick add</h2>
-    <p>The editor is one list of properties: scheduled, estimate, logged, due, priority, channel and goal. Quick add is one card with its suggestions inline, opened under Add task or beside a slot drawn on a calendar.</p>
+    <p>The task editor is now a single list of properties: scheduled, estimate, logged, due, priority, channel and goal. Quick add is one card with the suggestions right in it. It opens under Add task, or next to a slot you drag out on a calendar.</p>
     <figure><picture><source srcset="/shots/v2/editor-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/editor-light.webp" width="1440" height="900" alt="The task editor docked beside Today, listing the task&#x27;s properties and subtasks" loading="lazy"></picture></figure>
     <details class="before"><summary>Version 1</summary><picture><img src="/shots/v1/editor-dark.webp" width="1440" height="860" alt="The task editor in version 1" loading="lazy"></picture></details>
     <figure><picture><source srcset="/shots/v2/quick-add-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/quick-add-light.webp" width="1440" height="900" alt="Quick add under Add task, with chips for channel, day, time, estimate and priority" loading="lazy"></picture></figure>
@@ -94,7 +94,7 @@
 
   <section class="screen" id="goals">
     <h2>Goals</h2>
-    <p>Goals in fixed columns: logged time against the plan, this week's habits, the next step and health. The goal page shares the same parts.</p>
+    <p>Every goal now has the same fixed columns, so they all line up. You see logged time against the plan, this week's habits, the next step and how the goal is doing. A goal's own page uses the same pieces.</p>
     <figure><picture><source srcset="/shots/v2/goals-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/goals-light.webp" width="1440" height="900" alt="Quarter goals in columns: logged time, habits, next step and health" loading="lazy"></picture></figure>
     <details class="before"><summary>Version 1</summary><picture><source srcset="/shots/v1/goals-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v1/goals-light.webp" width="1440" height="860" alt="Goals in version 1" loading="lazy"></picture></details>
     <figure><picture><source srcset="/shots/v2/goal-page-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/goal-page-light.webp" width="1440" height="900" alt="A quarter goal&#x27;s page with its habits, steps and time budget" loading="lazy"></picture></figure>
@@ -102,79 +102,79 @@
 
   <section class="screen" id="progress">
     <h2>Progress</h2>
-    <p>Each goal's pace across the year, with today's line in the accent. Arrow keys step through habit days, weeks and bars.</p>
+    <p>Progress shows how each goal is pacing over the year, with a line for today in your accent colour. You can step through habit days, weeks and bars with the arrow keys.</p>
     <figure><picture><source srcset="/shots/v2/progress-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/progress-light.webp" width="1440" height="900" alt="Progress: a year chart for all goals, then each goal&#x27;s quarters, measures and habits" loading="lazy"></picture></figure>
     <details class="before"><summary>Version 1</summary><picture><source srcset="/shots/v1/progress-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v1/progress-light.webp" width="1440" height="860" alt="Progress in version 1" loading="lazy"></picture></details>
   </section>
 
   <section class="screen" id="analytics">
     <h2>Analytics</h2>
-    <p>Focus by day, channel and hour. A period under way is compared with as many days of the one before, such as 1–25 Nov against 1–25 Oct.</p>
+    <p>Analytics shows your focus by day, by channel and by hour. If a period isn't over yet, it's compared with the same number of days from the one before, so 1–25 Nov is compared with 1–25 Oct and not the whole month.</p>
     <figure><picture><source srcset="/shots/v2/analytics-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/analytics-light.webp" width="1440" height="900" alt="Analytics for November: totals, focus per day by channel, a channel table and focus by time of day" loading="lazy"></picture></figure>
     <details class="before"><summary>Version 1</summary><picture><source srcset="/shots/v1/analytics-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v1/analytics-light.webp" width="1440" height="860" alt="Analytics in version 1" loading="lazy"></picture></details>
   </section>
 
   <section class="screen" id="panels">
     <h2>Side panels and mail</h2>
-    <p>Backlog, Sources and Outlook mail share one header and one-line rows. Shift B and Shift S put the keyboard ring on a panel's first row. Mail opens a conversation in a reading pane beside the panel, and Y archives it.</p>
+    <p>Backlog, Sources and Outlook mail all have the same header and one-line rows now. Shift B and Shift S jump straight to the first row of the backlog or your sources. In mail, a conversation opens in a reading pane next to the panel, and Y archives it.</p>
     <figure><picture><source srcset="/shots/v2/mail-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/mail-light.webp" width="1440" height="900" alt="Outlook mail panel beside Today, with a conversation open in the reading pane" loading="lazy"></picture></figure>
     <figure><picture><source srcset="/shots/v2/sources-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/sources-light.webp" width="1440" height="900" alt="The GitHub panel listing issues and pull requests from saved searches" loading="lazy"></picture></figure>
   </section>
 
   <section class="screen" id="settings">
     <h2>Settings</h2>
-    <p>Settings opens on an overview of each page and what needs attention. The nav is grouped into Preferences, Sources, Data and About; a connected source is a row in Sources.</p>
+    <p>Settings really needed work. It now opens on an overview of every page, so you can see what needs your attention. The pages are grouped into Preferences, Sources, Data and About, and each source you connect gets its own row in Sources.</p>
     <figure><picture><source srcset="/shots/v2/settings-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/settings-light.webp" width="1440" height="900" alt="Settings overview: each page with a summary of its values" loading="lazy"></picture></figure>
     <details class="before"><summary>Version 1</summary><picture><source srcset="/shots/v1/settings-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v1/settings-light.webp" width="1440" height="860" alt="Settings in version 1" loading="lazy"></picture></details>
   </section>
 
   <section class="screen" id="tray">
     <h2>Tray</h2>
-    <p>The tray menu is reordered to match the app, under the new Samaya marks.</p>
+    <p>The tray menu is in the same order as the app now, and it uses the new Samaya icon.</p>
   </section>
 
   <h2 class="part" id="new">New</h2>
 
   <section class="screen" id="palette">
     <h2>Command palette</h2>
-    <p>Ctrl K finds a screen, channel, Settings page, task, event or goal, or runs an action. Empty, it lists your recent picks and what fits the moment.</p>
-    <figure><picture><source srcset="/shots/v2/palette-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/palette-light.webp" width="1440" height="900" alt="The command palette over Today, listing recent picks, a suggestion and actions" loading="lazy"></picture></figure>
+    <p>Press Ctrl K to jump to a screen, channel, Settings page, task, event or goal, or to run an action. Before you type anything, it shows what you opened recently and a few things that make sense right now.</p>
+    <figure><picture><source srcset="/shots/v2/palette-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/palette-light.webp" width="1440" height="900" alt="The command palette over Today, listing recent items, a suggestion and actions" loading="lazy"></picture></figure>
   </section>
 
   <section class="screen" id="planning">
     <h2>Settings › Planning</h2>
-    <p>Capacity per weekday, the shutdown time, the weekly review day and the first day of the week. Today and Week read their totals against each day's capacity.</p>
+    <p>This is where you set a capacity for each day of the week, along with your shutdown time, your weekly review day and the day your week starts. Today and Week then compare what you've planned with each day's capacity.</p>
     <figure><picture><source srcset="/shots/v2/planning-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/planning-light.webp" width="1440" height="900" alt="Settings › Planning: hours per weekday, shutdown and weekly review" loading="lazy"></picture></figure>
   </section>
 
   <section class="screen" id="keyboard">
     <h2>Keyboard everywhere</h2>
-    <p>Arrow keys move one ring over cards, rows, panels, bookings, month days, goals and charts. Every menu and dialog works from the keyboard, and each menu row shows its key. Press ? for the shortcut sheet, with a filter.</p>
+    <p>The arrow keys move a highlight over cards, rows, panels, calendar bookings, days in Month, goals and charts. Every menu and dialog works from the keyboard, and menus show the key for each item. Press ? for the shortcut sheet, which you can filter.</p>
     <figure><picture><source srcset="/shots/v2/menu-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/menu-light.webp" width="1440" height="900" alt="A task&#x27;s menu opened from the keyboard, each row with its key" loading="lazy"></picture></figure>
     <figure><picture><source srcset="/shots/v2/shortcuts-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/shortcuts-light.webp" width="1440" height="900" alt="The shortcut sheet in four columns, with a filter" loading="lazy"></picture></figure>
   </section>
 
   <section class="screen" id="search">
     <h2>Settings search and reset</h2>
-    <p>Search finds any setting on any page. Changed settings are marked, with Reset per setting and per page.</p>
+    <p>Search finds any setting on any page. Settings you've changed are marked, and you can reset a single setting or a whole page.</p>
     <figure><picture><source srcset="/shots/v2/settings-search-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/settings-search-light.webp" width="1600" height="1000" alt="Settings search for capacity, finding the per-day capacity row" loading="lazy"></picture></figure>
   </section>
 
   <section class="screen" id="undo">
     <h2>One undo</h2>
-    <p>Completing, deleting, moving and nesting tasks show one toast with Undo, and Ctrl Z undoes them from one history with calendar edits. Undo refuses if the Org file changed since.</p>
+    <p>Completing, deleting, moving and nesting tasks all show the same toast with Undo. Ctrl Z works too, and it shares one history with your calendar edits. If the Org file has changed since, undo won't go through, so it can't overwrite something you changed somewhere else.</p>
     <figure><picture><source srcset="/shots/v2/undo-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/undo-light.webp" width="1440" height="900" alt="A toast reading Completed Spec the weekly review screen, with Undo" loading="lazy"></picture></figure>
   </section>
 
   <section class="screen" id="writes">
     <h2>Safer writes</h2>
-    <p>A write that fails is held, marked on its task and retried in place; the sidebar foot reads “Not saved · Retry”. Quitting waits for writes in flight and asks before dropping a held one. Editor drafts survive edits made outside Samaya.</p>
+    <p>If saving to an Org file fails, the change isn't lost. It's kept, the task gets marked, and you can retry right there. The bottom of the sidebar says “Not saved · Retry”. When you quit, Samaya waits for anything still saving and asks before it throws away a change that didn't save. Drafts in the editor also survive if the file gets edited outside Samaya.</p>
     <figure><picture><source srcset="/shots/v2/held-dark.webp" media="(prefers-color-scheme: dark)"><img src="/shots/v2/held-light.webp" width="1440" height="900" alt="A task marked as not saved, with Retry in the sidebar foot and a toast naming it" loading="lazy"></picture></figure>
   </section>
 
   <section id="shortcuts">
     <h2>Changed shortcuts</h2>
-    <p>Press <kbd>?</kbd> in the app for every shortcut.</p>
+    <p>Press <kbd>?</kbd> in the app to see all of them.</p>
     <div class="table"><table>
       <thead><tr><td>Where</td><td>Version 1</td><td>Version 2</td></tr></thead>
       <tbody><tr><td>Sidebar</td><td>Ctrl B</td><td>Ctrl \</td></tr><tr><td>Week: jump to today</td><td>T</td><td>.</td></tr><tr><td>Week: one day</td><td>D</td><td>1</td></tr><tr><td>Week: previous, next period</td><td>Shift ← →</td><td>[ ]</td></tr><tr><td>Week: move between days</td><td>–</td><td>← →</td></tr><tr><td>Focus: start, pause</td><td>Space</td><td>F</td></tr><tr><td>Focus: complete the task</td><td>C</td><td>Space</td></tr><tr><td>Mail: archive</td><td>E</td><td>Y (E is New event)</td></tr><tr><td>Quick add: take a suggestion</td><td>Tab</td><td>↵ or a click; Tab moves focus</td></tr><tr><td>Esc</td><td>Closed several layers; left Settings</td><td>Closes one layer per press; Alt ← or Ctrl , leaves Settings</td></tr><tr><td>Back</td><td>–</td><td>Alt ←</td></tr><tr><td>Go to</td><td>–</td><td>G then T W G P A F I</td></tr><tr><td>Panels</td><td>–</td><td>Ctrl J day calendar, Shift B backlog, Shift S sources</td></tr></tbody>
@@ -183,10 +183,10 @@
 
   <section class="next">
     <h2>Get it</h2>
-    <p>The full list of changes is in the <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">changelog</a>. Downloads for Linux and Windows are on <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">samaya-releases</a>. New to Samaya? Start with <a href="/docs/welcome">Welcome to Samaya</a>.</p>
+    <p>Everything that changed is in the <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/src/branch/main/CHANGELOG.org">changelog</a>. You can download it for Linux and Windows from <a href="https://git.hegdeatri.com/hegdeatri/samaya-releases/releases/latest">samaya-releases</a>, and if you're new to Samaya, <a href="/docs/welcome">Welcome to Samaya</a> is a good place to start.</p>
   </section>
 </main>
-<nav class="toc" aria-label="Releases"><b>Releases</b><a href="/news/v2-5">Samaya 2.5 · Where the hours went</a><a href="/news/v2-4">Samaya 2.4 · See it before you pick it</a><a href="/news/v2-3">Samaya 2.3 · Keyboard first</a><a href="/news/v2-2">Samaya 2.2 · First run</a><a href="/news/v2-1">Samaya 2.1 · Rituals</a><a href="/news/v2" aria-current="page">Samaya 2 · What's new</a></nav>
+<nav class="toc" aria-label="Releases"><b>Releases</b><a href="/news/v2-5">Samaya 2.5 · Where the hours went</a><a href="/news/v2-4">Samaya 2.4 · Settings with pictures</a><a href="/news/v2-3">Samaya 2.3 · Keyboard first</a><a href="/news/v2-2">Samaya 2.2 · First run</a><a href="/news/v2-1">Samaya 2.1 · Rituals</a><a href="/news/v2" aria-current="page">Samaya 2 · What's new</a></nav>
 </div>
 
 <footer class="bar">
